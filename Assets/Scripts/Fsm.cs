@@ -74,10 +74,12 @@ public class IdleState : State
 
 public class MoveState : State
 {
+    float moveSpeed;
     public MoveState(Character character) : base(character) { }    
 
     public override void Enter()
-    {        
+    {
+        moveSpeed = character.MoveSpeed;
         character.AniTag = AnimationTag.Move;
     }
 
@@ -96,8 +98,11 @@ public class MoveState : State
         {
             character.ChangeStateTag = StateTag.Attack; // 상태를 attack으로 변경
         }
-        character.transform.position = Vector3.MoveTowards(character.transform.position, character.targetCol.transform.position, 0.01f);
-        character.SetForward();
+        else
+        {
+            character.transform.position = Vector3.MoveTowards(character.transform.position, character.targetCol.transform.position, moveSpeed);
+            character.SetForward();
+        }        
     }
 }
 
@@ -106,12 +111,14 @@ public class AttackState : State
     public AttackState(Character character) : base(character) { }    
 
     public override void Enter()
-    {        
+    {      
+        character.AniTag = AnimationTag.Idle; // 진입했을 때 Idle
         character.AttackStart(); // 공격 코루틴 시작 
     }
 
     public override void Exit()
-    {                
+    {
+        Debug.Log("공격함수 종료");
         character.AttackEnd(); // 공격 코루틴 종료
     }
 
@@ -180,7 +187,7 @@ public class Fsm
 
     public void ChangeState(StateTag tag)
     {
-        if (currentState != null) currentState.Exit();        
+        currentState?.Exit();        
         currentState = dicState[tag]; // 변경할 tag의 딕셔너리 state로 현재상태를 변경
         currentState.Enter(); // 변경되었으니 그 상태의 진입기능 실행 
     }

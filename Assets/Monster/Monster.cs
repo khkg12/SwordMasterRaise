@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 // 몬스터에는 슈퍼아머 컴포넌트를 가진 엘리트몬스터가 존재
 public class Monster : MonoBehaviour, IHitable
@@ -25,10 +26,12 @@ public class Monster : MonoBehaviour, IHitable
             if(hp <= 0)
             {
                 // Die()함수실행
+                Destroy(gameObject);
             }
         }
     }
-    private float hp;
+    private float hp = 100; // 실험용
+    private float MaxHp = 100;
 
     public float Atk
     {
@@ -76,9 +79,11 @@ public class Monster : MonoBehaviour, IHitable
     [SerializeField] private LayerMask myLayerMask;
     [SerializeField] private Renderer monsterRenderer;
     Color orginColor;
+    [SerializeField] private Image hpBar;
+
 
     private void Awake()
-    {
+    {        
         if (target == null)
         {
             target = FindObjectOfType<Player>();
@@ -90,7 +95,8 @@ public class Monster : MonoBehaviour, IHitable
     }
     
     void Update()
-    {        
+    {
+        hpBar.fillAmount = hp / MaxHp;
         if (targetDis() < range) // 범위안이라면 공격, range로 빼기
         {            
             isAttack = true;
@@ -151,7 +157,7 @@ public class Monster : MonoBehaviour, IHitable
     }
 
     public void Hit(IAttackable attackable)
-    {
+    {        
         Hp -= attackable.Atk;
         // HitSet();
         // animator.SetTrigger("IsHit");
@@ -171,13 +177,13 @@ public class Monster : MonoBehaviour, IHitable
                 animator.SetTrigger("HitTrigger");            
                 if(this is ShortRangeMonster)
                 {
-                    ShortRangeMonster mon = (ShortRangeMonster)this; // 얕은복사니까 괜찮을듯?
+                    ShortRangeMonster mon = (ShortRangeMonster)this; // 얕은복사니까 괜찮을듯
                     mon.WeaponDisable();
-                }
+                }                
                 attackable.Attack(this);
             }            
         }
-    }
+    }    
 
     // event함수
     public void ColorChangeStart()

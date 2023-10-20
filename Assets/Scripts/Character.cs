@@ -48,6 +48,26 @@ public class Character : MonoBehaviour, IHitable
     }
     [SerializeField] private float hp;
 
+    public float MoveSpeed
+    {
+        get => moveSpeed;
+        set
+        {
+            moveSpeed = value;
+        }
+    }
+    private float moveSpeed = 0.02f;
+
+    public float AttackSpeed
+    {
+        get => attackSpeed;
+        set
+        {
+            attackSpeed = value;    
+        }
+    }
+    private float attackSpeed = 1;
+
     protected Fsm fsm;    
     private Animator animator;
     [SerializeField] private Renderer characterRenderer;
