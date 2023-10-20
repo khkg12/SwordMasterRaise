@@ -17,7 +17,7 @@ public class Player : Character
         base.Start();
         setRotationComponent = GetComponent<SetRotationComponent>();
         attackCo = AttackCo();
-        weapon.SetAttack(Atk, TargetLayerMask);
+        weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
         attackerCol = weapon.transform.GetComponent<Collider>();
     }
 

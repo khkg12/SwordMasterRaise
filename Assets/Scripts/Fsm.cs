@@ -39,7 +39,7 @@ public class IdleState : State
     void DetectEnemy()
     {
         // 콜라이더 배열 메모리가 힙영역에 계속할당될텐데 어떻게 처리해야 할까?
-        Collider[] cols = Physics.OverlapSphere(character.transform.position, range, character.targetLayer); // IDLE상태일 때 적을 탐지
+        Collider[] cols = Physics.OverlapSphere(character.transform.position, range, character.TargetLayerMask); // IDLE상태일 때 적을 탐지
         //Debug.Log(character.targetLayer);
         if (cols.Length > 0 && NearEnemySearch(cols)) // 적이 존재하면
         {            

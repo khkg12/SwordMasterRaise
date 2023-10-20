@@ -30,8 +30,8 @@ public class ShortRangeMonster : Monster
         attackerCol.enabled = true;
     }
 
-    public void WeaponDisable()
+    public void WeaponDisable() // 맞을때도 이벤트추가해주기
     {
         attackerCol.enabled = false;
-    }
+    }    
 }

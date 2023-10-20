@@ -49,7 +49,9 @@ public class Character : MonoBehaviour, IHitable
     [SerializeField] private float hp;
 
     protected Fsm fsm;    
-    private Animator animator;    
+    private Animator animator;
+    [SerializeField] private Renderer characterRenderer;
+    Color orginColor;
 
     public AnimationTag AniTag
     {
@@ -98,6 +100,7 @@ public class Character : MonoBehaviour, IHitable
             }
         }
     }
+    StateTag changeStateTag;
 
     public bool IsHit
     {
@@ -116,13 +119,10 @@ public class Character : MonoBehaviour, IHitable
     }
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] protected LayerMask myLayerMask;    
-
-    StateTag changeStateTag;
-
+    
     public List<Skill> skillList;
     public Skill currentSkill;
-    public Collider targetCol;
-    public LayerMask targetLayer;
+    public Collider targetCol;    
 
     protected void Start()
     {
@@ -162,7 +162,6 @@ public class Character : MonoBehaviour, IHitable
 
     public void Hit(IAttackable attackable)
     {
-        Hp -= attackable.Atk;
-        // animator.SetTrigger("HitTrigger");
+        Hp -= attackable.Atk;        
     }  
 }

@@ -47,35 +47,35 @@ public class Monster : MonoBehaviour, IHitable
         {
             isMove = value;
             if (isMove)
-            {
+            {               
                 animator.SetBool("IsMove", true);
             }
             else
                 animator.SetBool("IsMove", false);
         }
     }
+    private bool isMove;
 
-    public bool IsHit
+    public bool IsHit 
     {
         get => isHit;
         set
         {
-            isHit = value;
-            // 
+            isHit = value;              
+            monsterRenderer.material.color = isHit ? Color.red : orginColor;
         }
     }
-
-    public LayerMask TargetLayerMask => targetLayerMask;
-    [SerializeField] private LayerMask targetLayerMask;
-
     private bool isHit;
 
-    private bool isMove;    
+    public LayerMask TargetLayerMask => targetLayerMask;
+    [SerializeField] private LayerMask targetLayerMask;        
 
     [SerializeField] private float range;
     bool isAttack;
     protected Animator animator;
     [SerializeField] private LayerMask myLayerMask;
+    [SerializeField] private Renderer monsterRenderer;
+    Color orginColor;
 
     private void Awake()
     {
@@ -83,8 +83,10 @@ public class Monster : MonoBehaviour, IHitable
         {
             target = FindObjectOfType<Player>();
         }
-        animator = GetComponent<Animator>();    
-        StartCoroutine(AttackCo());
+        animator = GetComponent<Animator>();
+        orginColor = monsterRenderer.material.color;
+        StartCoroutine(AttackCo());    
+        
     }
     
     void Update()
@@ -118,6 +120,7 @@ public class Monster : MonoBehaviour, IHitable
     public virtual void AttackStart()
     {
         // 화살공격이면 같은 애니메이터에서 isArrowAttack 이렇게 분기나눠서 한개의 애니메이터로 관리
+        // ColorChangeEnd(); // 공격시 빨간색 해제
         SetForward();        
     } 
 
@@ -126,9 +129,9 @@ public class Monster : MonoBehaviour, IHitable
         while (true)
         {
             while (isAttack)
-            {
-                AttackStart(); // 템플릿 메소드 패턴적용               
-                yield return new WaitForSeconds(1); // 변수로 빼기 공속으로
+            {                                
+                AttackStart(); // 템플릿 메소드 패턴적용
+                yield return new WaitForSeconds(3); // 변수로 빼기 공속으로
             }
             yield return null;  
         }
@@ -150,8 +153,14 @@ public class Monster : MonoBehaviour, IHitable
     public void Hit(IAttackable attackable)
     {
         Hp -= attackable.Atk;
+        // HitSet();
         // animator.SetTrigger("IsHit");
     }
+
+    //public virtual void HitSet() // 맞았을 때의 세팅
+    //{
+    //    // 필요한 놈들만 사용
+    //}
 
     private void OnTriggerEnter(Collider other)
     {        
@@ -159,8 +168,25 @@ public class Monster : MonoBehaviour, IHitable
         {            
             if (attackable.TargetLayerMask == myLayerMask) // 공격하는 놈의 타겟레이어와 맞는놈의 레이어가 동일한 경우에만 Attack
             {                
+                animator.SetTrigger("HitTrigger");            
+                if(this is ShortRangeMonster)
+                {
+                    ShortRangeMonster mon = (ShortRangeMonster)this; // 얕은복사니까 괜찮을듯?
+                    mon.WeaponDisable();
+                }
                 attackable.Attack(this);
             }            
         }
+    }
+
+    // event함수
+    public void ColorChangeStart()
+    {
+        IsHit = true;
+    }
+
+    public void ColorChangeEnd() 
+    {
+        IsHit = false;
     }
 }
