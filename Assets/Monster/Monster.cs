@@ -71,15 +71,15 @@ public class Monster : MonoBehaviour, IHitable
     private bool isHit;
 
     public LayerMask TargetLayerMask => targetLayerMask;
-    [SerializeField] private LayerMask targetLayerMask;        
 
-    [SerializeField] private float range;
-    bool isAttack;
-    protected Animator animator;
+    [SerializeField] private LayerMask targetLayerMask;        
+    [SerializeField] private float range;    
     [SerializeField] private LayerMask myLayerMask;
-    [SerializeField] private Renderer monsterRenderer;
-    Color orginColor;
+    [SerializeField] private Renderer monsterRenderer;    
     [SerializeField] private Image hpBar;
+    private Color orginColor;
+    private bool isAttack;
+    protected Animator animator;
 
 
     private void Awake()

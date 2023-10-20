@@ -75,6 +75,7 @@ public class IdleState : State
 public class MoveState : State
 {
     float moveSpeed;
+    const float TARGET_DISTANCE = 2;
     public MoveState(Character character) : base(character) { }    
 
     public override void Enter()
@@ -94,7 +95,7 @@ public class MoveState : State
         {
             character.ChangeStateTag = StateTag.Idle; // 상태를 IDLE로 변경
         }
-        else if(Vector3.Distance(character.transform.position, character.targetCol.transform.position) <= 2f)
+        else if(Vector3.Distance(character.transform.position, character.targetCol.transform.position) <= TARGET_DISTANCE)
         {
             character.ChangeStateTag = StateTag.Attack; // 상태를 attack으로 변경
         }
@@ -108,23 +109,22 @@ public class MoveState : State
 
 public class AttackState : State
 {
+    const float NONE_TARGET_DISTANCE = 2.5f;
     public AttackState(Character character) : base(character) { }    
 
     public override void Enter()
-    {      
+    {        
         character.AniTag = AnimationTag.Idle; // 진입했을 때 Idle
         character.AttackStart(); // 공격 코루틴 시작 
     }
 
     public override void Exit()
-    {
-        Debug.Log("공격함수 종료");
+    {        
         character.AttackEnd(); // 공격 코루틴 종료
     }
 
     public override void Update()
-    {
-        // float distance = Vector3.Distance(character.transform.position, character.targetCol.transform.position);
+    {        
         if (character.targetCol == null)
         {
             character.ChangeStateTag = StateTag.Idle;            
@@ -133,7 +133,7 @@ public class AttackState : State
         {
             character.SetForward();
             float distance = Vector3.Distance(character.transform.position, character.targetCol.transform.position);
-            if (distance > 2)
+            if (distance > NONE_TARGET_DISTANCE)
             {                
                 character.ChangeStateTag = StateTag.Idle;
             }

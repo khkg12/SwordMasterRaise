@@ -12,8 +12,8 @@ public class Player : Character
 
     new void Start()
     {
-        base.Start();
-        Atk = 10;
+
+        base.Start();       
         setRotationComponent = GetComponent<SetRotationComponent>();
         attackCo = AttackCo();
         weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
@@ -58,8 +58,9 @@ public class Player : Character
     IEnumerator AttackCo()
     {        
         while (true)
-        {            
-            AniTag = AnimationTag.Attack; // 공격애니 실행시키고                    
+        {
+            Debug.Log("asd");
+            AniTag = AnimationTag.Attack; // 공격애니 실행시키고           
             yield return new WaitForSeconds(AttackSpeed); // 매직넘버는 공속
         }        
     }

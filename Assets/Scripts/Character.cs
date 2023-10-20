@@ -37,7 +37,7 @@ public class Character : MonoBehaviour, IHitable
             atk = value;
         }
     }
-    private float atk;
+    private float atk = 10;
     public float Hp
     {
         get => hp;
@@ -66,7 +66,7 @@ public class Character : MonoBehaviour, IHitable
             attackSpeed = value;    
         }
     }
-    private float attackSpeed = 1;
+    private float attackSpeed = 3;
 
     protected Fsm fsm;    
     private Animator animator;
