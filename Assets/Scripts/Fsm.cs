@@ -161,6 +161,7 @@ public class SkillState : State
     } 
 }
 
+// 플레이어 자동전투 fsm
 public class Fsm
 {
     State currentState;
