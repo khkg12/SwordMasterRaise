@@ -13,12 +13,15 @@ public class StageData
 public class MonsterSpawner : MonoBehaviour
 {
     StageData stageData;
-    public List<GameObject> monsterList;    
+    public List<GameObject> monsterList;
+    const int WAVE_COUNT = 3;
+    int nowWave = 0;
 
     private void Start()
     {
         stageData = DataManager.instance.currentStageData;
-        MonsterSpawn();
+        StartCoroutine(SpawnCo());
+        // MonsterSpawn();
     }
 
     public void MonsterSpawn()
@@ -28,9 +31,20 @@ public class MonsterSpawner : MonoBehaviour
             int index = stageData.idArr[i];
             for (int j = 0; j < stageData.countArr[i]; ++j)
             {
-                Instantiate(monsterList[index], transform.position, Quaternion.identity);
+                Vector3 pos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+                Instantiate(monsterList[index], pos, Quaternion.identity);
             }
         }
+    }
+
+    IEnumerator SpawnCo()
+    {
+        while (nowWave <WAVE_COUNT)
+        {
+            yield return new WaitForSeconds(3);
+            nowWave++;
+            MonsterSpawn();
+        }        
     }
 }
 

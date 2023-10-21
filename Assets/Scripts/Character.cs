@@ -66,7 +66,7 @@ public class Character : MonoBehaviour, IHitable
             attackSpeed = value;    
         }
     }
-    private float attackSpeed = 3;
+    private float attackSpeed = 0.1f;
 
     protected Fsm fsm;    
     private Animator animator;
@@ -81,14 +81,15 @@ public class Character : MonoBehaviour, IHitable
             aniTag = value;
             switch (aniTag)
             {
-                case AnimationTag.Idle:
+                case AnimationTag.Idle:                    
                     animator.SetBool("IsMove", false);
                     break;
                 case AnimationTag.Move:
                     animator.SetBool("IsMove", true);
                     break;
                 case AnimationTag.Attack:
-                    animator.SetTrigger("AttackTrigger");
+                    if(animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) // Idle일때만
+                        animator.SetTrigger("AttackTrigger");
                     // 애니메이션 실행하는 컴포넌트를 has a로 가지고 컴포넌트딴에서 실행시킬지 고민해보기
                     // ex) AnimationComponent.Attack(); <- 애니메이션 컴포넌트가 Animator를 들고있고 거기서 이것저것
                     break;

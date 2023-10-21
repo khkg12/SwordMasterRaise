@@ -58,8 +58,7 @@ public class Player : Character
     IEnumerator AttackCo()
     {        
         while (true)
-        {
-            Debug.Log("asd");
+        {            
             AniTag = AnimationTag.Attack; // 공격애니 실행시키고           
             yield return new WaitForSeconds(AttackSpeed); // 매직넘버는 공속
         }        
