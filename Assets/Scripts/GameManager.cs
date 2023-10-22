@@ -42,10 +42,16 @@ public class GameManager : Singleton<GameManager>
     }
     private int level;
     public int gold;
+    public int upgradeHpGold;
+    public int upgradeAtkGold;
+    public int upgradeCritical;
 
     new void Awake()
     {
-        base.Awake();
+        base.Awake();        
+    }
+    private void Start()
+    {
         DataInit(); // 데이터 초기화
     }
 

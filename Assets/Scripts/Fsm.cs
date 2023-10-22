@@ -86,7 +86,7 @@ public class MoveState : State
 
     public override void Exit()
     {
-        
+      
     }
 
     public override void Update()
