@@ -9,24 +9,40 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler
 {
     // 스킬슬롯이 가지고 있어야 할 것
     public Image image;
-    public GameObject emptySprite;
+    public GameObject lockSprite;
+    public SkillSlotUI ownerSkillInven;
+    public bool IsLock
+    {
+        get => isLock;
+        set
+        {
+            isLock = value;
+            lockSprite.SetActive(isLock);
+        }
+    }
+    public bool isLock;
     public Skill skill = null;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(skill != null)
+        // 정보창에 스킬에 대한 정보 출력
+        ownerSkillInven.SetSelectSkill(skill);
+        ownerSkillInven.EnableEquipBtn(!IsLock);
+        if (!IsLock)  // 해금된 스킬이라면
         {
-
+            
+            // 장착 및 장착해제 버튼 띄우기
         }
     }
 
     public void SetSkill(Skill setSkill)
     {
         skill = setSkill;
-        if(skill != null )
+        if(skill != null)
         {
             image.sprite = skill.sprite;            
-        }
-        emptySprite.SetActive(skill == null);
+        }        
+        IsLock = GameManager.instance.Level < skill.requiredLevel;
+        Debug.Log(isLock);
     }
 }

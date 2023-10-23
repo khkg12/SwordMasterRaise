@@ -40,7 +40,7 @@ public class UpgradeBtnController : MonoBehaviour
         {
             Debug.Log("돈이 부족합니다");
         }
-    }    
+    }        
 
     void StatusInfoInit(StatusTag statusTag)
     {

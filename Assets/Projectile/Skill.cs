@@ -9,7 +9,9 @@ public abstract class Skill : ScriptableObject
     [SerializeField] protected GameObject skillObj;
     public Sprite sprite;
     public string skillName;
-    public int level;
+    public int requiredLevel;
+    public int Level;
+    public string skillText;
     //public float percent;
     public abstract void Use(Character character);
 }

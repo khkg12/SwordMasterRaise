@@ -20,8 +20,7 @@ public class MonsterSpawner : MonoBehaviour
     private void Start()
     {
         stageData = DataManager.instance.currentStageData;
-        StartCoroutine(SpawnCo());
-        // MonsterSpawn();
+        StartCoroutine(SpawnCo());        
     }
 
     public void MonsterSpawn()

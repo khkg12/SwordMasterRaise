@@ -12,6 +12,14 @@ public class PlayerData
     public int gold;    
 }
 
+// 스탯에 대한 정보를 구조체로 정리 -> ex) hp, 필요골드, 증가량
+public struct StatInfo
+{
+    int stat;
+    int requireGold;
+    int increaseAmount;
+}
+
 public class GameManager : Singleton<GameManager>
 {    
     public int atk;
@@ -46,6 +54,7 @@ public class GameManager : Singleton<GameManager>
     public int upgradeAtkGold;
     public int upgradeCritical;
 
+    public List<Skill> skillList;
     new void Awake()
     {
         base.Awake();        
@@ -53,6 +62,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         DataInit(); // 데이터 초기화
+        Level = 3;
     }
 
     public void DataInit()
@@ -62,5 +72,4 @@ public class GameManager : Singleton<GameManager>
         Level = DataManager.instance.playerData.level;
         gold = DataManager.instance.playerData.gold;
     }
-
 }
