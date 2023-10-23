@@ -27,12 +27,7 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler
     {
         // 정보창에 스킬에 대한 정보 출력
         ownerSkillInven.SetSelectSkill(skill);
-        ownerSkillInven.EnableEquipBtn(!IsLock);
-        if (!IsLock)  // 해금된 스킬이라면
-        {
-            
-            // 장착 및 장착해제 버튼 띄우기
-        }
+        ownerSkillInven.EnableEquipBtn(!IsLock);       
     }
 
     public void SetSkill(Skill setSkill)

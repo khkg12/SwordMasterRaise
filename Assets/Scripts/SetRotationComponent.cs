@@ -7,12 +7,12 @@ using UnityEngine.Experimental.Rendering;
 
 public class SetRotationComponent : MonoBehaviour
 {
-    Character character;
+    Player player;
     [SerializeField] Image rangeImg;
     
     void Start()
     {
-        character = GetComponent<Character>();        
+        player = GetComponent<Player>();        
     }
     
     void Update()
@@ -30,15 +30,17 @@ public class SetRotationComponent : MonoBehaviour
                 Vector3 dir = (new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position).normalized;
                 transform.forward = dir;
             }                        
-            character.ChangeStateTag = StateTag.Skill; // SKILL 상태로 변경
+            player.ChangeStateTag = StateTag.Skill; // SKILL 상태로 변경
             enabled = false;
             rangeImg.gameObject.SetActive(false);
+            player.skillInven.EnableSkillSlot(true);
         }
     }
 
     private void OnEnable()
     {
         rangeImg.gameObject.SetActive(true);
+        player.skillInven.EnableSkillSlot(false); // 방향정할 때 스킬슬롯 클릭안되게 끄기
     }
 
 }

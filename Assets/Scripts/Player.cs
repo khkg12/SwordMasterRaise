@@ -9,30 +9,29 @@ public class Player : Character
     IEnumerator attackCo;    
     [SerializeField] Weapon weapon;
     Collider attackerCol;
+    public SkillInventoryUI skillInven;
 
     new void Start()
     {
-
         base.Start();       
         setRotationComponent = GetComponent<SetRotationComponent>();
         attackCo = AttackCo();
         weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
         attackerCol = weapon.transform.GetComponent<Collider>();
-    }
+    }    
 
-    new void Update()
+    public void ExecuteSkill(Skill skill)
     {
-        if (Input.GetKeyDown(KeyCode.Space) && currentSkill == null)
+        if (currentSkill == null)
         {
-            currentSkill = skillList[0];
-            if(currentSkill is RotateSkill)
+            currentSkill = skill;
+            if (currentSkill is RotateSkill)
             {
                 setRotationComponent.enabled = true;
-            }                        
+            }
             else
                 ChangeStateTag = StateTag.Skill; // 즉시 실행
         }
-        base.Update();
     }
 
     protected override void Init() // Player한테 필요한 상태만 넣어주기
@@ -64,7 +63,7 @@ public class Player : Character
         }        
     }
 
-    private void OnTriggerEnter(Collider other) // 플레이어가 맞을 때 때리는 놈의 정보를 참조
+    private void OnTriggerEnter(Collider other) // 플레이어가 맞을 때 때리는 놈의 정보를 참조, character로 옮겨도 문제없으면 옮기기
     {        
         if (other.gameObject.TryGetComponent(out IAttackable attackable)) // attackable이라 플레이어스킬에도 맞을것같다. 레이어를 사용? -> IAttackable이나 IHitable에 LayerMask를 추가해야하나
         {            

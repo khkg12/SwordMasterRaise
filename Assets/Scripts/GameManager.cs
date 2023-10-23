@@ -54,7 +54,8 @@ public class GameManager : Singleton<GameManager>
     public int upgradeAtkGold;
     public int upgradeCritical;
 
-    public List<Skill> skillList;
+    public List<Skill> skillList; // 모든스킬 담고있는 스킬리스트
+    public Skill[] playerSkillList; // 플레이어가 배틀 시 사용할 스킬리스트
     new void Awake()
     {
         base.Awake();        

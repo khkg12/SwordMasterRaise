@@ -139,9 +139,7 @@ public class Character : MonoBehaviour, IHitable
         get => targetLayerMask;        
     }
     [SerializeField] private LayerMask targetLayerMask;
-    [SerializeField] protected LayerMask myLayerMask;    
-    
-    public List<Skill> skillList;
+    [SerializeField] protected LayerMask myLayerMask;           
     public Skill currentSkill;
     public Collider targetCol;    
 

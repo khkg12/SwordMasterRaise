@@ -24,7 +24,7 @@ public class SkillSlotUI : MonoBehaviour
     public Skill skill;
 
     void Start()
-    {
+    {        
         SetSkillSlot(GameManager.instance.skillList);
         SetQuickSlot();
         equipSkillBtn.onClick.AddListener(()=>EquipSkill());
@@ -57,7 +57,16 @@ public class SkillSlotUI : MonoBehaviour
         // 없다면
         QuickSlotEnable(true);
     }
-    
+
+    public void QuickSlotEnable(bool isEnabled)
+    {
+        for (int i = 0; i < skillQuickSlots.Length; i++)
+        {
+            skillQuickSlots[i].enabled = isEnabled;
+            skillQuickSlots[i].SelectEnabled(isEnabled);
+        }
+    }
+
     // 게임실행할때 한번만 실행 -> 스킬들은 고정되있을테니
     // 활성화될때마다 실행 -> 플레이어의 level에 따른 해금해제 표시
     public void SetSkillSlot(List<Skill> skills)
@@ -82,15 +91,7 @@ public class SkillSlotUI : MonoBehaviour
         for(int i = 0; i < skillQuickSlots.Length; i++)
         {
             skillQuickSlots[i].ownerSkillInven = this;
+            skillQuickSlots[i].index = i;
         }
-    }
-
-    public void QuickSlotEnable(bool isEnabled)
-    {
-        for (int i = 0; i < skillQuickSlots.Length; i++)
-        {
-            skillQuickSlots[i].enabled = isEnabled;
-            skillQuickSlots[i].SelectEnabled(isEnabled);
-        }
-    }
+    }    
 }
