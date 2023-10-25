@@ -1,0 +1,130 @@
+[
+  {
+    "itemName": "철검",
+    "isHave": false,
+    "atkRate": 110,
+    "upgradeGold": 500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "강철검",
+    "isHave": false,
+    "atkRate": 150,
+    "upgradeGold": 600,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "철파검",
+    "isHave": false,
+    "atkRate": 190,
+    "upgradeGold": 1000,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "장검",
+    "isHave": false,
+    "atkRate": 250,
+    "upgradeGold": 1500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "철검",
+    "isHave": false,
+    "atkRate": 110,
+    "upgradeGold": 500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "강철검",
+    "isHave": false,
+    "atkRate": 150,
+    "upgradeGold": 600,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "철파검",
+    "isHave": false,
+    "atkRate": 190,
+    "upgradeGold": 1000,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "장검",
+    "isHave": false,
+    "atkRate": 250,
+    "upgradeGold": 1500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "철검",
+    "isHave": false,
+    "atkRate": 110,
+    "upgradeGold": 500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "강철검",
+    "isHave": false,
+    "atkRate": 150,
+    "upgradeGold": 600,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "철파검",
+    "isHave": false,
+    "atkRate": 190,
+    "upgradeGold": 1000,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "장검",
+    "isHave": false,
+    "atkRate": 250,
+    "upgradeGold": 1500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "철검",
+    "isHave": false,
+    "atkRate": 110,
+    "upgradeGold": 500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "강철검",
+    "isHave": false,
+    "atkRate": 150,
+    "upgradeGold": 600,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "철파검",
+    "isHave": false,
+    "atkRate": 190,
+    "upgradeGold": 1000,
+    "upgradeCount": 0,
+    "itemCount": 0
+  },
+  {
+    "itemName": "장검",
+    "isHave": false,
+    "atkRate": 250,
+    "upgradeGold": 1500,
+    "upgradeCount": 0,
+    "itemCount": 0
+  }
+]

@@ -8,24 +8,38 @@ public class DataManager : Singleton<DataManager>
 {    
     [SerializeField] private TextAsset playerDataFile;
     [SerializeField] private TextAsset stageDataFile;
-    public PlayerData playerData;
+    [SerializeField] private TextAsset itemDataFile;
+    string path;
+    public PlayerData playerData;        
     public StageData[] stageDataArr;
     public StageData currentStageData;
-    string path;
+
+    public ItemInfo[] itemDataArr;    
+    public Dictionary<string, int> itemDic = new Dictionary<string, int>();
 
     new void Awake()
     {
         base.Awake();
         path = Path.Combine(Application.dataPath + "/Resources/", "playerData.json"); // 저장 경로 설정
         SetData(); // json에서 불러와 playerData에 저장 초기화
-        SetStageData(); 
+        SetStageData();
+        SetItemData();
         currentStageData = stageDataArr[0]; // 실험용
     }    
     
     public void SetData()
     {
         // json이 없을 경우 초기화해주는 것 넣기
-        playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataFile.text); // json파일을 역직렬화로 데이터저장
+        playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataFile.text); // json파일을 역직렬화로 데이터저장        
+    }
+
+    public void SetItemData()
+    {        
+        itemDataArr = JsonConvert.DeserializeObject<ItemInfo[]>(itemDataFile.text); // 아이템데이터 저장
+        for(int i = 0; i < itemDataArr.Length; i++) // 딕셔너리도 세팅
+        {            
+            itemDic[itemDataArr[i].itemName] = itemDataArr[i].itemCount;
+        }
     }
 
     public void SaveData(PlayerData playerData) // PlayerTable의 데이터를 json으로 저장 
@@ -50,3 +64,4 @@ public class DataManager : Singleton<DataManager>
     }
 
 }
+

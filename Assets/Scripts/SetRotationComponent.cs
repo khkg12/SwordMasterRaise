@@ -10,7 +10,7 @@ public class SetRotationComponent : MonoBehaviour
     Player player;
     [SerializeField] Image rangeImg;
     
-    void Start()
+    void Awake()
     {
         player = GetComponent<Player>();        
     }
@@ -39,6 +39,16 @@ public class SetRotationComponent : MonoBehaviour
 
     private void OnEnable()
     {
+        if(player == null)
+        {
+            Debug.Log("체크");          
+        }
+
+        if (player.skillInven == null)
+        {
+            Debug.Log("체크2");
+        }
+
         rangeImg.gameObject.SetActive(true);
         player.skillInven.EnableSkillSlot(false); // 방향정할 때 스킬슬롯 클릭안되게 끄기
     }
