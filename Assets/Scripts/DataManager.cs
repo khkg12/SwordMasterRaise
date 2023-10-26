@@ -16,6 +16,7 @@ public class DataManager : Singleton<DataManager>
 
     public ItemInfo[] itemDataArr;    
     public Dictionary<string, int> itemDic = new Dictionary<string, int>();
+    public Dictionary<string, Sprite> itemSpriteDic;    
 
     new void Awake()
     {
