@@ -16,7 +16,9 @@ public class DataManager : Singleton<DataManager>
 
     public ItemInfo[] itemDataArr;    
     public Dictionary<string, int> itemDic = new Dictionary<string, int>();
-    public Dictionary<string, Sprite> itemSpriteDic;    
+    public Dictionary<string, Sprite> itemSpriteDic = new Dictionary<string, Sprite>();    
+    public Sprite[] itemSprite = new Sprite[16];
+    
 
     new void Awake()
     {
@@ -40,6 +42,7 @@ public class DataManager : Singleton<DataManager>
         for(int i = 0; i < itemDataArr.Length; i++) // µñ¼Å³Ê¸®µµ ¼¼ÆÃ
         {            
             itemDic[itemDataArr[i].itemName] = itemDataArr[i].itemCount;
+            itemSpriteDic[itemDataArr[i].itemName] = itemSprite[i];
         }
     }
 
