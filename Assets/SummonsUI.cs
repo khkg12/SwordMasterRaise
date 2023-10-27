@@ -87,8 +87,7 @@ public class SummonsUI : MonoBehaviour, IPointerClickHandler
         if (!itemInfo.isHave) // isHave가 false라면, 즉 최초획득 아이템이라면
         {
             itemInfo.isHave = true; // true로 바꾸고, 어차피 SetItem은 장비창을 켰을 때 실행되니까
-        }
-        DataManager.instance.itemDic[itemInfo.itemName]++; // 딕셔너리에 개수추가
+        }        
         itemInfo.itemCount++;
     }
 

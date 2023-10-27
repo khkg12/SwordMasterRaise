@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class LongRangeMonster : Monster
 {
@@ -9,7 +10,7 @@ public class LongRangeMonster : Monster
     {
         SetForward();
         animator.SetTrigger("AttackTrigger");        
-        GameObject po = Instantiate(projectileObj, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.rotation);
+        GameObject po = PoolManager.instance.objectPoolDic[projectileObj.name].PopObj(transform.position, transform.rotation);        
         po.GetComponent<ProjectileObj>().SetRotate(transform);
         po.GetComponent<ProjectileObj>().SetAttack(Atk, TargetLayerMask);
     }

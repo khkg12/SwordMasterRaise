@@ -32,13 +32,19 @@ public class ProjectileObj : MonoBehaviour, IAttackable
     }
     private float atk;
 
+    // 스킬에서 날아가는 속도와 생존시간을 넘겨줄지, 아니면 날아가는 속도와 생존시간을 projectileObj에서 정해둘지
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float lifeTime;
+    
     private void Start()
     {
         transform.forward = rotateVec;
+        // 몇초뒤 사라지는 코루틴, 사라질 때 풀링에 다시 담는것까지
+        StartCoroutine(startLifeTimeCo());
     }
     void Update()
     {
-        transform.Translate(Vector3.forward * 0.1f); // 매직변수 처리, 세팅해줄것 투사체마다 속도가 다를테니
+        transform.Translate(Vector3.forward * moveSpeed); // 매직변수 처리, 세팅해줄것 투사체마다 속도가 다를테니
     }
     
     public void SetRotate(Transform userTrans)
@@ -55,6 +61,12 @@ public class ProjectileObj : MonoBehaviour, IAttackable
     {
         Atk = atk;
         TargetLayerMask = targetLayerMask;
+    }
+
+    IEnumerator startLifeTimeCo()
+    {
+        yield return new WaitForSeconds(lifeTime);        
+        PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject); // 풀에 돌려줌
     }
 }
 

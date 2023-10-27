@@ -13,8 +13,8 @@ public abstract class Skill : ScriptableObject
     public int Level;
     public string skillText;
     public float coolTime;
-    //public float percent;
-    public abstract void Use(Character character);
+    public float rate;
+    public abstract void Use(Character character);    
 }
 
 public abstract class RotateSkill : Skill { }

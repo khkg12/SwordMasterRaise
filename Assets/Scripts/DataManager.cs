@@ -14,8 +14,7 @@ public class DataManager : Singleton<DataManager>
     public StageData[] stageDataArr;
     public StageData currentStageData;
 
-    public ItemInfo[] itemDataArr;    
-    public Dictionary<string, int> itemDic = new Dictionary<string, int>();
+    public ItemInfo[] itemDataArr;        
     public Dictionary<string, Sprite> itemSpriteDic = new Dictionary<string, Sprite>();    
     public Sprite[] itemSprite = new Sprite[16];
     
@@ -40,8 +39,7 @@ public class DataManager : Singleton<DataManager>
     {        
         itemDataArr = JsonConvert.DeserializeObject<ItemInfo[]>(itemDataFile.text); // 아이템데이터 저장
         for(int i = 0; i < itemDataArr.Length; i++) // 딕셔너리도 세팅
-        {            
-            itemDic[itemDataArr[i].itemName] = itemDataArr[i].itemCount;
+        {                        
             itemSpriteDic[itemDataArr[i].itemName] = itemSprite[i];
         }
     }
