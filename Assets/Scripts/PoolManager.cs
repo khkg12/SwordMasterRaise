@@ -20,7 +20,8 @@ public class ObjectPool : MonoBehaviour
     public GameObject PopObj(Vector3 pos, Quaternion rot) // 풀에 있는 오브젝트를 뽑아내는 함수
     {
         if (queue.Count == 0) // 오브젝트 풀이 비어있다면
-        {            
+        {
+            Debug.Log("큐비었다");
             CreatePool(initSize / 3);
         }        
         GameObject dequeObj = queue.Dequeue();
@@ -73,10 +74,10 @@ public class PoolManager : MonoBehaviour
             instance = this; 
         }
         
-        foreach (PoolProperty obj in poolPropertyList) // 투사체
+        foreach (PoolProperty poolProperty in poolPropertyList) // 투사체
         {
-            objectPoolDic.Add(obj.prefab.name, new ObjectPool(obj.size, obj.prefab));
-            objectPoolDic[obj.prefab.name].CreatePool(obj.size);            
+            objectPoolDic.Add(poolProperty.prefab.name, new ObjectPool(poolProperty.size, poolProperty.prefab));
+            objectPoolDic[poolProperty.prefab.name].CreatePool(poolProperty.size);            
         }
         
         // for(int i = 0; i < stagemonsterid.count; i++) { }

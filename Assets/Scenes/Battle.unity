@@ -1089,7 +1089,7 @@ GameObject:
   - component: {fileID: 1413542256}
   - component: {fileID: 1413542255}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1270,7 +1270,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1308,6 +1308,8 @@ MonoBehaviour:
     size: 30
   - prefab: {fileID: 8550976458280956172, guid: 04d37f58bd0b0154581f209ddc259d3a, type: 3}
     size: 5
+  - prefab: {fileID: 4241291045318475930, guid: eb6d3bd4b194fc3488f81222c7895fb2, type: 3}
+    size: 30
 --- !u!4 &1597872292
 Transform:
   m_ObjectHideFlags: 0
@@ -1353,7 +1355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -8794,7 +8795,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300000, guid: f756476a5bceb5544a9dd5876873880b, type: 3}
 --- !u!95 &95247235274945071
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8811,8 +8812,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!54 &95247235274945072
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8859,7 +8859,7 @@ MonoBehaviour:
     m_Bits: 0
 --- !u!95 &95508206422418989
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8876,8 +8876,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!137 &137027985697315511
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

@@ -15,15 +15,19 @@ public class Monster : MonoBehaviour, IHitable
     // 프리팹으로 몬스터 모두 구현해두고 스탯에 대한 정보만 JSON으로 파싱해서 스탯값초기화    
 
     static Player target; // 싱글턴에서 가져오는 형식이 아닌 static으로 해두면 몬스터클래스가 공용으로 사용, 즉 한번만 Find로 찾아두면 되기 때문에 static으로 변수지정
- 
+    
     [SerializeField] int id;    
     public float Hp
     {
         get => hp;
         set
         {
-            hp = value;
-            if(hp <= 0)
+            float damage = hp - value;
+            hp = value; 
+            Vector3 textPos = new Vector3(transform.position.x, 1.4f, transform.position.z);
+            GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(textPos, Quaternion.identity);
+            damageText.GetComponent<FloatingText>().Damage = damage;
+            if (hp <= 0)
             {
                 // Die()함수실행
                 Destroy(gameObject);
@@ -180,7 +184,7 @@ public class Monster : MonoBehaviour, IHitable
                     ShortRangeMonster mon = (ShortRangeMonster)this; // 얕은복사니까 괜찮을듯
                     mon.WeaponDisable();
                 }                
-                attackable.Attack(this);
+                attackable.Attack(this);               
             }            
         }
     }    
