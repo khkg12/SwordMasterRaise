@@ -23,14 +23,18 @@ public class Monster : MonoBehaviour, IHitable
         set
         {
             float damage = hp - value;
-            hp = value; 
-            Vector3 textPos = new Vector3(transform.position.x, 1.4f, transform.position.z);
-            GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(textPos, Quaternion.identity);
-            damageText.GetComponent<FloatingText>().Damage = damage;
+            if(damage > 0) // 대미지가 있을 때
+            {
+                GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(transform.position, Quaternion.identity);
+                damageText.GetComponent<FloatingText>().Damage = damage;
+                damageText.GetComponent<FloatingText>().Color = Color.red;
+            }
+            hp = value;                         
             if (hp <= 0)
             {
                 // Die()함수실행
-                Destroy(gameObject);
+                GameManager.instance.monsterCount--;
+                PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);                                
             }
         }
     }
@@ -93,11 +97,16 @@ public class Monster : MonoBehaviour, IHitable
             target = FindObjectOfType<Player>();
         }
         animator = GetComponent<Animator>();
-        orginColor = monsterRenderer.material.color;
-        StartCoroutine(AttackCo());    
-        
+        orginColor = monsterRenderer.material.color;               
     }
-    
+
+    private void OnEnable()
+    {                
+        StartCoroutine(AttackCo());
+        IsHit = false;
+        Hp = MaxHp;
+    }
+
     void Update()
     {
         hpBar.fillAmount = hp / MaxHp;
@@ -162,15 +171,8 @@ public class Monster : MonoBehaviour, IHitable
 
     public void Hit(IAttackable attackable)
     {        
-        Hp -= attackable.Atk;
-        // HitSet();
-        // animator.SetTrigger("IsHit");
-    }
-
-    //public virtual void HitSet() // 맞았을 때의 세팅
-    //{
-    //    // 필요한 놈들만 사용
-    //}
+        Hp -= attackable.Atk;                
+    }   
 
     private void OnTriggerEnter(Collider other)
     {        

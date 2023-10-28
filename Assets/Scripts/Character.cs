@@ -43,7 +43,16 @@ public class Character : MonoBehaviour, IHitable
         get => hp;
         set
         {
-            hp = value;
+            float damage = hp - value;
+            hp = value;            
+            GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(transform.position, Quaternion.identity);
+            damageText.GetComponent<FloatingText>().Damage = damage;
+            damageText.GetComponent<FloatingText>().Color = Color.white;
+            if (hp <= 0)
+            {
+                // Die()함수실행
+                // Destroy(gameObject);
+            }
         }
     }
     [SerializeField] private float hp;
@@ -141,7 +150,7 @@ public class Character : MonoBehaviour, IHitable
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] protected LayerMask myLayerMask;           
     public Skill currentSkill;
-    public Collider targetCol;    
+    public GameObject target;    
 
     protected void Start()
     {
@@ -174,7 +183,7 @@ public class Character : MonoBehaviour, IHitable
 
     public void SetForward()
     {
-        Vector3 dir = new Vector3(targetCol.transform.position.x, transform.position.y, targetCol.transform.position.z) - transform.position;
+        Vector3 dir = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
         dir = dir.normalized;
         transform.forward = dir;
     }

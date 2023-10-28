@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -20,8 +21,20 @@ public class FloatingText : MonoBehaviour
     }
     float damage;
 
+    public Color Color
+    {
+        get => damageText.color;
+        set
+        {
+            damageText.color = value;
+        }
+    }
+
+    Vector3 textPos => new Vector3(transform.position.x, 1.4f, transform.position.z);
+
     private void OnEnable()
     {
+        transform.position = textPos; // 활성화할 때 위치정해줌, 랜덤값넣기
         StartCoroutine(DisappearCo());
     }    
 

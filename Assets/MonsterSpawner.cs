@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class StageData
@@ -13,13 +14,15 @@ public class StageData
 public class MonsterSpawner : MonoBehaviour
 {
     StageData stageData;
-    public List<GameObject> monsterList;
+    public List<GameObject> monsterList;    
     const int WAVE_COUNT = 3;
-    int nowWave = 0;
+    int nowWave = 0;    
 
     private void Start()
     {
+        GameManager.instance.monsterCount = 0; // 캐릭터가 죽었을 때 초기화하던
         stageData = DataManager.instance.currentStageData;
+        PoolManager.instance.InitMonsterPool(stageData, monsterList); // 해당스테이지에 나오는 몬스터의 풀 세팅
         StartCoroutine(SpawnCo());        
     }
 
@@ -31,19 +34,24 @@ public class MonsterSpawner : MonoBehaviour
             for (int j = 0; j < stageData.countArr[i]; ++j)
             {
                 Vector3 pos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-                Instantiate(monsterList[index], pos, Quaternion.identity);
+                PoolManager.instance.objectPoolDic[monsterList[index].name].PopMonsterObj(pos, Quaternion.identity); // pop할 때 monster 수 올려야함. 활성화할 때 하면 처음 풀create할 때도 수가올라가기 때문                
             }
         }
     }
 
     IEnumerator SpawnCo()
     {
-        while (nowWave <WAVE_COUNT)
+        while (nowWave < WAVE_COUNT)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(3f);
+            // wave ui 띄우기
+            MonsterSpawn();            
+            yield return new WaitUntil(()=>GameManager.instance.monsterCount == 0); // 몬스터수가 0이면 제어권돌려받음
             nowWave++;
-            MonsterSpawn();
-        }        
+        }
+        // 모든 웨이브 반복이 종료되면
+        yield return new WaitForSeconds(3f);
+        // 승리 UI 출력, 버튼 클릭 시 메인으로 
     }
 }
 
