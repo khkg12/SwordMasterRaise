@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class StageData
@@ -12,7 +12,7 @@ public class StageData
 }
 
 public class MonsterSpawner : MonoBehaviour
-{
+{    
     StageData stageData;
     public List<GameObject> monsterList;    
     const int WAVE_COUNT = 3;
@@ -43,15 +43,15 @@ public class MonsterSpawner : MonoBehaviour
     {
         while (nowWave < WAVE_COUNT)
         {
-            yield return new WaitForSeconds(3f);
-            // wave ui 띄우기
+            UIManager.instance.ShowWaveUI(nowWave);
+            yield return new WaitForSeconds(3f);                 
             MonsterSpawn();            
             yield return new WaitUntil(()=>GameManager.instance.monsterCount == 0); // 몬스터수가 0이면 제어권돌려받음
             nowWave++;
-        }
-        // 모든 웨이브 반복이 종료되면
-        yield return new WaitForSeconds(3f);
+        }        
+        yield return new WaitForSeconds(3f); // 모든 웨이브 반복이 종료되면
         // 승리 UI 출력, 버튼 클릭 시 메인으로 
+        UIManager.instance.ShowVictoryUI();
     }
 }
 

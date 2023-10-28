@@ -24,7 +24,8 @@ public class SkillInventoryUI : MonoBehaviour
     {
         for(int i = 0; i < skillSlots.Length; i++)
         {
-            skillSlots[i].enabled = isEnabled;
+            if(skillSlots[i].Skill != null) // null이 아닌경우에만, 즉 스킬이 슬롯에 있을 때만
+                skillSlots[i].enabled = isEnabled;
         }
     }
 }

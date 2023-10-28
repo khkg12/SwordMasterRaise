@@ -8,7 +8,8 @@ public class BattleSkillSlot : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] Image skillImage;
     [SerializeField] Image shadowImage;
-    [SerializeField] Image emptyImage;    
+    [SerializeField] Image emptyImage;
+    public Skill Skill => skill;
     Skill skill;      
     bool isUse;
     public SkillInventoryUI ownerInven;

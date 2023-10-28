@@ -109,7 +109,7 @@ public class Monster : MonoBehaviour, IHitable
 
     void Update()
     {
-        hpBar.fillAmount = hp / MaxHp;
+        hpBar.fillAmount = hp / MaxHp;        
         if (targetDis() < range) // 범위안이라면 공격, range로 빼기
         {            
             isAttack = true;
