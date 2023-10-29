@@ -24,8 +24,11 @@ public class Player : Character
     public void StatusInit()
     {
         Hp = DataManager.instance.playerData.hp.stat;
-        Atk = (int)(DataManager.instance.playerData.atk.stat * (GameManager.instance.equipItemInfo.atkRate / 100)); // 장착무기 공격력증가만큼 상승
         MoveSpeed = DataManager.instance.playerData.speed.stat;
+        if (GameManager.instance.equipItemInfo.atkRate != 0) // 수정하기
+            Atk = (int)(DataManager.instance.playerData.atk.stat * (GameManager.instance.equipItemInfo.atkRate / 100)); // 장착무기 공격력증가만큼 상승        
+        else
+            Atk = DataManager.instance.playerData.atk.stat;        
     }
     
     public void ExecuteSkill(Skill skill)
