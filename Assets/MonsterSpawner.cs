@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[System.Serializable]
-public class StageData
-{
-    public int id; // 스테이지 아이디    
-    public int[] idArr;
-    public int[] countArr;    
-}
-
 public class MonsterSpawner : MonoBehaviour
 {    
     StageData stageData;
@@ -51,7 +43,9 @@ public class MonsterSpawner : MonoBehaviour
         }        
         yield return new WaitForSeconds(3f); // 모든 웨이브 반복이 종료되면
         // 승리 UI 출력, 버튼 클릭 시 메인으로 
-        UIManager.instance.ShowVictoryUI();
+        UIManager.instance.ShowVictoryUI(stageData.rewardGold, stageData.rewardExp);
+        DataManager.instance.Exp += stageData.rewardExp;
+        DataManager.instance.Gold += stageData.rewardGold;  
     }
 }
 

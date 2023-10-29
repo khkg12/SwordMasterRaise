@@ -4,19 +4,89 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
 
+[System.Serializable]
+public class PlayerData
+{
+    public int level;
+    public int exp;
+    public int maxExp;
+    public int gold;
+    public StatInfo hp;
+    public StatInfo atk;
+    public StatInfo speed;
+}
+
+// 스탯에 대한 정보를 정리 -> ex) hp, 필요골드, 증가량
+[System.Serializable]
+public class StatInfo
+{
+    public string name;
+    public float stat;
+    public int requireGold;
+    public float increaseAmount;
+}
+
+[System.Serializable]
+public class StageData
+{
+    public int id; // 스테이지 아이디    
+    public int[] idArr;
+    public int[] countArr;
+    public int rewardGold;
+    public int rewardExp;
+}
+
+[System.Serializable]
+public class ItemInfo
+{
+    public string itemName;
+    public bool isHave;
+    public float atkRate; // 공격력 증가율
+    public float upgradeGold; // 강화 시 필요한 골드
+    public int upgradeCount; // 업그레이드 수치
+    public int itemCount;
+    public float itemWeight; // 뽑기확률을 위한 아이템 가중치
+}
+
 public class DataManager : Singleton<DataManager>
 {    
     [SerializeField] private TextAsset playerDataFile;
     [SerializeField] private TextAsset stageDataFile;
     [SerializeField] private TextAsset itemDataFile;
+    [SerializeField] private Sprite[] itemSprite = new Sprite[16];
     string path;
+
     public PlayerData playerData;        
     public StageData[] stageDataArr;
     public StageData currentStageData;
+    public ItemInfo[] itemDataArr;    
 
-    public ItemInfo[] itemDataArr;        
-    public Dictionary<string, Sprite> itemSpriteDic = new Dictionary<string, Sprite>();    
-    public Sprite[] itemSprite = new Sprite[16];
+    public Dictionary<string, Sprite> itemSpriteDic = new Dictionary<string, Sprite>();
+    
+
+    public int Exp
+    {
+        get => playerData.exp;
+        set
+        {
+            playerData.exp = value;
+            if(playerData.exp >= playerData.maxExp)
+            {
+                playerData.maxExp = (int)(1.1f * playerData.maxExp);
+                playerData.exp -= playerData.maxExp; // 레벨업하고 남은 양 채우기
+                playerData.level++; // 레벨업
+            }
+        }
+    }
+
+    public int Gold
+    {
+        get => playerData.gold;
+        set
+        {
+            playerData.gold = value;    
+        }
+    }
     
 
     new void Awake()

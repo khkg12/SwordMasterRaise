@@ -37,7 +37,6 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler
         {
             image.sprite = skill.sprite;            
         }        
-        IsLock = GameManager.instance.Level < skill.requiredLevel;
-        Debug.Log(isLock);
+        IsLock = DataManager.instance.playerData.level < skill.requiredLevel;        
     }
 }

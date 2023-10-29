@@ -13,13 +13,21 @@ public class Player : Character
 
     new void Start()
     {
-        base.Start();       
+        base.Start();
+        StatusInit();
         setRotationComponent = GetComponent<SetRotationComponent>();
         attackCo = AttackCo();
         weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
         attackerCol = weapon.transform.GetComponent<Collider>();
-    }    
+    }
 
+    public void StatusInit()
+    {
+        Hp = DataManager.instance.playerData.hp.stat;
+        Atk = (int)(DataManager.instance.playerData.atk.stat * (GameManager.instance.equipItemInfo.atkRate / 100)); // 장착무기 공격력증가만큼 상승
+        MoveSpeed = DataManager.instance.playerData.speed.stat;
+    }
+    
     public void ExecuteSkill(Skill skill)
     {
         if (currentSkill == null)

@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     [SerializeField] Image waveImage;
     [SerializeField] Image victoryImage;
+    [SerializeField] TextMeshProUGUI victoryRewardText;
     [SerializeField] Image defeatImage;
 
     private void Awake()
@@ -24,8 +25,9 @@ public class UIManager : MonoBehaviour
         StartCoroutine(DurationTimeCo(3f));
     }
 
-    public void ShowVictoryUI()
+    public void ShowVictoryUI(int rewardGold, int rewardExp)
     {
+        victoryRewardText.text = $"+{rewardGold}gold\n+{rewardExp}exp";
         victoryImage.gameObject.SetActive(true);
     }
 

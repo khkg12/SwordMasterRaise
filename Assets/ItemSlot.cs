@@ -7,23 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemData // 
-{
-    public Sprite sprite;
-    public ItemInfo itemInfo;
-}
 
-[System.Serializable]
-public class ItemInfo
-{    
-    public string itemName;
-    public bool isHave;
-    public float atkRate; // 공격력 증가율
-    public float upgradeGold; // 강화 시 필요한 골드
-    public int upgradeCount; // 업그레이드 수치
-    public int itemCount;
-    public float itemWeight; // 뽑기확률을 위한 아이템 가중치
-}
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {

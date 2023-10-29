@@ -21,7 +21,7 @@ public class SelectItemUI : MonoBehaviour
         itemInfo = setIteminfo;
         itemImage.sprite = DataManager.instance.itemSpriteDic[itemInfo.itemName]; // 이미지설정
         UpdatedText();
-        if (GameManager.instance.equipItemInfo != itemInfo) // 다르다면
+        if (GameManager.instance.equipItemInfo != itemInfo) // 이미장착하고 있던 아이템과 지금 장착한 아이템이 다르다면
             equipBtn.interactable = true; // 장착버튼 활성화        
         else        
             equipBtn.interactable = false; // 같다면 비활성화       
@@ -34,8 +34,9 @@ public class SelectItemUI : MonoBehaviour
 
     public void UpgradeItem() // 강화버튼 클릭 시 실행될 기능
     {
-        if(GameManager.instance.gold >= itemInfo.upgradeGold) // 돈이더많다면, GameManager에 bool 함수로 만들기 시간되면 -> GameManager.instance.CanUpgrade(itemInfo.upgradeGold) bool 함수 
+        if(DataManager.instance.Gold >= itemInfo.upgradeGold) // 돈이더많다면, GameManager에 bool 함수로 만들기 시간되면 -> GameManager.instance.CanUpgrade(itemInfo.upgradeGold) bool 함수 
         {
+            DataManager.instance.Gold -= (int)itemInfo.upgradeGold;
             itemInfo.upgradeGold = (int)(WEAPON_UPGRADE_GOLD_RATE * itemInfo.upgradeGold);
             itemInfo.atkRate = (int)(WEAPON_UPGRADE_ATK_RATE * itemInfo.atkRate);
             UpdatedText();

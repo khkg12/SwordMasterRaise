@@ -2,11 +2,15 @@
     {
         "id": 0,
         "idArr": [ 0, 1 ],
-        "countArr": [ 3, 3 ]
+        "countArr": [ 3, 3 ],
+        "rewardGold": 100,
+        "rewardExp": 30
     },
     {
         "id": 1,
         "idArr": [ 0, 1 ],
-        "countArr": [ 5, 5 ]
+        "countArr": [ 5, 5 ],
+        "rewardGold": 150,
+        "rewardExp": 50
     }
 ]
