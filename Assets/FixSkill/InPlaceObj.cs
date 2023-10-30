@@ -29,6 +29,7 @@ public class InPlaceObj : MonoBehaviour, IAttackable
     private void Start()
     {        
         // StartCoroutine(startLifeTimeCo());
+        // 디스트로이 코루틴 사용안하는이유는 파티클에서 삭제호출하기때문
     }        
 
     public void Attack(IHitable hitable)

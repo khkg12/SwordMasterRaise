@@ -9,6 +9,6 @@ public class SwordBaldo : FixSkill
     {        
         // GameObject so = PoolManager.instance.objectPoolDic[skillObj.name].PopObj(character.transform.position, character.transform.rotation);
         GameObject so = Instantiate(skillObj, character.transform.position, character.transform.rotation);        
-        so.GetComponent<InPlaceObj>().SetAttack((int)(character.Atk * rate), character.TargetLayerMask);
+        so.GetComponent<InPlaceObj>().SetAttack((int)(character.Atk * rate), character.TargetLayerMask); 
     }
 }
