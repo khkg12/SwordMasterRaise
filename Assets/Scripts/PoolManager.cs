@@ -89,7 +89,6 @@ public class PoolManager : MonoBehaviour
         {
             instance = this; 
         }
-
         InitObjectPool();
     }   
     

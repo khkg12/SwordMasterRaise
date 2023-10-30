@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class BtnController : MonoBehaviour
 {
-    public void LoadScene()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("Battle");
+        SceneManager.LoadScene(sceneName);
     }
 }

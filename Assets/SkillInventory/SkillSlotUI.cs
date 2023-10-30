@@ -27,6 +27,7 @@ public class SkillSlotUI : MonoBehaviour
     {        
         SetSkillSlot(GameManager.instance.skillList);
         SetQuickSlot();
+        QuickSlotEnable(false); // Ã³À½¿¡ enabled ²ô±â
         equipSkillBtn.onClick.AddListener(()=>EquipSkill());
     }
 
@@ -92,6 +93,7 @@ public class SkillSlotUI : MonoBehaviour
         {
             skillQuickSlots[i].ownerSkillInven = this;
             skillQuickSlots[i].index = i;
+            skillQuickSlots[i].SetSkill(GameManager.instance.playerSkillList[i]);
         }
     }    
 }

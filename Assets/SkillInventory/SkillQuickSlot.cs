@@ -30,8 +30,8 @@ public class SkillQuickSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        SetSkill(ownerSkillInven.skill);        
-        ownerSkillInven.QuickSlotEnable(false);
+        SetSkill(ownerSkillInven.skill);
+        ownerSkillInven.QuickSlotEnable(false);        
     }
 
     public void SelectEnabled(bool isEnabled)

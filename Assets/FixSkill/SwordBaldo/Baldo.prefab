@@ -28286,15 +28286,15 @@ ParticleSystem:
   TriggerModule:
     enabled: 0
     serializedVersion: 2
-    inside: 1
+    inside: 2
     outside: 0
     enter: 0
     exit: 0
-    colliderQueryMode: 0
+    colliderQueryMode: 2
     radiusScale: 1
     primitives:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7463904792097298572, guid: aec412f63cb72734d8ed903a61a13b18, type: 3}
+    - {fileID: 6154168701818352546, guid: 4c9016772db371f48bc2e32205fa43bd, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}

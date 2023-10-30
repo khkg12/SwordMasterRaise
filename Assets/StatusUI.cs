@@ -12,8 +12,8 @@ public class StatusUI : MonoBehaviour
     [SerializeField] UpgradeStat[] statSlots = new UpgradeStat[STAT_NUM];
     void Awake()
     {
-        levelText.text = $"LV {DataManager.instance.playerData.level}";
-        levelImage.fillAmount = DataManager.instance.playerData.exp / DataManager.instance.playerData.maxExp;
+        levelText.text = $"LV {DataManager.instance.playerData.level}";                
+        levelImage.fillAmount = (float)DataManager.instance.playerData.exp / (float)DataManager.instance.playerData.maxExp;
         statSlots[0].SetStatus(DataManager.instance.playerData.hp);
         statSlots[1].SetStatus(DataManager.instance.playerData.atk);
         statSlots[2].SetStatus(DataManager.instance.playerData.speed);
