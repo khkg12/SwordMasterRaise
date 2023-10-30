@@ -17,6 +17,7 @@ MonoBehaviour:
   skillName: "\uBC1C\uB3C4"
   requiredLevel: 0
   Level: 0
-  skillText: "\uC790\uC2E0\uC758 \uC8FC\uBCC0\uC744 \uD06C\uAC8C \uBCB1\uB2C8\uB2E4."
+  skillText: "\uACF5\uACA9\uB825\uC758 300%\uB85C \uC8FC\uBCC0\uC744 \uD06C\uAC8C
+    \uBCB1\uB2C8\uB2E4."
   coolTime: 10
   rate: 3

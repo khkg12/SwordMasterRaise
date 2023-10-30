@@ -53,7 +53,7 @@ public class DataManager : Singleton<DataManager>
     [SerializeField] private TextAsset playerDataFile;
     [SerializeField] private TextAsset stageDataFile;
     [SerializeField] private TextAsset itemDataFile;
-    [SerializeField] private Sprite[] itemSprite = new Sprite[16];
+    [SerializeField] private Sprite[] itemSprite = new Sprite[16];    
     string path;
 
     public PlayerData playerData;        

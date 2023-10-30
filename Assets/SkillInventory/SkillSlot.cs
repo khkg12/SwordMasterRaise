@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler
     // 스킬슬롯이 가지고 있어야 할 것
     public Image image;
     public GameObject lockSprite;
+    public TextMeshProUGUI lockLevelText;
     public SkillSlotUI ownerSkillInven;
     public bool IsLock
     {
@@ -35,7 +37,8 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler
         skill = setSkill;
         if(skill != null)
         {
-            image.sprite = skill.sprite;            
+            image.sprite = skill.sprite;
+            lockLevelText.text = $"LV {skill.requiredLevel}";
         }        
         IsLock = DataManager.instance.playerData.level < skill.requiredLevel;        
     }
