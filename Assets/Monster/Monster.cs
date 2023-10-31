@@ -28,7 +28,8 @@ public class Monster : MonoBehaviour, IHitable
                 damageText.GetComponent<FloatingText>().Damage = damage;
                 damageText.GetComponent<FloatingText>().Color = Color.red;
             }
-            hp = value;                         
+            hp = value;
+            hpBar.fillAmount = hp / maxHp;
             if (hp <= 0)
             {                
                 DIe();
@@ -36,7 +37,7 @@ public class Monster : MonoBehaviour, IHitable
         }
     }
     [SerializeField] private float hp = 100; // 실험용
-    [SerializeField] private float MaxHp = 100;
+    private float maxHp = 100;
 
     public float Atk
     {
@@ -46,7 +47,7 @@ public class Monster : MonoBehaviour, IHitable
             atk = value;
         }
     }
-    private float atk;
+    [SerializeField] private float atk;
 
     public bool IsMove
     {
@@ -95,12 +96,11 @@ public class Monster : MonoBehaviour, IHitable
     {                
         StartCoroutine(AttackCo());
         IsHit = false;
-        Hp = MaxHp;
+        Hp = maxHp;
     }
 
     void Update()
-    {
-        hpBar.fillAmount = hp / MaxHp;        
+    {               
         if (targetDis() < range) // 범위안이라면 공격, range로 빼기
         {            
             isAttack = true;

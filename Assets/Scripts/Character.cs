@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
+using System;
 
 public enum AnimationTag
 {
@@ -45,7 +47,8 @@ public class Character : MonoBehaviour, IHitable
         set
         {
             float damage = hp - value;
-            hp = value;            
+            hp = value;
+            hpBar.fillAmount = hp / maxHp;
             GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(transform.position, Quaternion.identity);
             damageText.GetComponent<FloatingText>().Damage = damage;
             damageText.GetComponent<FloatingText>().Color = Color.white;
@@ -84,9 +87,7 @@ public class Character : MonoBehaviour, IHitable
     private float attackSpeed = 0.1f;    
 
     protected Fsm fsm;    
-    private Animator animator;
-    [SerializeField] private Renderer characterRenderer;
-    Color orginColor;
+    private Animator animator;        
 
     public AnimationTag AniTag
     {
@@ -154,9 +155,11 @@ public class Character : MonoBehaviour, IHitable
         get => targetLayerMask;        
     }
     [SerializeField] private LayerMask targetLayerMask;
-    [SerializeField] protected LayerMask myLayerMask;           
-    public Skill currentSkill;
-    public GameObject target;    
+    [SerializeField] protected LayerMask myLayerMask;
+    [SerializeField] Image hpBar;
+    [SerializeField] Image shadowHpBar;
+    [NonSerialized] public Skill currentSkill;
+    [NonSerialized] public GameObject target;    
 
     protected void Start()
     {
@@ -168,7 +171,9 @@ public class Character : MonoBehaviour, IHitable
     }
  
     protected void Update()
-    {        
+    {
+        hpBar.rectTransform.eulerAngles = new Vector3(90, 0, 0);
+        shadowHpBar.rectTransform.eulerAngles = new Vector3(90, 0, 0);
         fsm.Update();
     }
 
