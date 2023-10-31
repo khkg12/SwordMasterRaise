@@ -6,17 +6,16 @@ using UnityEngine.UI;
 
 // 몬스터에는 슈퍼아머 컴포넌트를 가진 엘리트몬스터가 존재
 public class Monster : MonoBehaviour, IHitable
-{
-    // 프리팹으로 존재하고
-    // id를 주고 몬스터를 탐색할 수 있게함    
-    // json에서 stageData = [{id:0, monsterList : {{monsterId : 0, count : 3}, {monsterId : 1, count : 5}} ] // 0번째 스테이지(id : 0)이고 id가 0인 몬스터 3마리, id가 1인 몬스터 5마리
-    // 그렇다면 List<MonsterData>가 존재하고 위 monsterData를 저장 -> 프리팹은?  
-    // stageData를 토대로 MonsterSpawner가 소환할 몬스터 목록을 스테이지 진입 시 세팅하고 소환
-    // 프리팹으로 몬스터 모두 구현해두고 스탯에 대한 정보만 JSON으로 파싱해서 스탯값초기화    
+{   
+    static Player target; // 싱글턴에서 가져오는 형식이 아닌 static으로 해두면 몬스터클래스가 공용으로 사용, 즉 한번만 Find로 찾아두면 되기 때문에 static으로 변수지정    
+    [SerializeField] int id;
+    [SerializeField] private LayerMask targetLayerMask;
+    [SerializeField] private float range;
+    [SerializeField] private LayerMask myLayerMask;
+    [SerializeField] private Renderer monsterRenderer;
+    [SerializeField] private Image hpBar;
+    [SerializeField] private bool isSuperArmor;
 
-    static Player target; // 싱글턴에서 가져오는 형식이 아닌 static으로 해두면 몬스터클래스가 공용으로 사용, 즉 한번만 Find로 찾아두면 되기 때문에 static으로 변수지정
-    
-    [SerializeField] int id;    
     public float Hp
     {
         get => hp;
@@ -31,15 +30,15 @@ public class Monster : MonoBehaviour, IHitable
             }
             hp = value;                         
             if (hp <= 0)
-            {
+            {                
                 // Die()함수실행
                 GameManager.instance.monsterCount--;
                 PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);                                
             }
         }
     }
-    private float hp = 100; // 실험용
-    private float MaxHp = 100;
+    [SerializeField] private float hp = 100; // 실험용
+    [SerializeField] private float MaxHp = 100;
 
     public float Atk
     {
@@ -78,13 +77,7 @@ public class Monster : MonoBehaviour, IHitable
     }
     private bool isHit;
 
-    public LayerMask TargetLayerMask => targetLayerMask;
-
-    [SerializeField] private LayerMask targetLayerMask;        
-    [SerializeField] private float range;    
-    [SerializeField] private LayerMask myLayerMask;
-    [SerializeField] private Renderer monsterRenderer;    
-    [SerializeField] private Image hpBar;
+    public LayerMask TargetLayerMask => targetLayerMask;    
     private Color orginColor;
     private bool isAttack;
     protected Animator animator;
@@ -179,13 +172,17 @@ public class Monster : MonoBehaviour, IHitable
         if (other.gameObject.TryGetComponent(out IAttackable attackable)) // attackable이라 플레이어스킬에도 맞을것같다. 레이어를 사용? -> IAttackable이나 IHitable에 LayerMask를 추가해야하나
         {            
             if (attackable.TargetLayerMask == myLayerMask) // 공격하는 놈의 타겟레이어와 맞는놈의 레이어가 동일한 경우에만 Attack
-            {                
-                animator.SetTrigger("HitTrigger");            
-                if(this is ShortRangeMonster)
+            {
+                // if(!gameObject.TryGetComponent<>(out SuperArmor superArmor)) // 슈퍼아머 몬스터가 아닐때만 힛트리거
+                if (!isSuperArmor) // 슈퍼아머가 아니라면
                 {
-                    ShortRangeMonster mon = (ShortRangeMonster)this; // 얕은복사니까 괜찮을듯
-                    mon.WeaponDisable();
-                }                
+                    animator.SetTrigger("HitTrigger");
+                    if (this is ShortRangeMonster)
+                    {
+                        ShortRangeMonster mon = (ShortRangeMonster)this; // 얕은복사니까 괜찮을듯
+                        mon.WeaponDisable();
+                    }
+                }                                              
                 attackable.Attack(this);               
             }            
         }

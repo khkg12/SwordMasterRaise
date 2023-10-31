@@ -7,6 +7,7 @@ using System.IO;
 [System.Serializable]
 public class PlayerData
 {
+    public int awakeLevel;
     public int level;
     public int exp;
     public int maxExp;
@@ -38,6 +39,16 @@ public class StageData
 }
 
 [System.Serializable]
+public class AwakeStageData
+{
+    public string stageName;
+    public int id; // 스테이지 아이디    
+    public int bossId;
+    public int count; // 보스 수
+    public string explanation;
+}
+
+[System.Serializable]
 public class ItemInfo
 {
     public string itemName;
@@ -53,6 +64,7 @@ public class DataManager : Singleton<DataManager>
 {    
     [SerializeField] private TextAsset playerDataFile;
     [SerializeField] private TextAsset stageDataFile;
+    [SerializeField] private TextAsset awakeStageDataFile;
     [SerializeField] private TextAsset itemDataFile;
     [SerializeField] private Sprite[] itemSprite = new Sprite[16];    
     string path;
@@ -60,6 +72,8 @@ public class DataManager : Singleton<DataManager>
     public PlayerData playerData;        
     public StageData[] stageDataArr;
     public StageData currentStageData;
+    public AwakeStageData[] awakeStageDataArr;    
+    public AwakeStageData currentAwakeStageData;
     public ItemInfo[] itemDataArr;    
 
     public Dictionary<string, Sprite> itemSpriteDic = new Dictionary<string, Sprite>();
@@ -122,7 +136,8 @@ public class DataManager : Singleton<DataManager>
 
     public void SetStageData()
     {
-        stageDataArr = JsonConvert.DeserializeObject<StageData[]>(stageDataFile.text);     
+        stageDataArr = JsonConvert.DeserializeObject<StageData[]>(stageDataFile.text);
+        awakeStageDataArr = JsonConvert.DeserializeObject<AwakeStageData[]>(awakeStageDataFile.text);
     }
 
     public void GetStageData(int stageId)

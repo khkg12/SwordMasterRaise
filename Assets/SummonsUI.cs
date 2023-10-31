@@ -51,18 +51,7 @@ public class SummonsUI : MonoBehaviour, IPointerClickHandler
             getItems[i] = RandomPeek();            
         }
     }
-
-    //public T RandomPeek<T>(List<T> items)
-    //{
-    //    // 가중치들의 합        
-    //    T peekItem; 
-    //    foreach(T item in items)
-    //    {
-
-    //    }
-    //    return peekItem;
-    //}
-
+   
     public ItemInfo RandomPeek()
     {
         // 가중치들의 합                        

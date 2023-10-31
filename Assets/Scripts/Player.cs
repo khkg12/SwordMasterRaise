@@ -14,13 +14,19 @@ public class Player : Character
 
     new void Start()
     {
-        base.Start();        
+        base.Start();
+        playerInit();
+    }    
+
+    void playerInit()
+    {
         setRotationComponent = GetComponent<SetRotationComponent>();
-        awakeningComponent = GetComponent<AwakeningComponent>();    
+        awakeningComponent = GetComponent<AwakeningComponent>();
+        awakeningComponent.AwakeLevel = DataManager.instance.playerData.awakeLevel; // 플레이어의 awakeLevel로 세팅
         attackCo = AttackCo();
         weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
         attackerCol = weapon.transform.GetComponent<Collider>();
-    }    
+    }
     
     public void ExecuteSkill(Skill skill)
     {
@@ -82,6 +88,8 @@ public class Player : Character
     public void WeaponEnable()
     {
         attackerCol.enabled = true;
+        if (awakeningComponent.enabled) // 각성컴포넌트가 켜져있을 때만
+            awakeningComponent.AttackNum++;        
     }
 
     public void WeaponDisable()

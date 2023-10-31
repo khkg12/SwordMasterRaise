@@ -1,0 +1,24 @@
+[
+  {
+    "stageName": "각성의 던전 : 검사의 길",
+    "id": 0,
+    "bossId": 0,
+    "count": 1,
+    "explanation": "클리어보상 : 검사 각성 / 3번 일반공격 시 검기방출"
+  },
+  {
+    "stageName": "각성의 던전 : 검성의 길",
+    "id": 1,
+    "bossId": 1,
+    "count": 1,
+    "explanation": "클리어보상 : 검성 각성 / 7번 일반공격 시 발도"
+  },
+  {
+    "stageName": "각성의 던전 : 검신의 길",
+    "id": 2,
+    "bossId": 2,
+    "count": 1,
+    "explanation": "클리어보상 : 검신 각성 / 10번 일반공격 시 극초발도"
+  }
+
+]

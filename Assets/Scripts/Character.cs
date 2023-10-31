@@ -81,7 +81,7 @@ public class Character : MonoBehaviour, IHitable
             attackSpeed = value;    
         }
     }
-    private float attackSpeed = 0.1f;
+    private float attackSpeed = 0.1f;    
 
     protected Fsm fsm;    
     private Animator animator;
