@@ -29,6 +29,7 @@ public class StatInfo
 [System.Serializable]
 public class StageData
 {
+    public string stageName;
     public int id; // 스테이지 아이디    
     public int[] idArr;
     public int[] countArr;
@@ -95,8 +96,7 @@ public class DataManager : Singleton<DataManager>
         path = Path.Combine(Application.dataPath + "/Resources/", "playerData.json"); // 저장 경로 설정
         SetData(); // json에서 불러와 playerData에 저장 초기화
         SetStageData();
-        SetItemData();
-        currentStageData = stageDataArr[0]; // 실험용
+        SetItemData();        
     }    
     
     public void SetData()

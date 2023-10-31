@@ -1,16 +1,26 @@
 [
     {
+        "stageName": "한적한 풀숲",
         "id": 0,
         "idArr": [ 0, 1 ],
-        "countArr": [ 10, 10 ],
+        "countArr": [ 5, 5 ],
         "rewardGold": 100,
         "rewardExp": 30
     },
     {
+        "stageName": "스컬들의 숲",
         "id": 1,
         "idArr": [ 0, 1 ],
-        "countArr": [ 5, 5 ],
+        "countArr": [ 10, 10 ],
         "rewardGold": 150,
         "rewardExp": 50
+    },
+    {
+        "stageName": "언데드의 묘지",
+        "id": 2,
+        "idArr": [ 0, 1 ],
+        "countArr": [ 15, 15 ],
+        "rewardGold": 200,
+        "rewardExp": 70
     }
 ]
