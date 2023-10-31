@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class Player : Character
 {    
     SetRotationComponent setRotationComponent;
+    AwakeningComponent awakeningComponent;   
     IEnumerator attackCo;    
     [SerializeField] Weapon weapon;
     Collider attackerCol;
@@ -13,23 +14,13 @@ public class Player : Character
 
     new void Start()
     {
-        base.Start();
-        StatusInit();
+        base.Start();        
         setRotationComponent = GetComponent<SetRotationComponent>();
+        awakeningComponent = GetComponent<AwakeningComponent>();    
         attackCo = AttackCo();
         weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
         attackerCol = weapon.transform.GetComponent<Collider>();
-    }
-
-    public void StatusInit()
-    {
-        Hp = DataManager.instance.playerData.hp.stat;
-        MoveSpeed = DataManager.instance.playerData.speed.stat;
-        if (GameManager.instance.equipItemInfo.atkRate != 0) // 수정하기
-            Atk = (int)(DataManager.instance.playerData.atk.stat * (GameManager.instance.equipItemInfo.atkRate / 100)); // 장착무기 공격력증가만큼 상승        
-        else
-            Atk = DataManager.instance.playerData.atk.stat;        
-    }
+    }    
     
     public void ExecuteSkill(Skill skill)
     {
