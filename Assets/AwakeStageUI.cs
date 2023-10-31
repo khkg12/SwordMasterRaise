@@ -15,9 +15,17 @@ public class AwakeStageUI : MonoBehaviour
         get => awakeStageIndex;
         set
         {
-            awakeStageIndex = value;            
-            DataManager.instance.currentAwakeStageData = DataManager.instance.awakeStageDataArr[awakeStageIndex]; // 레벨에 맞춰서 각성스테이지 정보정해줌
-            UpdatedText();
+            awakeStageIndex = value;
+            if (awakeStageIndex == 3) // 최대각성 상태라면 버튼끄
+            {
+                awakeStageBtn.interactable = false;
+                explanationText.text = "최종각성 상태입니다!";
+            }
+            else
+            {                
+                DataManager.instance.currentAwakeStageData = DataManager.instance.awakeStageDataArr[awakeStageIndex]; // 레벨에 맞춰서 각성스테이지 정보정해줌
+                UpdatedText();
+            }            
         }        
     }
     private int awakeStageIndex;

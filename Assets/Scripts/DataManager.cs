@@ -101,8 +101,7 @@ public class DataManager : Singleton<DataManager>
         {
             playerData.gold = value;    
         }
-    }
-    
+    }    
 
     new void Awake()
     {

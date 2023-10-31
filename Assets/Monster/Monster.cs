@@ -31,9 +31,7 @@ public class Monster : MonoBehaviour, IHitable
             hp = value;                         
             if (hp <= 0)
             {                
-                // Die()함수실행
-                GameManager.instance.monsterCount--;
-                PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);                                
+                DIe();
             }
         }
     }
@@ -187,6 +185,12 @@ public class Monster : MonoBehaviour, IHitable
             }            
         }
     }    
+
+    public virtual void DIe()
+    {
+        GameManager.instance.monsterCount--;
+        PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);
+    }
 
     // event함수
     public void ColorChangeStart()

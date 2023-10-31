@@ -14,8 +14,8 @@ public class SelectItemUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI upgradeCostText;
     [SerializeField] TextMeshProUGUI itemCountText;
     [SerializeField] Button equipBtn;
-    const float WEAPON_UPGRADE_ATK_RATE = 0.3f;
-    const float WEAPON_UPGRADE_GOLD_RATE = 0.5f;
+    const float WEAPON_UPGRADE_ATK_RATE = 1.3f;
+    const float WEAPON_UPGRADE_GOLD_RATE = 1.5f;
     public void SetItem(ItemInfo setIteminfo)
     {
         itemInfo = setIteminfo;

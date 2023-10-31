@@ -111,22 +111,22 @@ public class MoveState : State
 public class AttackState : State
 {
     const float NONE_TARGET_DISTANCE = 2.5f;
-    public AttackState(Character character) : base(character) { }    
+    public AttackState(Character character) : base(character) { }
 
     public override void Enter()
-    {        
+    {
         character.AniTag = AnimationTag.Idle; // 진입했을 때 Idle
         character.AttackStart(); // 공격 코루틴 시작 
     }
 
     public override void Exit()
-    {        
+    {
         character.AttackEnd(); // 공격 코루틴 종료
     }
 
     public override void Update()
-    {        
-        if (character.target.activeInHierarchy == false)
+    {
+        if (character.target.activeInHierarchy == false) // 나중에 수정 임시로 해둔것
         {
             character.target = null;
             character.ChangeStateTag = StateTag.Idle;            

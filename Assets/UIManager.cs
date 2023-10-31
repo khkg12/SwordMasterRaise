@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     public void ShowWaveUI(int waveRound)
     {
         waveImage.gameObject.SetActive(true);
-        waveImage.GetComponentInChildren<TextMeshProUGUI>().text = $"WAVE {waveRound + 1} START";
+        waveImage.GetComponentInChildren<TextMeshProUGUI>().text = $"웨이브 {waveRound + 1}단계 시작!";
         StartCoroutine(DurationTimeCo(3f));
     }
 
@@ -29,6 +29,12 @@ public class UIManager : MonoBehaviour
     {
         victoryRewardText.text = $"+{rewardGold}gold\n+{rewardExp}exp";
         victoryImage.gameObject.SetActive(true);
+    }
+
+    public void ShowVictoryUI() // 오버로딩
+    {
+        victoryRewardText.text = $"축하합니다! 각성!";
+        victoryImage.gameObject.SetActive(true);        
     }
 
     public void ShowDefeatUI()

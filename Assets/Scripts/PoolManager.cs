@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -109,5 +110,12 @@ public class PoolManager : MonoBehaviour
             objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.countArr[i], monsterList[index]));
             objectPoolDic[monsterList[index].name].CreatePool(stageData.countArr[i]);
         }
+    }
+
+    public void InitAwakeMonsterPool(AwakeStageData stageData, List<GameObject> monsterList)
+    {
+        int index = stageData.bossId;
+        objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.count, monsterList[index]));
+        objectPoolDic[monsterList[index].name].CreatePool(stageData.count);
     }
 }

@@ -41,7 +41,7 @@ public class MonsterSpawner : MonoBehaviour
             yield return new WaitUntil(()=>GameManager.instance.monsterCount == 0); // 몬스터수가 0이면 제어권돌려받음
             nowWave++;
         }        
-        yield return new WaitForSeconds(3f); // 모든 웨이브 반복이 종료되면
+        yield return new WaitForSeconds(1f); // 모든 웨이브 반복이 종료되면
         // 승리 UI 출력, 버튼 클릭 시 메인으로 
         UIManager.instance.ShowVictoryUI(stageData.rewardGold, stageData.rewardExp);
         DataManager.instance.Exp += stageData.rewardExp;
