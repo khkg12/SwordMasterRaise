@@ -7,6 +7,7 @@ public class Soldier : Character
     IEnumerator attackCo;
     [SerializeField] float attackIntervalTime;
     [SerializeField] Skill skill;
+    float attackDelayTime;
 
     new void Start()
     {
@@ -38,14 +39,28 @@ public class Soldier : Character
     }
 
 
+    //IEnumerator AttackCo()
+    //{
+    //    while (true)
+    //    {            
+    //        AniTag = AnimationTag.Attack; // 공격애니 실행시키고
+    //        skill.Use(this);            
+    //        yield return new WaitForSeconds(attackIntervalTime); 
+    //    }
+    //}
+
     IEnumerator AttackCo()
     {
         while (true)
         {
-            AniTag = AnimationTag.Attack; // 공격애니 실행시키고
-            skill.Use(this);            
-            yield return new WaitForSeconds(attackIntervalTime); 
-        }
+            while (attackDelayTime <= attackIntervalTime) // 인터벌타임보다 대기시간이 커지면
+            {
+                attackDelayTime += Time.deltaTime;
+                yield return null;
+            }
+            attackDelayTime = 0;
+            skill.Use(this);
+        }                
     }
 
     private void OnTriggerEnter(Collider other) // 플레이어가 맞을 때 때리는 놈의 정보를 참조, character로 옮겨도 문제없으면 옮기기
