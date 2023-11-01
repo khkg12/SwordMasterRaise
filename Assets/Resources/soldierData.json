@@ -1,0 +1,72 @@
+[
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 1000,
+        "id": 0
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 2000,
+        "id": 1
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 3000,
+        "id": 2
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 4000,
+        "id": 3
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 5000,
+        "id": 4
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 6000,
+        "id": 5
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 7000,
+        "id": 6
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 8000,
+        "id": 7
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 9000,
+        "id": 8
+    },
+    {
+        "soldierName": "레인",
+        "explanation": "플레이어의 공격력의 300%으로 5초마다 발도를 행합니다.",
+        "isHave": false,
+        "requireGold": 1000,
+        "id": 9
+    }
+]

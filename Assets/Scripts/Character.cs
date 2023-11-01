@@ -54,12 +54,7 @@ public class Character : MonoBehaviour, IHitable
             damageText.GetComponent<FloatingText>().Color = Color.white;
             if (hp <= 0)
             {
-                // Die()함수실행
-                // Destroy(gameObject);
-                // 동료가 character를 상속받는 구조일 시 virtual 템플릿메소드패턴 써서 Player가 죽었을 때만 게임종료되게 할 것
-                // 그리고 Player사망시에만 GameManager.instance.monsterCount 0으로 초기화
-                //SceneManager.LoadScene("Main"); // Dead로 바꾸기, 아니면 버튼하나 띄우고 버튼클릭 시 Main씬으로 UiManager만들어야할듯 이거쓰려면
-                // UIManager.instance.ShowDefeatUI();
+                Die();
             }
         }
     }
@@ -139,13 +134,12 @@ public class Character : MonoBehaviour, IHitable
     }
     StateTag changeStateTag;
 
-    public bool IsHit
+    public bool IsHit // 몬스터에서만 써서 굳이 인터페이스가 가지고있을 필요없을듯
     {
         get => isHit;
         set
         {
-            isHit = value;  
-            // 
+            isHit = value;              
         }
     }
     private bool isHit;
@@ -191,7 +185,17 @@ public class Character : MonoBehaviour, IHitable
     protected virtual void Init()
     {
         Debug.LogError("부모의 Init이 실행! 자식에서 재정의하세요");    
-    }   
+    } 
+    
+    protected virtual void Die()
+    {
+        Debug.LogError("부모의 Die가 실행! 자식에서 재정의하세요");
+        // Destroy(gameObject);
+        // 동료가 character를 상속받는 구조일 시 virtual 템플릿메소드패턴 써서 Player가 죽었을 때만 게임종료되게 할 것
+        // 그리고 Player사망시에만 GameManager.instance.monsterCount 0으로 초기화
+        //SceneManager.LoadScene("Main"); // Dead로 바꾸기, 아니면 버튼하나 띄우고 버튼클릭 시 Main씬으로 UiManager만들어야할듯 이거쓰려면
+        // UIManager.instance.ShowDefeatUI();
+    }    
 
     public virtual void AttackStart()
     {

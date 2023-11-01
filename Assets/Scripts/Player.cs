@@ -51,6 +51,13 @@ public class Player : Character
         Range = 5; // 시험해보려고 임시값넣은것
     }
 
+    protected override void Die()
+    {
+        gameObject.SetActive(false);
+        GameManager.instance.IsGameStop = true;
+        UIManager.instance.ShowDefeatUI();
+    }
+
     public override void AttackStart()
     {    
         StartCoroutine(attackCo);        
@@ -76,7 +83,8 @@ public class Player : Character
         if (other.gameObject.TryGetComponent(out IAttackable attackable)) // attackable이라 플레이어스킬에도 맞을것같다. 레이어를 사용? -> IAttackable이나 IHitable에 LayerMask를 추가해야하나
         {            
             if (attackable.TargetLayerMask == myLayerMask) // 공격하는 놈의 타겟레이어와 맞는놈의 레이어가 동일한 경우에만 Attack
-            {                
+            {
+                Debug.Log("asdsad");
                 attackable.Attack(this);
             }            
         }             

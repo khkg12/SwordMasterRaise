@@ -135,7 +135,7 @@ public class AttackState : State
         {
             character.SetForward();
             float distance = Vector3.Distance(character.transform.position, character.target.transform.position);
-            if (distance > NONE_TARGET_DISTANCE)
+            if (distance > NONE_TARGET_DISTANCE) // 일정거리만큼 적이 멀어지면 IDLE로 
             {                
                 character.ChangeStateTag = StateTag.Idle;
             }
@@ -144,8 +144,7 @@ public class AttackState : State
 }
 
 public class SkillState : State
-{
-    float skillDamageAmount;
+{    
     float durationTime;
     public SkillState(Character character) : base(character) { }    
 

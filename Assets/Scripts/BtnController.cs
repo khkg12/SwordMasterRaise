@@ -7,6 +7,7 @@ public class BtnController : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
+        GameManager.instance.IsGameStop = false;
         SceneManager.LoadScene(sceneName);
     }   
 }

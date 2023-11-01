@@ -10,6 +10,6 @@ public class PlayerGoodsUI : MonoBehaviour
 
     void Update()
     {
-        goldText.text = $"{DataManager.instance.playerData.gold}";   
+        goldText.text = $"{DataManager.instance.Gold}";   
     }
 }

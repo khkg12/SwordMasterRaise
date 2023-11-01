@@ -825,7 +825,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5964770940423601432}
-  - component: {fileID: 5964770940423601439}
   m_Layer: 7
   m_Name: ToesEnd_R
   m_TagString: Untagged
@@ -848,19 +847,6 @@ Transform:
   m_Father: {fileID: 5964824122041899402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.648}
---- !u!65 &5964770940423601439
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5965895269878892964}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5965895615970728154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1286,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &6024363382046357892
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1317,8 +1303,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &6024363382046357914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2581,7 +2566,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6024660156022369670
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2598,8 +2583,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7197300698841813917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2613,7 +2597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  characterRenderer: {fileID: 0}
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -2622,8 +2605,6 @@ MonoBehaviour:
     m_Bits: 128
   hpBar: {fileID: 8299658251720949945}
   shadowHpBar: {fileID: 367348461237850268}
-  currentSkill: {fileID: 0}
-  target: {fileID: 0}
   weapon: {fileID: 6024363382046357913}
   skillInven: {fileID: 0}
 --- !u!114 &7197300698841813916
@@ -2666,7 +2647,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5966295353068045944}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 0.5}
@@ -3165,7 +3146,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5969802551478816248}
-  - component: {fileID: 5969802551478816255}
   m_Layer: 7
   m_Name: ToesEnd_L
   m_TagString: Untagged
@@ -3188,19 +3168,6 @@ Transform:
   m_Father: {fileID: 5964730229402800072}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.735}
---- !u!65 &5969802551478816255
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5966344177991082068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5966346895085303480
 GameObject:
   m_ObjectHideFlags: 0

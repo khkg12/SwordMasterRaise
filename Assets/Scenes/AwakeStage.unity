@@ -2707,7 +2707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3671,7 +3670,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4411075535419059}
-  - component: {fileID: 4411075535419060}
   m_Layer: 7
   m_Name: ToesEnd_R
   m_TagString: Untagged
@@ -3966,7 +3964,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586622633199187}
-  - component: {fileID: 4586622633199188}
   m_Layer: 7
   m_Name: ToesEnd_L
   m_TagString: Untagged
@@ -8093,7 +8090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194394039848403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8855,19 +8852,6 @@ Transform:
   m_Father: {fileID: 4498820891529761}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.648}
---- !u!65 &4411075535419060
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031803222114831}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &4412904157828577
 Transform:
   m_ObjectHideFlags: 0
@@ -9450,19 +9434,6 @@ Transform:
   m_Father: {fileID: 4027246017660003}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.735}
---- !u!65 &4586622633199188
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128253418384383}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &4587145427173491
 Transform:
   m_ObjectHideFlags: 0
@@ -10592,7 +10563,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300000, guid: f756476a5bceb5544a9dd5876873880b, type: 3}
 --- !u!95 &95247235274945071
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10609,8 +10580,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!54 &95247235274945072
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10657,7 +10627,7 @@ MonoBehaviour:
     m_Bits: 0
 --- !u!95 &95508206422418989
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10674,8 +10644,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!137 &137027985697315511
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -11321,15 +11290,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  characterRenderer: {fileID: 0}
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 256
   myLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  currentSkill: {fileID: 0}
-  target: {fileID: 0}
+  hpBar: {fileID: 0}
+  shadowHpBar: {fileID: 0}
   weapon: {fileID: 95247235274945074}
   skillInven: {fileID: 330317921}
 --- !u!114 &3542440177080981559
@@ -11353,7 +11321,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194394039848403}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 0.5}

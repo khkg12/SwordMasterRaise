@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 6bd0cba95c48fe9409d4a7459ba9bedc
 ModelImporter:
-  serializedVersion: 21300
+  serializedVersion: 21202
   internalIDToNameTable:
   - first:
       1: 100000
@@ -540,14 +540,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.1825727
+      - time: 0.20331962
         functionName: WeaponEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.4788011
+      - time: 0.3402491
         functionName: WeaponDisable
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1446,7 +1446,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

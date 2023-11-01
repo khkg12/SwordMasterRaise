@@ -3,7 +3,7 @@
         "stageName": "한적한 풀숲",
         "id": 0,
         "idArr": [ 0, 1 ],
-        "countArr": [ 5, 5 ],
+        "countArr": [ 0, 1 ],
         "rewardGold": 100,
         "rewardExp": 30
     },
