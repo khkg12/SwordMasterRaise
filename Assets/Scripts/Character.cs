@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 using System;
+using Random = UnityEngine.Random;
 
 public enum AnimationTag
 {
@@ -217,6 +218,10 @@ public class Character : MonoBehaviour, IHitable
 
     public void Hit(IAttackable attackable)
     {
-        Hp -= attackable.Atk;        
+        const float OFFSET_RATE = 0.1f;
+        float atk = attackable.Atk;
+        float offset = atk * OFFSET_RATE;
+        atk = (int)Random.Range(atk - offset, atk + offset);
+        Hp -= atk;
     }  
 }
