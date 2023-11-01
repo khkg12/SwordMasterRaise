@@ -51,7 +51,7 @@ public class Character : MonoBehaviour, IHitable
             hpBar.fillAmount = hp / maxHp;
             GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(transform.position, Quaternion.identity);
             damageText.GetComponent<FloatingText>().Damage = damage;
-            damageText.GetComponent<FloatingText>().Color = Color.white;
+            damageText.GetComponent<FloatingText>().Color = Color.black;
             if (hp <= 0)
             {
                 Die();
