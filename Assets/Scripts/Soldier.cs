@@ -13,7 +13,7 @@ public class Soldier : Character
     {
         attackCo = AttackCo();
         base.Start();        
-    }   
+    }    
 
     protected override void Init() // Soldier한테 필요한 상태만 넣어주기
     {

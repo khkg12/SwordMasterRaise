@@ -8,6 +8,15 @@ public class FollowCam : MonoBehaviour
     const float OFFSET_DISTANCE_Y = 4;
     const float OFFSET_DISTANCE_Z = 3;
     const float OFFSET_ANGLE_X = 50;
+    public bool IsEnabled
+    {
+        get => enabled;
+        set
+        {
+            enabled = value;
+        }
+    }       
+
     void Update()
     {
         transform.position = new Vector3(target.position.x, OFFSET_DISTANCE_Y, target.position.z - OFFSET_DISTANCE_Z);

@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour, IAttackable
         hitable.Hit(this);
     }
 
-    public void SetAttack(float atk, LayerMask targetLayerMask)
+    public void SetAttack(float atk, LayerMask targetLayerMask, int attackNum)
     {
         Atk = atk;
         TargetLayerMask = targetLayerMask;

@@ -12,6 +12,6 @@ public class LongRangeMonster : Monster
         animator.SetTrigger("AttackTrigger");        
         GameObject po = PoolManager.instance.objectPoolDic[projectileObj.name].PopObj(transform.position, transform.rotation);        
         po.GetComponent<ProjectileObj>().SetRotate(transform);
-        po.GetComponent<ProjectileObj>().SetAttack(Atk, TargetLayerMask);
+        po.GetComponent<ProjectileObj>().SetAttack(Atk, TargetLayerMask, 1); // 매직변수 처리
     }
 }

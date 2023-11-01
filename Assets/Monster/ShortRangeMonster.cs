@@ -13,7 +13,7 @@ public class ShortRangeMonster : Monster
 
     private void Start()
     {
-        weapon.SetAttack(Atk, TargetLayerMask);
+        weapon.SetAttack(Atk, TargetLayerMask, 1); // 매직변수
         attackerCol = weapon.transform.GetComponent<Collider>(); 
     }
 

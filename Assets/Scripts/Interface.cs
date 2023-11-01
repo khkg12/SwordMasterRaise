@@ -7,7 +7,7 @@ public interface IAttackable
     LayerMask TargetLayerMask { get; set; }
     float Atk {  get; set; }
     void Attack(IHitable hitable);
-    void SetAttack(float atk, LayerMask targetLayerMask);
+    void SetAttack(float atk, LayerMask targetLayerMask, int attackNum);
 }
 
 public interface IHitable

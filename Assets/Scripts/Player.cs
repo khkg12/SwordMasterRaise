@@ -24,7 +24,7 @@ public class Player : Character
         awakeningComponent = GetComponent<AwakeningComponent>();
         awakeningComponent.AwakeLevel = DataManager.instance.playerData.awakeLevel; // 플레이어의 awakeLevel로 세팅
         attackCo = AttackCo();
-        weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
+        weapon.SetAttack(Atk, TargetLayerMask, 1); // 웨폰 스탯 셋팅
         attackerCol = weapon.transform.GetComponent<Collider>();
     }
     

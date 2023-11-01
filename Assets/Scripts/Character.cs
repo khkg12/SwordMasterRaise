@@ -171,7 +171,7 @@ public class Character : MonoBehaviour, IHitable
         fsm.Update();
     }
 
-    public void StatusInit()
+    public virtual void StatusInit()
     {
         hp = DataManager.instance.playerData.hp.stat;
         maxHp = DataManager.instance.playerData.hp.stat;

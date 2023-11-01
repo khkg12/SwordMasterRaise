@@ -11747,16 +11747,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillList:
-  - {fileID: 11400000, guid: 3df82fff92a56974db8f01253ac7b635, type: 2}
+  - {fileID: 11400000, guid: 0337c16ecc10b484c8ef496aaa20cbcc, type: 2}
   - {fileID: 11400000, guid: a0094c2139e3ce54cae25081de789189, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
-  - {fileID: 11400000, guid: a9c61cf2f89662649a037cd466bfc85e, type: 2}
+  - {fileID: 11400000, guid: b4f12329f53d1934b89006f245ce234f, type: 2}
+  - {fileID: 11400000, guid: 496d511c415b3044288a4a41ad4ad4ad, type: 2}
+  - {fileID: 11400000, guid: 85cf0d1fb8c2b494ca1f18c1d9b44c30, type: 2}
+  - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
+  - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
+  - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
+  - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
+  - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
   soldierPrefabList:
   - {fileID: 1060029176277862, guid: a8c842044afba0e40a637e90347bdcb2, type: 3}
   - {fileID: 1194394832456452, guid: 6a740cd9879921340a3082bd1ec2cad6, type: 3}
@@ -24058,6 +24058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -35228,7 +35229,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &5288373062036018582
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -35245,10 +35246,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!95 &5288670350890041748
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -35265,7 +35267,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!137 &5318931097206586638
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -36913,7 +36916,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8743981730318033655
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -36930,7 +36933,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8821079746938731214
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,13 +8,20 @@ using UnityEngine.Pool;
 
 public class ObjectPool : MonoBehaviour
 {
-    // public GameObject parent;
+    public GameObject parent;
     public GameObject prefab;
     public Queue<GameObject> queue;
     public int initSize;    
 
-    public ObjectPool(int size, GameObject obj)
+    public ObjectPool(int size, GameObject obj, GameObject parentObj)
     {
+        parent = Instantiate(parentObj);
+        int index = parent.name.IndexOf("(Clone)");
+        if (index > 0)
+        {
+            parent.name = parent.name.Substring(0, index); // Clone 텍스트 제거 
+            parent.name = obj.name + parent.name;
+        }            
         queue = new Queue<GameObject>();
         initSize = size;
         prefab = obj;        
@@ -60,7 +67,7 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < size; i++)
         {
             GameObject temp = null;
-            temp = Instantiate(prefab);
+            temp = Instantiate(prefab, parent.transform);
             int index = temp.name.IndexOf("(Clone)");
             if (index > 0)
                 temp.name = temp.name.Substring(0, index); // Clone 텍스트 제거            
@@ -80,6 +87,7 @@ public class PoolProperty
 
 public class PoolManager : MonoBehaviour
 {
+    [SerializeField] GameObject parentObj;
     public static PoolManager instance;
     public Dictionary<string, ObjectPool> objectPoolDic = new Dictionary<string, ObjectPool>();    
     [SerializeField] List<PoolProperty> poolPropertyList;
@@ -97,7 +105,7 @@ public class PoolManager : MonoBehaviour
     {
         foreach (PoolProperty poolProperty in poolPropertyList) // 투사체
         {
-            objectPoolDic.Add(poolProperty.prefab.name, new ObjectPool(poolProperty.size, poolProperty.prefab));
+            objectPoolDic.Add(poolProperty.prefab.name, new ObjectPool(poolProperty.size, poolProperty.prefab, parentObj));
             objectPoolDic[poolProperty.prefab.name].CreatePool(poolProperty.size);
         }
     }
@@ -107,7 +115,7 @@ public class PoolManager : MonoBehaviour
         for (int i = 0; i < stageData.idArr.Length; i++)
         {
             int index = stageData.idArr[i];
-            objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.countArr[i], monsterList[index]));
+            objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.countArr[i], monsterList[index], parentObj));
             objectPoolDic[monsterList[index].name].CreatePool(stageData.countArr[i]);
         }
     }
@@ -115,7 +123,7 @@ public class PoolManager : MonoBehaviour
     public void InitAwakeMonsterPool(AwakeStageData stageData, List<GameObject> monsterList)
     {
         int index = stageData.bossId;
-        objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.count, monsterList[index]));
+        objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.count, monsterList[index], parentObj));
         objectPoolDic[monsterList[index].name].CreatePool(stageData.count);
     }
 }
