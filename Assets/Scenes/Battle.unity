@@ -2281,6 +2281,10 @@ MonoBehaviour:
     size: 5
   - prefab: {fileID: 1644958980890870, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
     size: 5
+  - prefab: {fileID: 1872147318604286, guid: 5bea49531fc500c408823a2e2863106f, type: 3}
+    size: 10
+  - prefab: {fileID: 1919708242137258, guid: 88229c305b18931489f772f99cfaa40f, type: 3}
+    size: 3
 --- !u!4 &1597872292
 Transform:
   m_ObjectHideFlags: 0
@@ -3066,5 +3070,17 @@ PrefabInstance:
       propertyPath: skillInven
       value: 
       objectReference: {fileID: 330317921}
+    - target: {fileID: 9073981559429439210, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
+      propertyPath: awakeSkillList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0337c16ecc10b484c8ef496aaa20cbcc, type: 2}
+    - target: {fileID: 9073981559429439210, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
+      propertyPath: awakeSkillList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 410234cf7bfbc7145a3f360237d2b1ed, type: 2}
+    - target: {fileID: 9073981559429439210, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
+      propertyPath: awakeSkillList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8efc0e478e1fb7c46b02f5ae722a481e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}

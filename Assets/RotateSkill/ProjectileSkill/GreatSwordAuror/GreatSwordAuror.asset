@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e12128c7f6d07c4892f4ed23cc7672d, type: 3}
+  m_Name: GreatSwordAuror
+  m_EditorClassIdentifier: 
+  skillObj: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6960c6bd5088317429f7e0e033bee813, type: 3}
+  skillName: "\uADF9\uCD08\uAC80\uAE30"
+  requiredLevel: 0
+  Level: 0
+  attackNum: 3
+  skillText: "\uCC9C\uCC9C\uD788 \uC774\uB3D9\uD558\uB294 \uB300\uD615\uAC80\uAE30\uB97C
+    \uB0A0\uB9BD\uB2C8\uB2E4."
+  coolTime: 10
+  rate: 1.5

@@ -174,8 +174,8 @@ public class Character : MonoBehaviour, IHitable
 
     public virtual void StatusInit()
     {
-        hp = DataManager.instance.playerData.hp.stat;
         maxHp = DataManager.instance.playerData.hp.stat;
+        hp = maxHp;
         MoveSpeed = DataManager.instance.playerData.speed.stat;
         if (GameManager.instance.equipItemInfo.atkRate != 0) // 수정하기
             Atk = (int)(DataManager.instance.playerData.atk.stat * (GameManager.instance.equipItemInfo.atkRate / 100)); // 장착무기 공격력증가만큼 상승        

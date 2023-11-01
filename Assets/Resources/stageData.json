@@ -3,7 +3,7 @@
         "stageName": "한적한 풀숲",
         "id": 0,
         "idArr": [ 0, 1 ],
-        "countArr": [ 0, 1 ],
+        "countArr": [ 3, 3 ],
         "rewardGold": 100,
         "rewardExp": 30
     },
@@ -11,7 +11,7 @@
         "stageName": "스컬들의 숲",
         "id": 1,
         "idArr": [ 0, 1 ],
-        "countArr": [ 10, 10 ],
+        "countArr": [ 6, 6 ],
         "rewardGold": 150,
         "rewardExp": 50
     },
@@ -19,8 +19,41 @@
         "stageName": "언데드의 묘지",
         "id": 2,
         "idArr": [ 0, 1 ],
-        "countArr": [ 15, 15 ],
+        "countArr": [ 8, 10 ],
         "rewardGold": 200,
         "rewardExp": 70
-    }
+    },
+  {
+    "stageName": "그림자 숲",
+    "id": 3,
+    "idArr": [ 0, 1 ],
+    "countArr": [ 10, 12 ],
+    "rewardGold": 300,
+    "rewardExp": 80
+  },
+  {
+    "stageName": "죽음의 땅",
+    "id": 4,
+    "idArr": [ 0, 1 ],
+    "countArr": [ 15, 12 ],
+    "rewardGold": 400,
+    "rewardExp": 100
+  },
+  {
+    "stageName": "죽은 숲",
+    "id": 5,
+    "idArr": [ 0, 1 ],
+    "countArr": [ 15, 15 ],
+    "rewardGold": 600,
+    "rewardExp": 150
+  },
+  {
+    "stageName": "지 옥",
+    "id": 6,
+    "idArr": [ 0, 1 ],
+    "countArr": [ 20, 20 ],
+    "rewardGold": 1000,
+    "rewardExp": 180
+  }
+
 ]

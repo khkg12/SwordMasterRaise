@@ -1992,8 +1992,8 @@ MonoBehaviour:
   monsterRenderer: {fileID: 7463904792337385000}
   hpBar: {fileID: 7463904791771095285}
   isSuperArmor: 1
-  hp: 100
-  MaxHp: 100
+  hp: 10000
+  atk: 50
   weapon: {fileID: 7463904791775567098}
 --- !u!1 &7463904792110929865
 GameObject:

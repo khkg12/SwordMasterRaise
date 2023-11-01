@@ -1877,6 +1877,22 @@ PrefabInstance:
       propertyPath: skillInven
       value: 
       objectReference: {fileID: 330317921}
+    - target: {fileID: 9073981559429439210, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
+      propertyPath: awakeSkillList.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073981559429439210, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
+      propertyPath: awakeSkillList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0337c16ecc10b484c8ef496aaa20cbcc, type: 2}
+    - target: {fileID: 9073981559429439210, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
+      propertyPath: awakeSkillList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 410234cf7bfbc7145a3f360237d2b1ed, type: 2}
+    - target: {fileID: 9073981559429439210, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
+      propertyPath: awakeSkillList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 496d511c415b3044288a4a41ad4ad4ad, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e759b55f8156ffc49850bab4ccd5ded8, type: 3}
 --- !u!4 &1001120342 stripped
@@ -2399,6 +2415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b85369a36faad438bb315f970a2470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentObj: {fileID: 8553322364753598902, guid: eaaa8939671e38f4e9868c3d8e27a312, type: 3}
   poolPropertyList:
   - prefab: {fileID: 7739625968221865797, guid: dedcc048e9938e546951a22e6eebc489, type: 3}
     size: 30
@@ -2410,6 +2427,14 @@ MonoBehaviour:
     size: 5
   - prefab: {fileID: 1996079926692674, guid: 4a2b1860da60c284a98e98a190695e45, type: 3}
     size: 5
+  - prefab: {fileID: 1893033738566276, guid: 6ac3721cc4fdd1a46bdbf49788ab197b, type: 3}
+    size: 5
+  - prefab: {fileID: 1644958980890870, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
+    size: 5
+  - prefab: {fileID: 1872147318604286, guid: 5bea49531fc500c408823a2e2863106f, type: 3}
+    size: 5
+  - prefab: {fileID: 1919708242137258, guid: 88229c305b18931489f772f99cfaa40f, type: 3}
+    size: 3
 --- !u!4 &1597872292
 Transform:
   m_ObjectHideFlags: 0

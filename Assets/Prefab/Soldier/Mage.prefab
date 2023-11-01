@@ -232,7 +232,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95762697582116756
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -249,7 +249,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-1311380463676548951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +273,7 @@ MonoBehaviour:
   hpBar: {fileID: 2119561013749826621}
   shadowHpBar: {fileID: 8102176615602693810}
   attackIntervalTime: 5
-  skill: {fileID: 11400000, guid: a0094c2139e3ce54cae25081de789189, type: 2}
+  skill: {fileID: 11400000, guid: 410234cf7bfbc7145a3f360237d2b1ed, type: 2}
 --- !u!65 &8103684793861301775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6551,7 +6552,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &95728336644365892
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6568,7 +6569,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1898353158767972
 GameObject:
   m_ObjectHideFlags: 0

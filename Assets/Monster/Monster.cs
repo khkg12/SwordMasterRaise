@@ -36,8 +36,8 @@ public class Monster : MonoBehaviour, IHitable
             }
         }
     }
-    [SerializeField] private float hp = 100; // 실험용
-    private float maxHp = 100;
+    [SerializeField] private float hp; // 실험용
+    private float maxHp;
 
     public float Atk
     {
@@ -89,17 +89,17 @@ public class Monster : MonoBehaviour, IHitable
             target = FindObjectOfType<Player>();
         }
         animator = GetComponent<Animator>();
-        orginColor = monsterRenderer.material.color;               
+        orginColor = monsterRenderer.material.color;        
     }
 
     private void OnEnable()
     {                
         StartCoroutine(AttackCo());
         IsHit = false;
-        Hp = maxHp;
+        monsterInit();
     }
 
-    void Update()
+    protected void Update()
     {               
         if (targetDis() < range) // 범위안이라면 공격, range로 빼기
         {            
@@ -158,6 +158,7 @@ public class Monster : MonoBehaviour, IHitable
         //{
         //    Hp = mosnterData[id].hp;
         //}
+        maxHp = hp;
     }
 
     public void Hit(IAttackable attackable)
