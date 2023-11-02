@@ -125,6 +125,15 @@ public class PoolManager : MonoBehaviour
         }           
     }
 
+    public void InitSkillPool(Skill skill)
+    {
+        if(skill != null)
+        {
+            objectPoolDic.Add(skill.skillObj.name, new ObjectPool(SKILL_POOL_SIZE, skill.skillObj, parentObj));
+            objectPoolDic[skill.skillObj.name].CreatePool(SKILL_POOL_SIZE);
+        }
+    }
+
     public void InitSoldierSkillPool(GameObject soldierObj)
     {
         if(soldierObj != null && soldierObj.gameObject.TryGetComponent(out Soldier soldier)) // 솔져오브젝트가 있으면

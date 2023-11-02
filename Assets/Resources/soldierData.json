@@ -2,14 +2,14 @@
   {
     "soldierName": "진",
     "explanation": "무명검사 진\n 사용스킬 : 발도\n 스킬사용주기 : 5초\n",
-    "isHave": false,
+    "isHave": true,
     "requireGold": 1000,
     "id": 0
   },
   {
     "soldierName": "레인",
     "explanation": "검사 레인\n 사용스킬 : 발도\n 스킬사용주기 : 5초\n",
-    "isHave": false,
+    "isHave": true,
     "requireGold": 2000,
     "id": 1
   },

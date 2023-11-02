@@ -103,12 +103,12 @@ public class DataManager : Singleton<DataManager>
         set
         {
             playerData.exp = value;
-            if(playerData.exp >= playerData.maxExp)
+            while(playerData.exp > playerData.maxExp) // 한번에 여러레벨을 올릴 수 있는경우도 있으니
             {
-                playerData.maxExp = (int)(1.1f * playerData.maxExp);
                 playerData.exp -= playerData.maxExp; // 레벨업하고 남은 양 채우기
                 playerData.level++; // 레벨업
-            }
+                playerData.maxExp = (int)(1.5f * playerData.maxExp);                
+            }            
         }
     }
 
@@ -167,7 +167,9 @@ public class DataManager : Singleton<DataManager>
 
     public void SaveItemData()
     {
-        var jsonData = JsonConvert.SerializeObject(itemDataArr, Formatting.Indented);        
+        var jsonData = JsonConvert.SerializeObject(itemDataArr, Formatting.Indented);
+        Debug.Log("Asdad");
+        Debug.Log(jsonData);
         File.WriteAllText(itemDataPath, jsonData);
     }
 

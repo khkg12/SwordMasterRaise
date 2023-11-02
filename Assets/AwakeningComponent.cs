@@ -34,6 +34,7 @@ public class AwakeningComponent : MonoBehaviour
             {
                 enabled = true;
                 awakeSkill = awakeSkillList[awakeLevel]; // 각성 오브젝트 세팅
+                PoolManager.instance.InitSkillPool(awakeSkill);
                 requiredAttackNum = requiredAttackNums[awakeLevel]; // 필요타수 세팅
             }            
         }

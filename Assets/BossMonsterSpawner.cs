@@ -27,7 +27,8 @@ public class BossMonsterSpawner : MonoBehaviour
     Vector3 SpawnPos = new Vector3(0, 0, 5);
 
     private void Start()
-    {        
+    {
+        awakenMonsterCount = 0;
         awakestageData = DataManager.instance.currentAwakeStageData;
         PoolManager.instance.InitAwakeMonsterPool(awakestageData, monsterList);
         MonsterSpawn();

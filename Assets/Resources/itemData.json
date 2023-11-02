@@ -10,38 +10,38 @@
   },
   {
     "itemName": "강철검",
-    "isHave": false,
+    "isHave": true,
     "atkRate": 150.0,
     "upgradeGold": 600.0,
     "upgradeCount": 0,
-    "itemCount": 0,
+    "itemCount": 3,
     "itemWeight": 20.0
   },
   {
     "itemName": "철파검",
-    "isHave": false,
+    "isHave": true,
     "atkRate": 190.0,
     "upgradeGold": 1000.0,
     "upgradeCount": 0,
-    "itemCount": 0,
+    "itemCount": 3,
     "itemWeight": 20.0
   },
   {
     "itemName": "장검",
-    "isHave": false,
+    "isHave": true,
     "atkRate": 250.0,
     "upgradeGold": 1500.0,
     "upgradeCount": 0,
-    "itemCount": 0,
+    "itemCount": 3,
     "itemWeight": 20.0
   },
   {
     "itemName": "귀검",
-    "isHave": false,
-    "atkRate": 110.0,
-    "upgradeGold": 500.0,
+    "isHave": true,
+    "atkRate": 9331.0,
+    "upgradeGold": 492319.0,
     "upgradeCount": 0,
-    "itemCount": 0,
+    "itemCount": 1,
     "itemWeight": 4.0
   },
   {
