@@ -15,7 +15,7 @@ public class Monster : MonoBehaviour, IHitable
     [SerializeField] private Renderer monsterRenderer;
     [SerializeField] private Image hpBar;
     [SerializeField] private bool isSuperArmor;
-
+    bool isDead;
     public float Hp
     {
         get => hp;
@@ -30,8 +30,10 @@ public class Monster : MonoBehaviour, IHitable
             }
             hp = value;
             hpBar.fillAmount = hp / maxHp;
-            if (hp <= 0)
-            {                
+            if (hp <= 0 && !isDead)
+            {
+                Debug.Log("asd");
+                isDead = true;                
                 DIe();
             }
         }
@@ -97,6 +99,7 @@ public class Monster : MonoBehaviour, IHitable
     {                
         StartCoroutine(AttackCo());
         IsHit = false;
+        isDead = false;
         hp = maxHp;
     }
 
@@ -193,9 +196,9 @@ public class Monster : MonoBehaviour, IHitable
     }    
 
     public virtual void DIe()
-    {
-        GameManager.instance.monsterCount--;
+    {        
         PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);
+        GameManager.instance.monsterCount--;
     }
 
     // eventÇÔ¼ö

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e12128c7f6d07c4892f4ed23cc7672d, type: 3}
   m_Name: SwordAuror
   m_EditorClassIdentifier: 
-  skillObj: {fileID: 8550976458280956172, guid: 04d37f58bd0b0154581f209ddc259d3a, type: 3}
+  skillObj: {fileID: 1585743060672840, guid: 8c5c13687878cfe4f897f4d72fb2aab2, type: 3}
   sprite: {fileID: 21300000, guid: 2a5c892bdd014164da633b8c6fd0f246, type: 3}
   skillName: "\uAC80\uAE30\uB0A0\uB9AC\uAE30"
   requiredLevel: 0

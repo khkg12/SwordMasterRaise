@@ -11754,8 +11754,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 496d511c415b3044288a4a41ad4ad4ad, type: 2}
   - {fileID: 11400000, guid: 85cf0d1fb8c2b494ca1f18c1d9b44c30, type: 2}
   - {fileID: 11400000, guid: 8efc0e478e1fb7c46b02f5ae722a481e, type: 2}
-  - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
-  - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
+  - {fileID: 11400000, guid: 49133a9f99bd76a4986db35b4de28fe0, type: 2}
+  - {fileID: 11400000, guid: 8da945842838fc94b8f74a19e76bbb89, type: 2}
   - {fileID: 11400000, guid: e0c9c4f04bcab5f48a36f621e673d0fe, type: 2}
   soldierPrefabList:
   - {fileID: 1060029176277862, guid: a8c842044afba0e40a637e90347bdcb2, type: 3}

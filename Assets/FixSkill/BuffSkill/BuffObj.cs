@@ -27,8 +27,7 @@ public class BuffObj : MonoBehaviour
     {
         this.character = character;
         this.recovery = recovery;
-        this.recoveryNum = recoveryNum;
-        Debug.Log(recoveryNum);
+        this.recoveryNum = recoveryNum;        
     }
 
     public void StartRecoveryCo()
@@ -42,8 +41,7 @@ public class BuffObj : MonoBehaviour
         PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject); // 풀에 돌려줌
     }
     IEnumerator RecoveryCo() // 회복텀은 1초, 회복횟수에 따라 3번이면 3초 1번이면 1초로
-    {
-        Debug.Log(recoveryNum);
+    {        
         for (int i = 0; i < recoveryNum; i++)
         {            
             character.Hp += recovery;            

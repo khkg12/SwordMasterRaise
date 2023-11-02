@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e12128c7f6d07c4892f4ed23cc7672d, type: 3}
   m_Name: DarkSword
   m_EditorClassIdentifier: 
-  skillObj: {fileID: 1996079926692674, guid: 4a2b1860da60c284a98e98a190695e45, type: 3}
+  skillObj: {fileID: 1044528419629608, guid: bcc81dde05547a84d81cb5648db92f05, type: 3}
   sprite: {fileID: 21300000, guid: bbe833a9207e7fa41bbd3ce71ad09605, type: 3}
   skillName: "\uB2E4\uD06C\uC18C\uB4DC"
   requiredLevel: 0
-  Level: 0
-  attackNum: 5
+  skillNum: 3
   skillText: "\uCC9C\uCC9C\uD788 \uC9C0\uB098\uAC00\uB294 \uAC80\uD48D\uC744 \uB0A0\uB9BD\uB2C8\uB2E4."
-  coolTime: 3
-  rate: 0.8
+  coolTime: 8
+  rate: 5
