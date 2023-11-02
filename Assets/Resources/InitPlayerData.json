@@ -1,0 +1,25 @@
+{
+  "awakeLevel": 0,
+  "level": 1,
+  "exp": 0,
+  "maxExp": 100,
+  "gold": 100,
+  "hp": {
+    "name": "체력",
+    "stat": 300,
+    "requireGold": 10,
+    "increaseAmount": 30
+  },
+  "atk": {
+    "name": "공격력",
+    "stat": 10,
+    "requireGold": 10,
+    "increaseAmount": 5
+  },
+  "speed": {
+    "name": "이동속도",
+    "stat": 0.02,
+    "requireGold": 10,
+    "increaseAmount": 0.01
+  }
+}

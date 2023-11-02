@@ -10,13 +10,13 @@ public class SummonsBtnController : MonoBehaviour
     [SerializeField] SummonsUI summonUI;
     public void WeaponSummons()
     {
-        // 확률 계산후 어떤 아이템이 나올지 선정
-        // item에 담기
-        // 나중에 코루틴으로 바꾸고 개수추가하기
-        // 뽑힌 아이템 리스트 여기서 정해지고
-        
-        summonUI.gameObject.SetActive(true);
-        // GetItem(DataManager.instance.itemDataArr[0]); // 임시설정
+        if (DataManager.instance.Gold >= 1000)
+        {
+            DataManager.instance.Gold -= 1000;
+            summonUI.gameObject.SetActive(true);
+        }
+        else
+            Debug.Log("돈부족");
     }    
 
 }

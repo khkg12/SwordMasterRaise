@@ -101,6 +101,7 @@ public class PoolManager : MonoBehaviour
         }
         InitObjectPool();
         InitSkillPool(GameManager.instance.playerSkillList);
+        InitSoldierSkillPool(GameManager.instance.soldierObj);
     }   
     
     public void InitObjectPool()
@@ -121,6 +122,14 @@ public class PoolManager : MonoBehaviour
                 objectPoolDic.Add(skill.skillObj.name, new ObjectPool(SKILL_POOL_SIZE, skill.skillObj, parentObj));
                 objectPoolDic[skill.skillObj.name].CreatePool(SKILL_POOL_SIZE);
             }            
+        }           
+    }
+
+    public void InitSoldierSkillPool(GameObject soldierObj)
+    {
+        if(soldierObj != null && soldierObj.gameObject.TryGetComponent(out Soldier soldier)) // 솔져오브젝트가 있으면
+        {
+            objectPoolDic.Add(soldier.skill.skillObj.name, new ObjectPool(SKILL_POOL_SIZE, soldier.skill.skillObj, parentObj)); // 지금은 플레이어와 스킬이 같아서 동일한게 있으면 오류남. 솔져스킬 따로분리할것
         }        
     }
 

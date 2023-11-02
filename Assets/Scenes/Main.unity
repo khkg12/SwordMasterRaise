@@ -422,10 +422,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RECALL
+  m_text: "\uBB34\uAE30\uC18C\uD658\n\uD544\uC694\uACE8\uB4DC : 1000"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 64b1c3a8d74616c48ad46a235ef6173f, type: 2}
+  m_sharedMaterial: {fileID: 2101371416573662706, guid: 64b1c3a8d74616c48ad46a235ef6173f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5852,8 +5852,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 31417ab71f2eb5849b47de621f5f81fe, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11768,7 +11768,7 @@ MonoBehaviour:
   - {fileID: 1194394832456452, guid: 6a740cd9879921340a3082bd1ec2cad6, type: 3}
   - {fileID: 1060029176277862, guid: a8c842044afba0e40a637e90347bdcb2, type: 3}
   - {fileID: 1194394832456452, guid: 6a740cd9879921340a3082bd1ec2cad6, type: 3}
-  SoliderObj: {fileID: 0}
+  soldierObj: {fileID: 0}
   playerSkillList:
   - {fileID: 0}
   - {fileID: 0}

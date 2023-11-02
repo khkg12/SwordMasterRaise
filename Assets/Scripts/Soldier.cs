@@ -6,7 +6,7 @@ public class Soldier : Character
 {    
     IEnumerator attackCo;
     [SerializeField] float attackIntervalTime;
-    [SerializeField] Skill skill;
+    public Skill skill;
     float attackDelayTime;
 
     new void Start()

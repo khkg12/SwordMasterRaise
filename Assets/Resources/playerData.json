@@ -3,18 +3,18 @@
   "level": 1,
   "exp": 0,
   "maxExp": 100,
-  "gold": 100,
+  "gold": 40,
   "hp": {
     "name": "체력",
-    "stat": 300,
-    "requireGold": 10,
-    "increaseAmount": 30
+    "stat": 450.0,
+    "requireGold": 15,
+    "increaseAmount": 30.0
   },
   "atk": {
     "name": "공격력",
-    "stat": 10,
+    "stat": 10.0,
     "requireGold": 10,
-    "increaseAmount": 5
+    "increaseAmount": 5.0
   },
   "speed": {
     "name": "이동속도",

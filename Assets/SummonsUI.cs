@@ -69,8 +69,6 @@ public class SummonsUI : MonoBehaviour, IPointerClickHandler
         return null; // 뽑히지않았을 경우 null
     }
 
-
-
     public void GetItem(ItemInfo itemInfo)
     {
         if (!itemInfo.isHave) // isHave가 false라면, 즉 최초획득 아이템이라면

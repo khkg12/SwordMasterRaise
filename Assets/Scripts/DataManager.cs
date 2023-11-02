@@ -82,7 +82,9 @@ public class DataManager : Singleton<DataManager>
     [SerializeField] private TextAsset itemDataFile;
     [SerializeField] private TextAsset soldierDataFile;
     [SerializeField] private Sprite[] itemSprite = new Sprite[16];    
-    string path;
+    string playerDataPath;
+    string itemDataPath;
+    string soldierDataPath;
 
     public PlayerData playerData;        
     public StageData[] stageDataArr;
@@ -122,7 +124,9 @@ public class DataManager : Singleton<DataManager>
     new void Awake()
     {
         base.Awake();
-        path = Path.Combine(Application.dataPath + "/Resources/", "playerData.json"); // 저장 경로 설정
+        playerDataPath = Path.Combine(Application.dataPath + "/Resources/", "playerData.json"); // 저장 경로 설정
+        itemDataPath = Path.Combine(Application.dataPath + "/Resources/", "itemData.json"); // 저장 경로 설정
+        soldierDataPath = Path.Combine(Application.dataPath + "/Resources/", "soldierData.json"); // 저장 경로 설정
         SetData(); // json에서 불러와 playerData에 저장 초기화
         SetStageData();
         SetItemData();
@@ -149,16 +153,28 @@ public class DataManager : Singleton<DataManager>
         soldierDataArr = JsonConvert.DeserializeObject<SoldierInfo[]>(soldierDataFile.text); // 솔져 데이터 저장
     }
 
-    public void SaveData(PlayerData playerData) // PlayerTable의 데이터를 json으로 저장 
-    {
-        var jsonData = JsonConvert.SerializeObject(playerData, Formatting.Indented);        
-        File.WriteAllText(path, jsonData);        
-    }
-
     public void SetStageData()
     {
         stageDataArr = JsonConvert.DeserializeObject<StageData[]>(stageDataFile.text);
         awakeStageDataArr = JsonConvert.DeserializeObject<AwakeStageData[]>(awakeStageDataFile.text);
+    }
+
+    public void SavePlayerData() // PlayerTable의 데이터를 json으로 저장 
+    {
+        var jsonData = JsonConvert.SerializeObject(playerData, Formatting.Indented);        
+        File.WriteAllText(playerDataPath, jsonData);        
+    }
+
+    public void SaveItemData()
+    {
+        var jsonData = JsonConvert.SerializeObject(itemDataArr, Formatting.Indented);        
+        File.WriteAllText(itemDataPath, jsonData);
+    }
+
+    public void SaveSoldierData()
+    {
+        var jsonData = JsonConvert.SerializeObject(soldierDataArr, Formatting.Indented);
+        File.WriteAllText(soldierDataPath, jsonData);
     }   
 }
 

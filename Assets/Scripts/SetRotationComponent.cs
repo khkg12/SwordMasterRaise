@@ -9,15 +9,21 @@ public class SetRotationComponent : MonoBehaviour
 {
     Player player;
     [SerializeField] Image rangeImg;
-    
+    const float MAX_SCALE_TIME = 0.5f;
+    Vector3 originImgScale;
+    Vector3 offsetVec = new Vector3(0.01f, 0.01f, 0);
+    float nowTime;
+
     void Awake()
     {
+        originImgScale = rangeImg.rectTransform.localScale;
         player = GetComponent<Player>();        
     }
     
     void Update()
     {
         GetRotation();
+        RangeImageActive();
     }
 
     void GetRotation()
@@ -37,18 +43,20 @@ public class SetRotationComponent : MonoBehaviour
         }
     }
 
+    void RangeImageActive()
+    {
+        nowTime += Time.deltaTime;
+        rangeImg.rectTransform.localScale += offsetVec;
+        if (nowTime >= MAX_SCALE_TIME)
+        {
+            rangeImg.rectTransform.localScale = originImgScale;
+            nowTime = 0;
+        }
+    }
+
     private void OnEnable()
     {
-        if(player == null)
-        {
-            Debug.Log("체크");          
-        }
-
-        if (player.skillInven == null)
-        {
-            Debug.Log("체크2");
-        }
-
+        rangeImg.rectTransform.localScale = originImgScale;
         rangeImg.gameObject.SetActive(true);
         player.skillInven.EnableSkillSlot(false); // 방향정할 때 스킬슬롯 클릭안되게 끄기
     }
