@@ -36,18 +36,7 @@ public class Soldier : Character
     public override void AttackEnd()
     {
         StopCoroutine(attackCo);
-    }
-
-
-    //IEnumerator AttackCo()
-    //{
-    //    while (true)
-    //    {            
-    //        AniTag = AnimationTag.Attack; // 공격애니 실행시키고
-    //        skill.Use(this);            
-    //        yield return new WaitForSeconds(attackIntervalTime); 
-    //    }
-    //}
+    }    
 
     IEnumerator AttackCo()
     {
@@ -59,6 +48,7 @@ public class Soldier : Character
                 yield return null;
             }
             attackDelayTime = 0;
+            AniTag = AnimationTag.Attack; 
             skill.Use(this);
         }                
     }

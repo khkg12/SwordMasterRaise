@@ -12,6 +12,7 @@ public enum AnimationTag
     Idle,
     Move,
     Attack,
+    Skill
 }
 
 public enum StateTag
@@ -46,20 +47,30 @@ public class Character : MonoBehaviour, IHitable
     {
         get => hp;
         set
-        {
+        {            
             float damage = hp - value;
             hp = value;
-            hpBar.fillAmount = hp / maxHp;
-            GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(transform.position, Quaternion.identity);
-            damageText.GetComponent<FloatingText>().Damage = damage;
-            damageText.GetComponent<FloatingText>().Color = Color.black;
+            if (hp >= maxHp)
+                hp = maxHp;
             if (hp <= 0)
-            {
                 Die();
+            hpBar.fillAmount = hp / maxHp;
+            // 대미지텍스트
+            GameObject damageText = PoolManager.instance.objectPoolDic["DamageText"].PopObj(transform.position, Quaternion.identity);            
+            if (damage >= 0)
+                damageText.GetComponent<FloatingText>().Color = Color.black;
+            else
+            {
+                damageText.GetComponent<FloatingText>().Color = Color.green; // 회복이면 초록색 글씨            
+                damage = -damage;                
             }
+            damageText.GetComponent<FloatingText>().Damage = damage;                                         
         }
     }
     [SerializeField] private float hp;
+
+    public float MaxHp => maxHp;
+
     private float maxHp;
 
     public float MoveSpeed
@@ -104,6 +115,9 @@ public class Character : MonoBehaviour, IHitable
                         animator.SetTrigger("AttackTrigger");
                     // 애니메이션 실행하는 컴포넌트를 has a로 가지고 컴포넌트딴에서 실행시킬지 고민해보기
                     // ex) AnimationComponent.Attack(); <- 애니메이션 컴포넌트가 Animator를 들고있고 거기서 이것저것
+                    break;
+                case AnimationTag.Skill:
+                    animator.SetTrigger("SkillTrigger");
                     break;
             }
         }

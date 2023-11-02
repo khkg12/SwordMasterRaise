@@ -91,6 +91,7 @@ public class PoolManager : MonoBehaviour
     public static PoolManager instance;
     public Dictionary<string, ObjectPool> objectPoolDic = new Dictionary<string, ObjectPool>();    
     [SerializeField] List<PoolProperty> poolPropertyList;
+    const int SKILL_POOL_SIZE = 5;
 
     void Awake()
     {
@@ -99,6 +100,7 @@ public class PoolManager : MonoBehaviour
             instance = this; 
         }
         InitObjectPool();
+        InitSkillPool(GameManager.instance.playerSkillList);
     }   
     
     public void InitObjectPool()
@@ -110,7 +112,19 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public void InitMonsterPool(StageData stageData, List<GameObject> monsterList)
+    public void InitSkillPool(Skill[] skillList) // 플레이어 세팅 스킬오브젝트 풀 세팅
+    {        
+        foreach(Skill skill in skillList)
+        {
+            if(skill != null)
+            {                                
+                objectPoolDic.Add(skill.skillObj.name, new ObjectPool(SKILL_POOL_SIZE, skill.skillObj, parentObj));
+                objectPoolDic[skill.skillObj.name].CreatePool(SKILL_POOL_SIZE);
+            }            
+        }        
+    }
+
+    public void InitMonsterPool(StageData stageData, List<GameObject> monsterList) // 일반던전 데이터를 통한 풀 세팅
     {
         for (int i = 0; i < stageData.idArr.Length; i++)
         {
@@ -120,7 +134,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public void InitAwakeMonsterPool(AwakeStageData stageData, List<GameObject> monsterList)
+    public void InitAwakeMonsterPool(AwakeStageData stageData, List<GameObject> monsterList) // 각성던전 
     {
         int index = stageData.bossId;
         objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.count, monsterList[index], parentObj));

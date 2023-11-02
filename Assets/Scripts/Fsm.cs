@@ -150,6 +150,7 @@ public class SkillState : State
 
     public override void Enter()
     {
+        character.AniTag = AnimationTag.Skill;        
         durationTime = 0;
         character.currentSkill.Use(character);                
     }

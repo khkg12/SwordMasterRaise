@@ -2269,22 +2269,8 @@ MonoBehaviour:
   poolPropertyList:
   - prefab: {fileID: 7739625968221865797, guid: dedcc048e9938e546951a22e6eebc489, type: 3}
     size: 30
-  - prefab: {fileID: 8550976458280956172, guid: 04d37f58bd0b0154581f209ddc259d3a, type: 3}
-    size: 5
   - prefab: {fileID: 4241291045318475930, guid: eb6d3bd4b194fc3488f81222c7895fb2, type: 3}
     size: 30
-  - prefab: {fileID: 6487663706111068027, guid: b6d278e0999cd924abe9fc757775dd9f, type: 3}
-    size: 5
-  - prefab: {fileID: 1996079926692674, guid: 4a2b1860da60c284a98e98a190695e45, type: 3}
-    size: 5
-  - prefab: {fileID: 1893033738566276, guid: 6ac3721cc4fdd1a46bdbf49788ab197b, type: 3}
-    size: 5
-  - prefab: {fileID: 1644958980890870, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
-    size: 5
-  - prefab: {fileID: 1872147318604286, guid: 5bea49531fc500c408823a2e2863106f, type: 3}
-    size: 10
-  - prefab: {fileID: 1919708242137258, guid: 88229c305b18931489f772f99cfaa40f, type: 3}
-    size: 3
 --- !u!4 &1597872292
 Transform:
   m_ObjectHideFlags: 0
@@ -2330,7 +2316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit

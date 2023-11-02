@@ -89,14 +89,15 @@ public class Monster : MonoBehaviour, IHitable
             target = FindObjectOfType<Player>();
         }
         animator = GetComponent<Animator>();
-        orginColor = monsterRenderer.material.color;        
+        orginColor = monsterRenderer.material.color;
+        monsterInit(); // maxHp 세팅 임시, 나중에 json파싱할것
     }
 
     private void OnEnable()
     {                
         StartCoroutine(AttackCo());
         IsHit = false;
-        monsterInit();
+        hp = maxHp;
     }
 
     protected void Update()
