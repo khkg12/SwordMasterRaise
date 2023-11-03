@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e12128c7f6d07c4892f4ed23cc7672d, type: 3}
   m_Name: ShootAuror
   m_EditorClassIdentifier: 
-  skillObj: {fileID: 0}
+  skillObj: {fileID: 1585743060672840, guid: ce13e35544101ba47b76983a1326d64d, type: 3}
   sprite: {fileID: 0}
-  skillName: 
+  skillName: "\uAC80\uAE30\uB0A0\uB9AC\uAE30"
   requiredLevel: 0
-  skillNum: 0
+  skillNum: 1
   skillText: 
   coolTime: 0
-  rate: 0.1
+  rate: 1

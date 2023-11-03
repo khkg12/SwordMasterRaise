@@ -10,6 +10,13 @@ using Random = UnityEngine.Random;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using static UnityEditor.Progress;
 
+public enum itemGrade
+{
+    rare,
+    unique,
+    epic,
+    legend
+}
 
 public class SummonsUI : MonoBehaviour, IPointerClickHandler
 {

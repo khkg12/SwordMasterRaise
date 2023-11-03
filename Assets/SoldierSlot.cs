@@ -9,6 +9,7 @@ public class SoldierSlot : MonoBehaviour
 {
     public SoldierUI owner;
     [SerializeField] Image equipImage;
+    [SerializeField] Image rockImage;
     [SerializeField] Button selectBtn;
     [SerializeField] Button buyBtn;
     [SerializeField] TextMeshProUGUI explanationText;    
@@ -21,10 +22,10 @@ public class SoldierSlot : MonoBehaviour
         get => soldierInfo.isHave;
         set
         {
-            soldierInfo.isHave = value;
-            Debug.Log(soldierInfo.isHave);
+            soldierInfo.isHave = value;            
             selectBtn.gameObject.SetActive(IsHave);
             buyBtn.gameObject.SetActive(!IsHave);
+            rockImage.gameObject.SetActive(!IsHave);
             goldText.gameObject.SetActive(!IsHave);
         }
     }    

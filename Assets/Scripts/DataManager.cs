@@ -58,6 +58,7 @@ public class ItemInfo
     public int upgradeCount; // 업그레이드 수치
     public int itemCount;
     public float itemWeight; // 뽑기확률을 위한 아이템 가중치
+    public string itemGrade; 
 }
 
 [System.Serializable]

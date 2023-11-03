@@ -6,7 +6,8 @@
     "upgradeGold": 500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 20.0
+    "itemWeight": 20.0,
+    "itemGrade": "rare"
   },
   {
     "itemName": "강철검",
@@ -15,7 +16,8 @@
     "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 3,
-    "itemWeight": 20.0
+    "itemWeight": 20.0,
+    "itemGrade": "rare"
   },
   {
     "itemName": "철파검",
@@ -24,7 +26,8 @@
     "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 3,
-    "itemWeight": 20.0
+    "itemWeight": 20.0,
+    "itemGrade": "rare"
   },
   {
     "itemName": "장검",
@@ -33,7 +36,8 @@
     "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 3,
-    "itemWeight": 20.0
+    "itemWeight": 20.0,
+    "itemGrade": "rare"
   },
   {
     "itemName": "귀검",
@@ -42,7 +46,8 @@
     "upgradeGold": 492319.0,
     "upgradeCount": 0,
     "itemCount": 1,
-    "itemWeight": 4.0
+    "itemWeight": 4.0,
+    "itemGrade": "unique"
   },
   {
     "itemName": "용의검",
@@ -51,7 +56,8 @@
     "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 4.0
+    "itemWeight": 4.0,
+    "itemGrade": "unique"
   },
   {
     "itemName": "양극검",
@@ -60,7 +66,8 @@
     "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 4.0
+    "itemWeight": 4.0,
+    "itemGrade": "unique"
   },
   {
     "itemName": "용살자의 검",
@@ -69,7 +76,8 @@
     "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 4.0
+    "itemWeight": 4.0,
+    "itemGrade": "unique"
   },
   {
     "itemName": "마광검 카이너스",
@@ -78,7 +86,8 @@
     "upgradeGold": 500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": "epic"
   },
   {
     "itemName": "와룡도",
@@ -87,7 +96,8 @@
     "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": "epic"
   },
   {
     "itemName": "고룡의 이빨",
@@ -96,7 +106,8 @@
     "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": "epic"
   },
   {
     "itemName": "빛의 검",
@@ -105,7 +116,8 @@
     "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": "epic"
   },
   {
     "itemName": "천사의 창",
@@ -114,7 +126,8 @@
     "upgradeGold": 500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": "legend"
   },
   {
     "itemName": "브레이브소드",
@@ -123,7 +136,8 @@
     "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": "legend"
   },
   {
     "itemName": "카이저",
@@ -132,7 +146,8 @@
     "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": "legend"
   },
   {
     "itemName": "소드마스터 소드",
@@ -141,6 +156,7 @@
     "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": "legend"
   }
 ]

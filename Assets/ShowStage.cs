@@ -8,7 +8,7 @@ public class ShowStage : MonoBehaviour
 {
     [SerializeField] private Image Lobby;
     [SerializeField] private Canvas StageCanvas;
-    [SerializeField] private TextMeshProUGUI btnText;
+    [SerializeField] private TextMeshProUGUI btnText;    
     private Button btn;
     const float MOVE_DISTANCE = 5;
     const float MOVE_SPEED = 0.1f;

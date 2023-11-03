@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -91,7 +92,8 @@ public class PoolManager : MonoBehaviour
     public static PoolManager instance;
     public Dictionary<string, ObjectPool> objectPoolDic = new Dictionary<string, ObjectPool>();    
     [SerializeField] List<PoolProperty> poolPropertyList;
-    const int SKILL_POOL_SIZE = 5;
+    const int SKILL_POOL_SIZE = 5;    
+    
 
     void Awake()
     {
@@ -127,8 +129,8 @@ public class PoolManager : MonoBehaviour
 
     public void InitSkillPool(Skill skill)
     {
-        if(skill != null)
-        {
+        if(skill != null && !CheckSkill(skill.skillObj.name)) // 이미 있는 스킬이 아니라면
+        {                      
             objectPoolDic.Add(skill.skillObj.name, new ObjectPool(SKILL_POOL_SIZE, skill.skillObj, parentObj));
             objectPoolDic[skill.skillObj.name].CreatePool(SKILL_POOL_SIZE);
         }
@@ -138,7 +140,7 @@ public class PoolManager : MonoBehaviour
     {
         if(soldierObj != null && soldierObj.gameObject.TryGetComponent(out Soldier soldier)) // 솔져오브젝트가 있으면
         {
-            objectPoolDic.Add(soldier.skill.skillObj.name, new ObjectPool(SKILL_POOL_SIZE, soldier.skill.skillObj, parentObj)); // 지금은 플레이어와 스킬이 같아서 동일한게 있으면 오류남. 솔져스킬 따로분리할것
+            InitSkillPool(soldier.skill);
         }        
     }
 
@@ -157,5 +159,10 @@ public class PoolManager : MonoBehaviour
         int index = stageData.bossId;
         objectPoolDic.Add(monsterList[index].name, new ObjectPool(stageData.count, monsterList[index], parentObj));
         objectPoolDic[monsterList[index].name].CreatePool(stageData.count);
+    }
+    
+    public bool CheckSkill(string prefabName) // 풀에 있는 스킬인지 체크
+    {
+        return objectPoolDic.ContainsKey(prefabName);
     }
 }
