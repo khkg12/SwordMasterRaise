@@ -238,4 +238,9 @@ public class Character : MonoBehaviour, IHitable
         atk = (int)Random.Range(atk - offset, atk + offset);
         Hp -= atk;
     }  
+
+    public void RecoveryHp(float recoveryRate) // 비율로 체력회복, 수치체력회복 필요하면 만들기
+    {
+        Hp += (int)(recoveryRate * maxHp);
+    }
 }

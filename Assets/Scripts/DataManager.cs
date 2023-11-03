@@ -74,9 +74,19 @@ public class SoldierInfo
     }
 }
 
+[System.Serializable]
+public class SpiritData
+{
+    public int level;
+    public float rate;
+    public float increaseAmount;
+    public int requireGold;
+}
+
 public class DataManager : Singleton<DataManager>
 {    
     [SerializeField] private TextAsset playerDataFile;
+    [SerializeField] private TextAsset spiritDataFile;
     [SerializeField] private TextAsset stageDataFile;
     [SerializeField] private TextAsset awakeStageDataFile;
     [SerializeField] private TextAsset itemDataFile;
@@ -85,14 +95,18 @@ public class DataManager : Singleton<DataManager>
     string playerDataPath;
     string itemDataPath;
     string soldierDataPath;
+    string spiritDataPath;
 
-    public PlayerData playerData;        
+    public PlayerData playerData;  
+    public SpiritData spiritData;
     public StageData[] stageDataArr;
     public StageData currentStageData;
+
     public AwakeStageData[] awakeStageDataArr;    
     public AwakeStageData currentAwakeStageData;
+
     public ItemInfo[] itemDataArr;
-    public SoldierInfo[] soldierDataArr;
+    public SoldierInfo[] soldierDataArr;    
 
     public Dictionary<string, Sprite> itemSpriteDic = new Dictionary<string, Sprite>();
     
@@ -125,8 +139,9 @@ public class DataManager : Singleton<DataManager>
     {
         base.Awake();
         playerDataPath = Path.Combine(Application.dataPath + "/Resources/", "playerData.json"); // 저장 경로 설정
-        itemDataPath = Path.Combine(Application.dataPath + "/Resources/", "itemData.json"); // 저장 경로 설정
-        soldierDataPath = Path.Combine(Application.dataPath + "/Resources/", "soldierData.json"); // 저장 경로 설정
+        itemDataPath = Path.Combine(Application.dataPath + "/Resources/", "itemData.json"); 
+        soldierDataPath = Path.Combine(Application.dataPath + "/Resources/", "soldierData.json"); 
+        spiritDataPath = Path.Combine(Application.dataPath + "/Resources/", "spiritData.json"); 
         SetData(); // json에서 불러와 playerData에 저장 초기화
         SetStageData();
         SetItemData();
@@ -136,7 +151,8 @@ public class DataManager : Singleton<DataManager>
     public void SetData()
     {
         // json이 없을 경우 초기화해주는 것 넣기
-        playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataFile.text); // json파일을 역직렬화로 데이터저장        
+        playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataFile.text); // json파일을 역직렬화로 데이터저장
+        spiritData = JsonConvert.DeserializeObject<SpiritData>(spiritDataFile.text); 
     }
 
     public void SetItemData()
@@ -167,9 +183,7 @@ public class DataManager : Singleton<DataManager>
 
     public void SaveItemData()
     {
-        var jsonData = JsonConvert.SerializeObject(itemDataArr, Formatting.Indented);
-        Debug.Log("Asdad");
-        Debug.Log(jsonData);
+        var jsonData = JsonConvert.SerializeObject(itemDataArr, Formatting.Indented);                
         File.WriteAllText(itemDataPath, jsonData);
     }
 
@@ -177,6 +191,12 @@ public class DataManager : Singleton<DataManager>
     {
         var jsonData = JsonConvert.SerializeObject(soldierDataArr, Formatting.Indented);
         File.WriteAllText(soldierDataPath, jsonData);
-    }   
+    }
+
+    public void SaveSpiritData()
+    {
+        var jsonData = JsonConvert.SerializeObject(spiritData, Formatting.Indented);
+        File.WriteAllText(spiritDataPath, jsonData);
+    }
 }
 
