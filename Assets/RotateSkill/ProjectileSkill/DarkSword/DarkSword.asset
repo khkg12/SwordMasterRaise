@@ -15,7 +15,7 @@ MonoBehaviour:
   skillObj: {fileID: 1044528419629608, guid: bcc81dde05547a84d81cb5648db92f05, type: 3}
   sprite: {fileID: 21300000, guid: bbe833a9207e7fa41bbd3ce71ad09605, type: 3}
   skillName: "\uB2E4\uD06C\uC18C\uB4DC"
-  requiredLevel: 0
+  requiredLevel: 120
   skillNum: 3
   skillText: "\uCC9C\uCC9C\uD788 \uC9C0\uB098\uAC00\uB294 \uAC80\uD48D\uC744 \uB0A0\uB9BD\uB2C8\uB2E4."
   coolTime: 8

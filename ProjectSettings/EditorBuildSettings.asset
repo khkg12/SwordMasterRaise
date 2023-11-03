@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AwakeStage.unity
     guid: ed3524d683dd4c34cb42e023fdee3161
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: b5af0eaaf9c5a3e42a73cc830ae41598
   m_configObjects: {}

@@ -8,9 +8,14 @@ public class BtnController : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         GameManager.instance.IsGameStop = false;
-        DataManager.instance.SaveItemData();
-        DataManager.instance.SavePlayerData();
-        DataManager.instance.SaveSoldierData();
+        //DataManager.instance.SaveItemData();
+        //DataManager.instance.SavePlayerData();
+        //DataManager.instance.SaveSoldierData();
         SceneManager.LoadScene(sceneName);        
-    }   
+    }  
+    
+    public void StartScene()
+    {
+        SceneManager.LoadScene("Main");
+    }
 }
