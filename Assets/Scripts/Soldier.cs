@@ -8,6 +8,9 @@ public class Soldier : Character
     [SerializeField] float attackIntervalTime;
     public Skill skill;
     float attackDelayTime;
+    const float ATK_RATE = 0.1f;
+    const float HP_RATE = 0.1f; // 이데이터도 강화가가능하고 초기화시 그 데이터로 초기화
+    const float MOVE_RATE = 0.5f;
 
     new void Start()
     {
@@ -21,6 +24,15 @@ public class Soldier : Character
         fsm.AddState(StateTag.Move, new MoveState(this));
         fsm.AddState(StateTag.Attack, new AttackState(this));        
         Range = 10; // 시험해보려고 임시값넣은것
+    }
+
+    public override void StatusInit()
+    {
+        base.StatusInit();
+        maxHp *= HP_RATE;
+        hp = maxHp;
+        MoveSpeed *= MOVE_RATE;
+        Atk *= ATK_RATE;
     }
 
     protected override void Die()

@@ -51,7 +51,7 @@ public class ObjectPool : MonoBehaviour
         dequeObj.transform.position = pos; // 활성화되기 전 위치와 회전 세팅
         dequeObj.transform.rotation = rot;
         dequeObj.SetActive(true);
-        GameManager.instance.monsterCount++;
+        GameManager.instance.MonsterCount++;
         return dequeObj;
     }
 

@@ -31,8 +31,7 @@ public class Monster : MonoBehaviour, IHitable
             hp = value;
             hpBar.fillAmount = hp / maxHp;
             if (hp <= 0 && !isDead)
-            {
-                Debug.Log("asd");
+            {                
                 isDead = true;                
                 DIe();
             }
@@ -198,7 +197,7 @@ public class Monster : MonoBehaviour, IHitable
     public virtual void DIe()
     {        
         PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);
-        GameManager.instance.monsterCount--;
+        GameManager.instance.MonsterCount--;
     }
 
     // eventÇÔ¼ö

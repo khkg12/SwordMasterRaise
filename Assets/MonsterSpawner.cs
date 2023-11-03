@@ -12,7 +12,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Start()
     {
-        GameManager.instance.monsterCount = 0; // 캐릭터가 죽었을 때 초기화하던
+        GameManager.instance.MonsterCount = 0; // 캐릭터가 죽었을 때 초기화하던
         stageData = DataManager.instance.currentStageData;
         PoolManager.instance.InitMonsterPool(stageData, monsterList); // 해당스테이지에 나오는 몬스터의 풀 세팅
         StartCoroutine(SpawnCo());        
@@ -38,7 +38,7 @@ public class MonsterSpawner : MonoBehaviour
             UIManager.instance.ShowWaveUI(nowWave);
             yield return new WaitForSeconds(3f);                 
             MonsterSpawn();            
-            yield return new WaitUntil(()=>GameManager.instance.monsterCount == 0); // 몬스터수가 0이면 제어권돌려받음
+            yield return new WaitUntil(()=>GameManager.instance.MonsterCount == 0); // 몬스터수가 0이면 제어권돌려받음
             nowWave++;
         }        
         yield return new WaitForSeconds(1f); // 모든 웨이브 반복이 종료되면

@@ -1,9 +1,9 @@
 {
-  "awakeLevel": 2,
-  "level": 3,
-  "exp": 200,
-  "maxExp": 225,
-  "gold": 13849,
+  "awakeLevel": 1,
+  "level": 4,
+  "exp": 155,
+  "maxExp": 337,
+  "gold": 14449,
   "hp": {
     "name": "체력",
     "stat": 720.0,

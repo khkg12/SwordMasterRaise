@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image waveImage;
     [SerializeField] Image victoryImage;
     [SerializeField] TextMeshProUGUI victoryRewardText;
+    [SerializeField] TextMeshProUGUI monsterCountText;
     [SerializeField] Image defeatImage;
 
     private void Awake()
@@ -40,6 +41,11 @@ public class UIManager : MonoBehaviour
     public void ShowDefeatUI()
     {
         defeatImage.gameObject.SetActive(true);
+    }
+
+    public void UpdateMonsterCount(int count)
+    {
+        monsterCountText.text = $"{count}";
     }
 
     IEnumerator DurationTimeCo(float durationTime)

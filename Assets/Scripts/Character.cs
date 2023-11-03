@@ -67,11 +67,11 @@ public class Character : MonoBehaviour, IHitable
             damageText.GetComponent<FloatingText>().Damage = damage;                                         
         }
     }
-    [SerializeField] private float hp;
+    [SerializeField] protected float hp;
 
     public float MaxHp => maxHp;
 
-    private float maxHp;
+    protected float maxHp;
 
     public float MoveSpeed
     {

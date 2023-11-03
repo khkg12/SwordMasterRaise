@@ -271,8 +271,8 @@ MonoBehaviour:
     m_Bits: 128
   hpBar: {fileID: 2119561013749826621}
   shadowHpBar: {fileID: 8102176615602693810}
-  attackIntervalTime: 5
-  skill: {fileID: 11400000, guid: 410234cf7bfbc7145a3f360237d2b1ed, type: 2}
+  attackIntervalTime: 1
+  skill: {fileID: 11400000, guid: 0337c16ecc10b484c8ef496aaa20cbcc, type: 2}
 --- !u!65 &8103684793861301775
 BoxCollider:
   m_ObjectHideFlags: 0
