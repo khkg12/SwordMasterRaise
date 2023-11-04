@@ -97,6 +97,8 @@ public class Monster : MonoBehaviour, IHitable
     private void OnEnable()
     {                
         StartCoroutine(AttackCo());
+        gameObject.GetComponent<Rigidbody>().useGravity = true;
+        gameObject.GetComponent<Collider>().enabled = true;
         IsHit = false;
         isDead = false;
         hp = maxHp;
@@ -195,9 +197,21 @@ public class Monster : MonoBehaviour, IHitable
     }    
 
     public virtual void DIe()
+    {
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        gameObject.GetComponent<Collider>().enabled = false;
+        enabled = false; // 죽었을 땐 몬스터의 update문이 실행되면안되니까
+        // isDead = true; 여기로 옮겼을때도 되는지 확인        
+        animator.SetTrigger("DieTrigger");
+        StartCoroutine(DieCo());        
+    }
+
+    protected IEnumerator DieCo()
     {        
+        yield return new WaitForSeconds(0.8f);
         PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);
         GameManager.instance.MonsterCount--;
+        enabled = true; // onenable이 실행될려면 popObj할때 몬스터 스크립트가 켜져있어야하므로 
     }
 
     // event함수

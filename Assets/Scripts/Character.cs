@@ -168,7 +168,7 @@ public class Character : MonoBehaviour, IHitable
     [SerializeField] Image hpBar;
     [SerializeField] Image shadowHpBar;
     [NonSerialized] public Skill currentSkill;
-    [NonSerialized] public GameObject target;    
+    [NonSerialized] public Collider targetCol;    
 
     protected void Start()
     {
@@ -225,7 +225,7 @@ public class Character : MonoBehaviour, IHitable
 
     public void SetForward()
     {
-        Vector3 dir = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
+        Vector3 dir = new Vector3(targetCol.transform.position.x, transform.position.y, targetCol.transform.position.z) - transform.position;
         dir = dir.normalized;
         transform.forward = dir;
     }

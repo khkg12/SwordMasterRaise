@@ -65,7 +65,7 @@ public class IdleState : State
         }
         if(targetCol != null)
         {            
-            character.target = targetCol.gameObject;
+            character.targetCol = targetCol;
             return true;
         }
         return false;
@@ -91,18 +91,18 @@ public class MoveState : State
 
     public override void Update()
     {
-        if(character.target.activeInHierarchy == false) // 타겟이 죽었다.
+        if(character.targetCol.enabled == false) // 타겟이 죽었다.
         {
-            character.target = null;
+            character.targetCol = null;
             character.ChangeStateTag = StateTag.Idle; // 상태를 IDLE로 변경
         }
-        else if(Vector3.Distance(character.transform.position, character.target.transform.position) <= TARGET_DISTANCE)
+        else if(Vector3.Distance(character.transform.position, character.targetCol.transform.position) <= TARGET_DISTANCE)
         {
             character.ChangeStateTag = StateTag.Attack; // 상태를 attack으로 변경
         }
         else
         {
-            character.transform.position = Vector3.MoveTowards(character.transform.position, character.target.transform.position, moveSpeed);
+            character.transform.position = Vector3.MoveTowards(character.transform.position, character.targetCol.transform.position, moveSpeed);
             character.SetForward();
         }        
     }
@@ -126,15 +126,15 @@ public class AttackState : State
 
     public override void Update()
     {
-        if (character.target.activeInHierarchy == false) // 나중에 수정 임시로 해둔것
+        if (character.targetCol.enabled == false) 
         {
-            character.target = null;
+            character.targetCol = null;
             character.ChangeStateTag = StateTag.Idle;            
         }
         else
         {
             character.SetForward();
-            float distance = Vector3.Distance(character.transform.position, character.target.transform.position);
+            float distance = Vector3.Distance(character.transform.position, character.targetCol.transform.position);
             if (distance > NONE_TARGET_DISTANCE) // 일정거리만큼 적이 멀어지면 IDLE로 
             {                
                 character.ChangeStateTag = StateTag.Idle;
