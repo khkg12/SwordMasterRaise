@@ -24443,7 +24443,6 @@ GameObject:
   - component: {fileID: 199415115864821468}
   - component: {fileID: 3364948759253068898}
   - component: {fileID: 6263509324374839204}
-  - component: {fileID: -3831269709147003335}
   m_Layer: 0
   m_Name: UltraSwordBaldo
   m_TagString: Untagged
@@ -29356,21 +29355,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 1
---- !u!114 &-3831269709147003335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919708242137258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09049370383a3e4d9cb84698b2e5596, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ENABLED_DELAY: 0
-  ENABLED_MAINTAIN_TIME: 0.1
-  CAMERA_DURATION_TIME: 0.5
 --- !u!1 &1930896904671498
 GameObject:
   m_ObjectHideFlags: 0

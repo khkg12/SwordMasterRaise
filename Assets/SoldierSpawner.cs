@@ -15,7 +15,7 @@ public class SoldierSpawner : MonoBehaviour
         GameObject soldier = GameManager.instance.soldierObj;
         if (soldier != null)
         {
-            Instantiate(soldier, spawnPos, Quaternion.identity);
+            Instantiate(soldier, spawnPos, Quaternion.identity);            
         }
     }
 }

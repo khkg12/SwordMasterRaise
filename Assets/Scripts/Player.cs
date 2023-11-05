@@ -54,8 +54,7 @@ public class Player : Character
     protected override void Die()
     {
         gameObject.SetActive(false);
-        GameManager.instance.IsGameStop = true;
-        UIManager.instance.ShowDefeatUI();
+        GameManager.instance.GameLose(); 
     }
 
     public override void AttackStart()

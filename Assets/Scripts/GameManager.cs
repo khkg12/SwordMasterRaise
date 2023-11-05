@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject soldierObj; // 전투 시 소환할 솔져 오브젝트
     public Skill[] playerSkillList; // 플레이어가 배틀 시 사용할 스킬배열
     public ItemInfo equipItemInfo; // 플레이어가 장착할 아이템, 프로퍼티로 처리해야할수도, 데이터저장하려면 DataManager가 가지고있어야하나?
+    // public List<int> equipSoldierIdList;
 
     public int MonsterCount
     {
@@ -28,6 +29,7 @@ public class GameManager : Singleton<GameManager>
         {
             selectSoldierId = value;
             soldierObj = soldierPrefabList[selectSoldierId];
+            // equipSoldierIdList.Add(selectSoldierId);
         }
     }
     private int selectSoldierId;
@@ -51,8 +53,11 @@ public class GameManager : Singleton<GameManager>
         DataManager.instance.playerData.awakeLevel++;
     }  
 
-    new void Awake()
+    public void GameLose()
     {
-        base.Awake();        
-    }    
+        IsGameStop = true;
+        UIManager.instance.ShowDefeatUI();
+        MonsterCount = 0;        
+    }
+   
 }
