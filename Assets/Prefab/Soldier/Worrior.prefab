@@ -561,7 +561,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &95247235530683640
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -578,8 +578,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1096856172353060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1438,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95508205990519034
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1456,8 +1455,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-1139753654195313577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,8 +1477,8 @@ MonoBehaviour:
     m_Bits: 128
   hpBar: {fileID: 7968291074164400343}
   shadowHpBar: {fileID: 1592554694788119135}
-  attackIntervalTime: 5
-  skill: {fileID: 11400000, guid: 376f2269e208ae24691926c361fbc29b, type: 2}
+  attackIntervalTime: 1
+  skill: {fileID: 11400000, guid: 49133a9f99bd76a4986db35b4de28fe0, type: 2}
 --- !u!65 &6374899071673576272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6765,7 +6763,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c1599f5b1df0ea4ba395a60582be19c, type: 2}
+  - {fileID: 2100000, guid: 6b839c071920b21428234b1ba22772f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
