@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {    
-    public static UIManager instance;
+    public static UIManager instance;    
     [SerializeField] Image waveImage;
     [SerializeField] Image victoryImage;
     [SerializeField] TextMeshProUGUI victoryRewardText;

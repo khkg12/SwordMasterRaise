@@ -12,7 +12,8 @@ public enum AnimationTag
     Idle,
     Move,
     Attack,
-    Skill
+    Skill,
+    Dodge
 }
 
 public enum StateTag
@@ -20,7 +21,8 @@ public enum StateTag
     Idle,
     Move,
     Attack,
-    Skill
+    Skill,
+    Dodge
 }
 
 public class Character : MonoBehaviour, IHitable
@@ -119,6 +121,9 @@ public class Character : MonoBehaviour, IHitable
                 case AnimationTag.Skill:
                     animator.SetTrigger("SkillTrigger");
                     break;
+                case AnimationTag.Dodge:
+                    animator.SetTrigger("DodgeTrigger");
+                    break;
             }
         }
     }
@@ -144,6 +149,9 @@ public class Character : MonoBehaviour, IHitable
                 case StateTag.Skill:
                     fsm.ChangeState(StateTag.Skill);
                     break;
+                case StateTag.Dodge:
+                    fsm.ChangeState(StateTag.Dodge);
+                    break;
             }
         }
     }
@@ -168,11 +176,15 @@ public class Character : MonoBehaviour, IHitable
     [SerializeField] Image hpBar;
     [SerializeField] Image shadowHpBar;
     [NonSerialized] public Skill currentSkill;
-    [NonSerialized] public Collider targetCol;    
+    [NonSerialized] public Collider targetCol;
+    private Rigidbody rb;
+    private Collider col;
 
     protected void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>(); 
         fsm = new Fsm();
         Init();
         StatusInit();
@@ -183,7 +195,7 @@ public class Character : MonoBehaviour, IHitable
     {
         hpBar.rectTransform.eulerAngles = new Vector3(90, 0, 0);
         shadowHpBar.rectTransform.eulerAngles = new Vector3(90, 0, 0);
-        fsm.Update();
+        fsm.Update();      
     }
 
     public virtual void StatusInit()
@@ -246,5 +258,11 @@ public class Character : MonoBehaviour, IHitable
     public void RecoveryHp(float recoveryRate) // 비율로 체력회복, 수치체력회복 필요하면 만들기
     {
         Hp += (int)(recoveryRate * maxHp);
+    }
+    
+    public void Invincibility(bool isEnabled)
+    {
+        col.enabled = isEnabled;
+        rb.useGravity = isEnabled;
     }
 }

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Player : Character
 {    
@@ -9,14 +11,34 @@ public class Player : Character
     AwakeningComponent awakeningComponent;   
     IEnumerator attackCo;    
     [SerializeField] Weapon weapon;
+    [SerializeField] Image dodgeCoolTimeImage;
     Collider attackerCol;
     public SkillInventoryUI skillInven;
+    bool isDodge => (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && setRotationComponent.enabled == false) ? true : false;
+    bool isUse;
+    const float DODGE_COOL_TIME = 3f;
 
     new void Start()
     {
         base.Start();
-        playerInit();
-    }    
+        playerInit();        
+    }
+
+    new void Update()
+    {
+        base.Update();        
+        if (isDodge && isUse)
+        {
+            StartCoroutine(DodgeCoolTimeCo());
+            ChangeStateTag = StateTag.Dodge;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                Vector3 dir = (new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position).normalized;
+                transform.forward = dir;
+            }
+        }
+    }
 
     void playerInit()
     {
@@ -24,8 +46,9 @@ public class Player : Character
         awakeningComponent = GetComponent<AwakeningComponent>();
         awakeningComponent.AwakeLevel = DataManager.instance.playerData.awakeLevel; // 플레이어의 awakeLevel로 세팅
         attackCo = AttackCo();
-        weapon.SetAttack(Atk, TargetLayerMask, 1); // 웨폰 스탯 셋팅
+        weapon.SetAttack(Atk, TargetLayerMask); // 웨폰 스탯 셋팅
         attackerCol = weapon.transform.GetComponent<Collider>();
+        isUse = true;
     }
     
     public void ExecuteSkill(Skill skill)
@@ -48,6 +71,7 @@ public class Player : Character
         fsm.AddState(StateTag.Move, new MoveState(this));
         fsm.AddState(StateTag.Attack, new AttackState(this));
         fsm.AddState(StateTag.Skill, new SkillState(this));
+        fsm.AddState(StateTag.Dodge, new DodgeState(this));
         Range = 5; // 시험해보려고 임시값넣은것
     }
 
@@ -75,6 +99,18 @@ public class Player : Character
             AniTag = AnimationTag.Attack; // 공격애니 실행시키고           
             yield return new WaitForSeconds(AttackSpeed); // 매직넘버는 공속
         }        
+    }    
+    IEnumerator DodgeCoolTimeCo()
+    {
+        isUse = false;
+        float nowTime = 0;
+        while (nowTime < DODGE_COOL_TIME) 
+        {
+            nowTime += Time.deltaTime;
+            dodgeCoolTimeImage.fillAmount = nowTime / DODGE_COOL_TIME;
+            yield return null;
+        }
+        isUse = true;
     }
 
     private void OnTriggerEnter(Collider other) // 플레이어가 맞을 때 때리는 놈의 정보를 참조, character로 옮겨도 문제없으면 옮기기
@@ -86,7 +122,7 @@ public class Player : Character
                 attackable.Attack(this);
             }            
         }             
-    }
+    }    
 
     // 애니메이션 event 함수
     // 쇼트레인지 몬스터의 무기 콜라이더 껐다 켰다     

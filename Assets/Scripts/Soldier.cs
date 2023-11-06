@@ -15,14 +15,29 @@ public class Soldier : Character
     new void Start()
     {
         attackCo = AttackCo();
-        base.Start();        
+        base.Start();  
+        StartCoroutine(DodgeCo());  
     }    
+
+    IEnumerator DodgeCo()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            if (Physics.OverlapSphere(transform.position, 1f, TargetLayerMask).Length >= 5)
+            {
+                // 4방향 중 가장 적이 적은 방향을 바라보게한뒤 
+                ChangeStateTag = StateTag.Dodge;
+            }
+        }        
+    }
 
     protected override void Init() // Soldier한테 필요한 상태만 넣어주기
     {
         fsm.AddState(StateTag.Idle, new IdleState(this));
         fsm.AddState(StateTag.Move, new MoveState(this));
-        fsm.AddState(StateTag.Attack, new AttackState(this));        
+        fsm.AddState(StateTag.Attack, new AttackState(this));
+        fsm.AddState(StateTag.Dodge, new DodgeState(this));
         Range = 10; // 시험해보려고 임시값넣은것
     }
 

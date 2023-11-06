@@ -121,7 +121,7 @@ public class AttackState : State
 
     public override void Exit()
     {
-        character.AttackEnd(); // 공격 코루틴 종료
+        character.AttackEnd(); // 공격 코루틴 종료        
     }
 
     public override void Update()
@@ -133,7 +133,7 @@ public class AttackState : State
         }
         else
         {
-            character.SetForward();
+            character.SetForward();            
             float distance = Vector3.Distance(character.transform.position, character.targetCol.transform.position);
             if (distance > NONE_TARGET_DISTANCE) // 일정거리만큼 적이 멀어지면 IDLE로 
             {                
@@ -162,12 +162,41 @@ public class SkillState : State
 
     public override void Update()
     {
-        durationTime += Time.deltaTime;
+        durationTime += Time.deltaTime;        
         if(durationTime > 0.5f)
         {
             character.ChangeStateTag = StateTag.Idle;
         }        
     } 
+}
+
+public class DodgeState : State
+{
+    float durationTime;
+    const float INVINCIBILITY_TIME = 0.2f;
+    public DodgeState(Character character) : base(character) { }
+
+    public override void Enter()
+    {
+        character.Invincibility(false);
+        durationTime = 0;
+        character.AniTag = AnimationTag.Dodge; // 회피 애니실행        
+    }
+
+    public override void Exit()
+    {
+        character.Invincibility(true);
+    }
+
+    public override void Update()
+    {        
+        character.transform.Translate(Vector3.forward * 0.2f);
+        durationTime += Time.deltaTime;
+        if (durationTime > INVINCIBILITY_TIME)
+        {
+            character.ChangeStateTag = StateTag.Idle;
+        }
+    }
 }
 
 // 플레이어 자동전투 fsm
