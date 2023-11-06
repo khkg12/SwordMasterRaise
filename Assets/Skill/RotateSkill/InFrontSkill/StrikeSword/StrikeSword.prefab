@@ -53775,8 +53775,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 0.1, z: 10}
-  m_Center: {x: 0, y: 0.44, z: 0}
+  m_Size: {x: 3, y: 0.1, z: 10}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!114 &-3282108290148341125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53805,6 +53805,7 @@ MonoBehaviour:
   ENABLED_DELAY: 0.5
   ENABLED_MAINTAIN_TIME: 0.1
   CAMERA_DURATION_TIME: 0.5
+  CAMERA_OFFSET_POS: {x: 0, y: 3, z: -5}
 --- !u!1 &1727676261671216
 GameObject:
   m_ObjectHideFlags: 0

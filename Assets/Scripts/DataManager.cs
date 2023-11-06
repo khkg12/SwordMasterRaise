@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
+using JetBrains.Annotations;
 
 [System.Serializable]
 public class PlayerData
@@ -12,6 +13,7 @@ public class PlayerData
     public int exp;
     public int maxExp;
     public int gold;
+    public int badge;
     public StatInfo hp;
     public StatInfo atk;
     public StatInfo speed;
@@ -135,6 +137,15 @@ public class DataManager : Singleton<DataManager>
             playerData.gold = value;    
         }
     }    
+
+    public int Badge
+    {
+        get => playerData.badge;
+        set
+        {
+            playerData.badge = value;
+        }
+    }
 
     new void Awake()
     {

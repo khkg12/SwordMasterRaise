@@ -154,6 +154,12 @@ public class PoolManager : MonoBehaviour
         }
     }
 
+    public void InitMonsterPool(GameObject monsterObj, int monsterCount)
+    {
+        objectPoolDic.Add(monsterObj.name, new ObjectPool(monsterCount, monsterObj, parentObj));
+        objectPoolDic[monsterObj.name].CreatePool(monsterCount);
+    }
+
     public void InitAwakeMonsterPool(AwakeStageData stageData, List<GameObject> monsterList) // 각성던전 
     {
         int index = stageData.bossId;

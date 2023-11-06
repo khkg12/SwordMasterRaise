@@ -8,11 +8,11 @@ public class SkillCoroutineComponent : MonoBehaviour
     [SerializeField] float ENABLED_DELAY;
     [SerializeField] float ENABLED_MAINTAIN_TIME;
     [SerializeField] float CAMERA_DURATION_TIME;
-    Vector3 offsetPos = new Vector3(0, 3, -5);
-    bool isReady;
+    [SerializeField] Vector3 CAMERA_OFFSET_POS;
+    bool isReady;    
 
     private void Awake()
-    {
+    {        
         col = GetComponent<Collider>();
     }
     void OnEnable()
@@ -21,7 +21,8 @@ public class SkillCoroutineComponent : MonoBehaviour
         if (isReady) // isReady가 true일때만, 즉 초기엔 실행되지않음
         {
             StartCoroutine(EnabledColCo());
-            StartCoroutine(CameraMoveCo());
+            if(CAMERA_OFFSET_POS.magnitude != 0) // 카메라 무브 오프셋값이 0이라면 실행안하도록
+                StartCoroutine(CameraMoveCo());
         }
         isReady = true;
     }
@@ -37,7 +38,7 @@ public class SkillCoroutineComponent : MonoBehaviour
     IEnumerator CameraMoveCo()
     {
         Camera.main.transform.GetComponent<FollowCam>().IsEnabled = false;
-        Camera.main.transform.position += offsetPos;
+        Camera.main.transform.position += CAMERA_OFFSET_POS;
         yield return new WaitForSeconds(CAMERA_DURATION_TIME);
         Camera.main.transform.GetComponent<FollowCam>().IsEnabled = true;
     }

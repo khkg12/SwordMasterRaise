@@ -38,6 +38,14 @@ public class Monster : MonoBehaviour, IHitable
         }
     }
     [SerializeField] private float hp; // 실험용
+    public float MaxHp
+    {
+        get => maxHp;
+        set
+        {
+            maxHp = value;
+        }
+    }
     private float maxHp;
 
     public float Atk
@@ -198,10 +206,10 @@ public class Monster : MonoBehaviour, IHitable
 
     public virtual void DIe()
     {
+        // isDead = true; 여기로 옮겼을때도 되는지 확인        
         gameObject.GetComponent<Rigidbody>().useGravity = false;
         gameObject.GetComponent<Collider>().enabled = false;
-        enabled = false; // 죽었을 땐 몬스터의 update문이 실행되면안되니까
-        // isDead = true; 여기로 옮겼을때도 되는지 확인        
+        enabled = false; // 죽었을 땐 몬스터의 update문이 실행되면안되니까        
         animator.SetTrigger("DieTrigger");
         StartCoroutine(DieCo());        
     }

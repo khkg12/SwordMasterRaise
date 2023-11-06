@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {        
@@ -53,11 +54,25 @@ public class GameManager : Singleton<GameManager>
         DataManager.instance.playerData.awakeLevel++;
     }  
 
+    public int GetWarReward()
+    {
+        int badge = 10;
+        for(int i = 0; i < WarMonsterSpawner.nowWave; i++)
+        {
+            badge = (int)(badge * 1.5f);
+        }
+        WarMonsterSpawner.nowWave = 0;
+        return badge;
+    }
+
     public void GameLose()
     {
         IsGameStop = true;
-        UIManager.instance.ShowDefeatUI();
-        MonsterCount = 0;        
+        if (SceneManager.GetActiveScene().name == "War")
+        {
+            DataManager.instance.Badge += GetWarReward();            
+        }            
+        UIManager.instance.ShowDefeatUI();        
     }
    
 }

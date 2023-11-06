@@ -1871,7 +1871,7 @@ MonoBehaviour:
   hpBar: {fileID: 7463904791771095285}
   isSuperArmor: 0
   hp: 100
-  atk: 0
+  atk: 10
   weapon: {fileID: 7463904791775567098}
 --- !u!54 &7463904792097298575
 Rigidbody:

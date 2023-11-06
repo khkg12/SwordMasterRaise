@@ -11,7 +11,8 @@ public class MonsterSpawner : MonoBehaviour
     int nowWave = 0;    
 
     private void Start()
-    {        
+    {
+        GameManager.instance.MonsterCount = 0;
         stageData = DataManager.instance.currentStageData;
         PoolManager.instance.InitMonsterPool(stageData, monsterList); // 해당스테이지에 나오는 몬스터의 풀 세팅
         StartCoroutine(SpawnCo());        

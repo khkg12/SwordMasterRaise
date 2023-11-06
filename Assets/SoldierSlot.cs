@@ -35,7 +35,7 @@ public class SoldierSlot : MonoBehaviour
         set
         {
             requireGold = value;
-            goldText.text = $"영입골드 : {requireGold}";
+            goldText.text = $"영웅의 증표 : {requireGold}";
         }
     }
     private int requireGold;
@@ -72,9 +72,9 @@ public class SoldierSlot : MonoBehaviour
     }
     public void Buy() // 구매버튼 클릭 시 호출
     {
-        if(DataManager.instance.Gold >= requireGold)
+        if(DataManager.instance.Badge >= RequireGold)
         {
-            DataManager.instance.Gold -= requireGold;
+            DataManager.instance.Badge -= RequireGold;
             IsHave = true;
         }
     }

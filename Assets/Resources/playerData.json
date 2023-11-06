@@ -1,25 +1,26 @@
 {
-  "awakeLevel": 0,
-  "level": 100,
-  "exp": 0,
-  "maxExp": 100,
-  "gold": 0,
-  "hp": {
-    "name": "체력",
-    "stat": 300.0,
-    "requireGold": 100,
-    "increaseAmount": 30.0
-  },
-  "atk": {
-    "name": "공격력",
-    "stat": 10.0,
-    "requireGold": 200,
-    "increaseAmount": 5.0
-  },
-  "speed": {
-    "name": "이동속도",
-    "stat": 0.02,
-    "requireGold": 500,
-    "increaseAmount": 0.001
-  }
+    "awakeLevel": 0,
+    "level": 100,
+    "exp": 0,
+    "maxExp": 100,
+    "gold": 0,
+    "badge": 0,
+    "hp": {
+        "name": "체력",
+        "stat": 300.0,
+        "requireGold": 100,
+        "increaseAmount": 30.0
+    },
+    "atk": {
+        "name": "공격력",
+        "stat": 10.0,
+        "requireGold": 200,
+        "increaseAmount": 5.0
+    },
+    "speed": {
+        "name": "이동속도",
+        "stat": 0.02,
+        "requireGold": 500,
+        "increaseAmount": 0.001
+    }
 }

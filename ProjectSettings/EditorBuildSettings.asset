@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: b5af0eaaf9c5a3e42a73cc830ae41598
+  - enabled: 1
+    path: Assets/Scenes/War.unity
+    guid: 3e1eb28b458d14c42b0c4e351f1bec32
   m_configObjects: {}

@@ -50,6 +50,11 @@ public class InPlaceObj : MonoBehaviour, IAttackable
         }
     }
 
+    public void SetRotate(Transform userTrans)
+    {
+        transform.forward = userTrans.transform.forward;
+    }
+
     public void SetAttack(float atk, LayerMask targetLayerMask, int attackNum)
     {
         Atk = atk;
