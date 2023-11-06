@@ -7,12 +7,13 @@ public class SummonsBtnController : MonoBehaviour
 {
     // item¸®½ºÆ® 
     public ItemInventoryUI itemInven;
+    const int REQUIRED_JEWEL = 1000;
     [SerializeField] SummonsUI summonUI;
     public void WeaponSummons()
     {
-        if (DataManager.instance.Gold >= 1000)
+        if (DataManager.instance.Jewel >= REQUIRED_JEWEL)
         {
-            DataManager.instance.Gold -= 1000;
+            DataManager.instance.Jewel -= REQUIRED_JEWEL;
             summonUI.gameObject.SetActive(true);
         }
         else

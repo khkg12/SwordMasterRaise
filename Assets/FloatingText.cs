@@ -11,8 +11,9 @@ public class FloatingText : MonoBehaviour
 {
     [SerializeField] Image hitImage;
     [SerializeField] TextMeshProUGUI damageText;
+    [SerializeField] float y_offset;
     const float lifeTime = 0.5f;
-    public float Damage
+    public float Damage // 지금 보석이랑 같이쓰고있기 때문에 이름 알맞게 바꿔주기
     {
         get => damage;
         set
@@ -32,7 +33,8 @@ public class FloatingText : MonoBehaviour
         }
     }
 
-    Vector3 textPos => new Vector3(transform.position.x, 1.4f, transform.position.z);
+    Vector3 textPos => new Vector3(transform.position.x, y_offset, transform.position.z);
+    
 
     private void OnEnable()
     {
@@ -54,8 +56,8 @@ public class FloatingText : MonoBehaviour
             tempColor.a = (lifeTime - nowTime) / lifeTime;
             hitImage.color = tempColor;
             yield return null;
-        }
-        PoolManager.instance.objectPoolDic["DamageText"].ReturnPool(gameObject); // 풀에 돌려줌
+        }        
+        PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject); // 풀에 돌려줌
     }
 
     

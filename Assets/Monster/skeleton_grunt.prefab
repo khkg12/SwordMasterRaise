@@ -1829,7 +1829,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7463904792097298573
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1846,7 +1846,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7463904792097298574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,6 +1871,8 @@ MonoBehaviour:
   monsterRenderer: {fileID: 7463904792337385000}
   hpBar: {fileID: 7463904791771095285}
   isSuperArmor: 0
+  jewelWeight: 50
+  dropJewelNum: 1
   hp: 100
   atk: 10
   weapon: {fileID: 7463904791775567098}

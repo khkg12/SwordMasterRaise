@@ -1,6 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
+//public class SkillCoStrategy
+//{
+//    public virtual IEnumerator CustomCo()
+//    {
+//        yield return null;
+//    }
+//}
+
+//public class SkillEnableCo : SkillCoStrategy
+//{
+
+//}
+
+
+//public class SkillCameraCo : SkillCoStrategy
+//{
+
+//}
+
+
+//[Flags]
+//public enum COROUTINE_TYPE
+//{
+//    ENABLE = 1<<0,
+//    CAMERA = 1<<1,
+//    ETC  = 1<<2
+//}
 
 public class SkillCoroutineComponent : MonoBehaviour
 {
@@ -9,14 +39,22 @@ public class SkillCoroutineComponent : MonoBehaviour
     [SerializeField] float ENABLED_MAINTAIN_TIME;
     [SerializeField] float CAMERA_DURATION_TIME;
     [SerializeField] Vector3 CAMERA_OFFSET_POS;
-    bool isReady;    
+    bool isReady;
+    //public COROUTINE_TYPE type;
+    //public List<SkillCoStrategy> coList = new List<SkillCoStrategy>();
+
 
     private void Awake()
     {        
-        col = GetComponent<Collider>();
+        col = GetComponent<Collider>();    
     }
     void OnEnable()
     {        
+        //foreach(var co in coList)
+        //{
+        //    StartCoroutine(co.CustomCo());
+        //}
+
         col.enabled = false;
         if (isReady) // isReady가 true일때만, 즉 초기엔 실행되지않음
         {

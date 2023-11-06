@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 // 몬스터에는 슈퍼아머 컴포넌트를 가진 엘리트몬스터가 존재
 public class Monster : MonoBehaviour, IHitable
@@ -15,6 +16,8 @@ public class Monster : MonoBehaviour, IHitable
     [SerializeField] private Renderer monsterRenderer;
     [SerializeField] private Image hpBar;
     [SerializeField] private bool isSuperArmor;
+    [SerializeField] private float jewelWeight;
+    [SerializeField] private int dropJewelNum;
     bool isDead;
     public float Hp
     {
@@ -102,13 +105,14 @@ public class Monster : MonoBehaviour, IHitable
         monsterInit(); // maxHp 세팅 임시, 나중에 json파싱할것
     }
 
-    private void OnEnable()
-    {                
-        StartCoroutine(AttackCo());
+    protected void OnEnable()
+    {                        
         gameObject.GetComponent<Rigidbody>().useGravity = true;
         gameObject.GetComponent<Collider>().enabled = true;
         IsHit = false;
         isDead = false;
+        isAttack = false;
+        StartCoroutine(AttackCo());
         hp = maxHp;
     }
 
@@ -175,13 +179,17 @@ public class Monster : MonoBehaviour, IHitable
     }
 
     public void Hit(IAttackable attackable)
+    {        
+        Hp -= GetRandomDamageOffset(attackable.Atk);        
+    }   
+
+    float GetRandomDamageOffset(float atk)
     {
-        const float OFFSET_RATE = 0.1f;
-        float atk = attackable.Atk;
+        const float OFFSET_RATE = 0.1f;        
         float offset = atk * OFFSET_RATE;
         atk = (int)Random.Range(atk - offset, atk + offset);
-        Hp -= atk;
-    }   
+        return atk;
+    }
 
     private void OnTriggerEnter(Collider other)
     {        
@@ -215,13 +223,32 @@ public class Monster : MonoBehaviour, IHitable
     }
 
     protected IEnumerator DieCo()
-    {        
+    {                
         yield return new WaitForSeconds(0.8f);
         PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject);
         GameManager.instance.MonsterCount--;
+        DropRandomReward();
         enabled = true; // onenable이 실행될려면 popObj할때 몬스터 스크립트가 켜져있어야하므로 
     }
 
+    void DropRandomReward() // 랜덤보상
+    {
+        float pivot = Random.Range(0f, 100f); // 가중치 총합이 100
+        float nowPivot = 0;
+        nowPivot += jewelWeight; // 쥬얼의 가중치를 더함
+        if (nowPivot < pivot)
+            return;
+        DataManager.instance.Jewel += dropJewelNum;
+        FloatingJewelText();
+    }
+
+    void FloatingJewelText()
+    {
+        GameObject jewelText = PoolManager.instance.objectPoolDic["JewelText"].PopObj(transform.position, Quaternion.identity);
+        jewelText.GetComponent<FloatingText>().Damage = dropJewelNum;
+        jewelText.GetComponent<FloatingText>().Color = Color.white;
+    }
+    
     // event함수
     public void ColorChangeStart()
     {

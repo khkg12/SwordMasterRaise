@@ -12,8 +12,22 @@ public class PlayerData
     public int level;
     public int exp;
     public int maxExp;
+
+    public int Exp
+    {
+        get => exp;
+        set
+        {
+            exp = value;
+            if(exp > maxExp)
+            {
+                exp = maxExp;
+            }
+        }
+    }
     public int gold;
     public int badge;
+    public int jewel;
     public StatInfo hp;
     public StatInfo atk;
     public StatInfo speed;
@@ -144,6 +158,15 @@ public class DataManager : Singleton<DataManager>
         set
         {
             playerData.badge = value;
+        }
+    }
+
+    public int Jewel
+    {
+        get => playerData.jewel;
+        set
+        {
+            playerData.jewel = value;   
         }
     }
 

@@ -1,49 +1,49 @@
 [
   {
     "soldierName": "진",
-    "explanation": "무명검사 진\n 사용스킬 : 검충파\n 사용주기 : 3초\n",
+    "explanation": "무명검사 진\n 사용스킬 : 검기방출\n 사용주기 : 3초\n",
     "isHave": false,
     "requireGold": 1000,
     "id": 0
   },
   {
     "soldierName": "레인",
-    "explanation": "검사 레인\n 사용스킬 : 충각\n 사용주기 : 3초\n",
+    "explanation": "검사 레인\n 사용스킬 : 발도\n 사용주기 : 4초\n",
     "isHave": false,
     "requireGold": 2000,
     "id": 1
   },
   {
     "soldierName": "나봄",
-    "explanation": "바람의 나봄\n 사용스킬 : 검기방출\n 사용주기 : 2초\n",
+    "explanation": "전기술사 나봄\n 사용스킬 : 라이트닝\n 사용주기 : 2초\n",
     "isHave": false,
     "requireGold": 3000,
     "id": 2
   },
   {
     "soldierName": "나예",
-    "explanation": "발도술의 대가 나예\n 사용스킬 : 발도\n 사용주기 : 5초\n",
+    "explanation": "신속의 나린\n 사용스킬 : 점창파\n 사용주기 : 2초\n",
     "isHave": false,
     "requireGold": 4000,
     "id": 3
   },
   {
-    "soldierName": "나린",
-    "explanation": "신속의 나린\n 사용스킬 : 점찌르기\n 사용주기 : 7초\n",
+    "soldierName": "라온",
+    "explanation": "대전사 라온\n 사용스킬 : 포효\n 사용주기 : 1초\n",
     "isHave": false,
     "requireGold": 5000,
     "id": 4
   },
   {
-    "soldierName": "라온",
-    "explanation": "대전사 라온\n 사용스킬 : 전사포효\n 사용주기 : 5초\n",
+    "soldierName": "일론",
+    "explanation": "뇌전의 일론\n 사용스킬 : 뇌격\n 사용주기 : 5초\n",
     "isHave": false,
     "requireGold": 6000,
     "id": 5
   },
   {
     "soldierName": "무명",
-    "explanation": "그림자검사 무명\n 사용스킬 : 고속베기\n 사용주기 : 4초\n",
+    "explanation": "그림자검사 무명\n 사용스킬 : 극초발도\n 사용주기 : 3초\n",
     "isHave": false,
     "requireGold": 7000,
     "id": 6

@@ -16,6 +16,8 @@ public class SoldierUI : MonoBehaviour
         {
             soldierSlots[i].SetSoldier(DataManager.instance.soldierDataArr[i]);
             soldierSlots[i].owner = this;
+            if (soldierSlots[i].IsHave && soldierSlots[i].id == GameManager.instance.SelectSoldierId)
+                soldierSlots[i].IsEquip = true;
         }
     }
 

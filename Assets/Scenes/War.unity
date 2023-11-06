@@ -2763,6 +2763,8 @@ MonoBehaviour:
     size: 30
   - prefab: {fileID: 4241291045318475930, guid: eb6d3bd4b194fc3488f81222c7895fb2, type: 3}
     size: 30
+  - prefab: {fileID: 4241291045318475930, guid: 721b206678310c641b7f042a139dd858, type: 3}
+    size: 30
 --- !u!4 &1597872292
 Transform:
   m_ObjectHideFlags: 0
@@ -2808,6 +2810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit

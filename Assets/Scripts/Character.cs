@@ -232,12 +232,16 @@ public class Character : MonoBehaviour, IHitable
 
     public void Hit(IAttackable attackable)
     {
+        Hp -= GetRandomDamageOffset(attackable.Atk);
+    }
+
+    float GetRandomDamageOffset(float atk)
+    {
         const float OFFSET_RATE = 0.1f;
-        float atk = attackable.Atk;
         float offset = atk * OFFSET_RATE;
         atk = (int)Random.Range(atk - offset, atk + offset);
-        Hp -= atk;
-    }  
+        return atk;
+    }
 
     public void RecoveryHp(float recoveryRate) // 비율로 체력회복, 수치체력회복 필요하면 만들기
     {

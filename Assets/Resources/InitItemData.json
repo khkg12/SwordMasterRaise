@@ -38,8 +38,8 @@
   {
     "itemName": "귀검",
     "isHave": false,
-    "atkRate": 110,
-    "upgradeGold": 500,
+    "atkRate": 380,
+    "upgradeGold": 2500,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 4
@@ -47,8 +47,8 @@
   {
     "itemName": "용의검",
     "isHave": false,
-    "atkRate": 150,
-    "upgradeGold": 600,
+    "atkRate": 620,
+    "upgradeGold": 4000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 4
@@ -56,8 +56,8 @@
   {
     "itemName": "양극검",
     "isHave": false,
-    "atkRate": 190,
-    "upgradeGold": 1000,
+    "atkRate": 1080,
+    "upgradeGold": 6500,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 4
@@ -65,8 +65,8 @@
   {
     "itemName": "용살자의 검",
     "isHave": false,
-    "atkRate": 250,
-    "upgradeGold": 1500,
+    "atkRate": 1800,
+    "upgradeGold": 10000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 4
@@ -74,8 +74,8 @@
   {
     "itemName": "마광검 카이너스",
     "isHave": false,
-    "atkRate": 110,
-    "upgradeGold": 500,
+    "atkRate": 3500,
+    "upgradeGold": 18500,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.8
@@ -83,8 +83,8 @@
   {
     "itemName": "와룡도",
     "isHave": false,
-    "atkRate": 150,
-    "upgradeGold": 600,
+    "atkRate": 6000,
+    "upgradeGold": 27000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.8
@@ -92,8 +92,8 @@
   {
     "itemName": "고룡의 이빨",
     "isHave": false,
-    "atkRate": 190,
-    "upgradeGold": 1000,
+    "atkRate": 10000,
+    "upgradeGold": 60000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.8
@@ -101,8 +101,8 @@
   {
     "itemName": "빛의 검",
     "isHave": false,
-    "atkRate": 250,
-    "upgradeGold": 1500,
+    "atkRate": 25000,
+    "upgradeGold": 100000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.8
@@ -110,8 +110,8 @@
   {
     "itemName": "천사의 창",
     "isHave": false,
-    "atkRate": 110,
-    "upgradeGold": 500,
+    "atkRate": 100000,
+    "upgradeGold": 245000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.2
@@ -119,8 +119,8 @@
   {
     "itemName": "브레이브소드",
     "isHave": false,
-    "atkRate": 150,
-    "upgradeGold": 600,
+    "atkRate": 245000,
+    "upgradeGold": 500000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.2
@@ -128,8 +128,8 @@
   {
     "itemName": "카이저",
     "isHave": false,
-    "atkRate": 190,
-    "upgradeGold": 1000,
+    "atkRate": 550000,
+    "upgradeGold": 850000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.2
@@ -137,8 +137,8 @@
   {
     "itemName": "소드마스터 소드",
     "isHave": false,
-    "atkRate": 250,
-    "upgradeGold": 1500,
+    "atkRate": 1000000,
+    "upgradeGold": 1500000,
     "upgradeCount": 0,
     "itemCount": 0,
     "itemWeight": 0.2

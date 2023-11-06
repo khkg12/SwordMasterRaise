@@ -12,9 +12,14 @@ public class ShortRangeMonster : Monster
     Collider attackerCol;
 
     private void Start()
-    {
-        weapon.SetAttack(Atk, TargetLayerMask, 1); // 매직변수
+    {        
         attackerCol = weapon.transform.GetComponent<Collider>(); 
+    }
+
+    new void OnEnable()
+    {
+        base.OnEnable();
+        weapon.SetAttack(Atk, TargetLayerMask, 1); // 여기다 넣는 이유는 몬스터 무한던전은 갈수록 몬스터가 강해지는데 weapon의 값도 초기화 시켜줘야해서
     }
 
     public override void AttackStart()

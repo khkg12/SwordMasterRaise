@@ -73,8 +73,8 @@ public class SelectItemUI : MonoBehaviour
 
     private void UpdatedText()
     {
-        atkRateText.text = $"공격력 증가 : {itemInfo.atkRate} -> {itemInfo.atkRate * (1 + WEAPON_UPGRADE_ATK_RATE)}";
-        upgradeCostText.text = $"강화 {itemInfo.upgradeGold}";
+        atkRateText.text = $"공격력 증가 : {itemInfo.atkRate}% -> {(int)(itemInfo.atkRate * (1 + WEAPON_UPGRADE_ATK_RATE))}%";
+        upgradeCostText.text = $"강화 : {itemInfo.upgradeGold}골드";
         itemCountText.text = $"{itemInfo.itemCount} / 5";
     }
 }

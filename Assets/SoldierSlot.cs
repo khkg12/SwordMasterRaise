@@ -8,15 +8,15 @@ using UnityEngine.UI;
 public class SoldierSlot : MonoBehaviour
 {
     public SoldierUI owner;
+    public int id;
     [SerializeField] Image equipImage;
     [SerializeField] Image rockImage;
     [SerializeField] Button selectBtn;
     [SerializeField] Button buyBtn;
     [SerializeField] TextMeshProUGUI explanationText;    
     [SerializeField] TextMeshProUGUI goldText;
-    SoldierInfo soldierInfo;
+    SoldierInfo soldierInfo;    
     
-
     public bool IsHave
     {
         get => soldierInfo.isHave;
@@ -60,9 +60,7 @@ public class SoldierSlot : MonoBehaviour
             equipImage.gameObject.SetActive(isEquip);
         }
     }
-    private bool isEquip;
-
-    int id;
+    private bool isEquip;    
 
     public void Select() // 장착버튼 클릭 시 호출
     {

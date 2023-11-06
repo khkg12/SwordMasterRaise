@@ -52,6 +52,5 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(durationTime);
         waveImage.gameObject.SetActive(false);
-    }
-    
+    }  
 }
