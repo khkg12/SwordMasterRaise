@@ -96,6 +96,7 @@ public class Player : Character
     {        
         while (true)
         {            
+            // SoundManager.instance.EffectPlay(공격 클립); // 플레이어가 가지고 있는 공격클립
             AniTag = AnimationTag.Attack; // 공격애니 실행시키고           
             yield return new WaitForSeconds(AttackSpeed); // 매직넘버는 공속
         }        

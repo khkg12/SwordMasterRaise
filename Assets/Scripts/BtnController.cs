@@ -7,10 +7,19 @@ public class BtnController : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
-        GameManager.instance.IsGameStop = false;
         //DataManager.instance.SaveItemData();
         //DataManager.instance.SavePlayerData();
         //DataManager.instance.SaveSoldierData();
+        GameManager.instance.IsGameStop = false;
+        switch (sceneName)
+        {
+            case "Battle":
+                SoundManager.instance.ChangeBgmScene = BgmScene.Battle;
+                break;
+            case "Main":
+                SoundManager.instance.ChangeBgmScene = BgmScene.Main;
+                break;            
+        }        
         SceneManager.LoadScene(sceneName);        
     }  
     

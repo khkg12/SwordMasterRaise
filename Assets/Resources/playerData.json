@@ -3,9 +3,9 @@
   "level": 100,
   "exp": 0,
   "maxExp": 100,
-  "gold": 0,
-  "badge": 0,
-  "jewel": 0,
+  "gold": 100000,
+  "badge": 100000,
+  "jewel": 100000,
   "hp": {
     "name": "체력",
     "stat": 300.0,
