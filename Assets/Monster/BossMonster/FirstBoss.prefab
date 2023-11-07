@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.990566, g: 0.07008721, b: 0.07008721, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1991,6 +1991,8 @@ MonoBehaviour:
   monsterRenderer: {fileID: 7463904792337385000}
   hpBar: {fileID: 7463904791771095285}
   isSuperArmor: 1
+  jewelWeight: 0
+  dropJewelNum: 0
   hp: 1000
   atk: 30
   weapon: {fileID: 7463904791775567098}

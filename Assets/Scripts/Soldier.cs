@@ -24,7 +24,7 @@ public class Soldier : Character
         while (true)
         {
             yield return new WaitForSeconds(3);
-            if (Physics.OverlapSphere(transform.position, 1f, TargetLayerMask).Length >= 5)
+            if (Physics.OverlapSphere(transform.position, 1.5f, TargetLayerMask).Length >= 5)
             {
                 // 4방향 중 가장 적이 적은 방향을 바라보게한뒤 
                 ChangeStateTag = StateTag.Dodge;
