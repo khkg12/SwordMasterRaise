@@ -235,7 +235,7 @@ public class Character : MonoBehaviour, IHitable
         Debug.Log("공격 종료");
     }
 
-    public void SetForward()
+    public void SetForward() // 확장메소드 리팩토링 어필
     {
         Vector3 dir = new Vector3(targetCol.transform.position.x, transform.position.y, targetCol.transform.position.z) - transform.position;
         dir = dir.normalized;
@@ -244,16 +244,17 @@ public class Character : MonoBehaviour, IHitable
 
     public void Hit(IAttackable attackable)
     {
-        Hp -= GetRandomDamageOffset(attackable.Atk);
+        // Hp -= GetRandomDamageOffset(attackable.Atk);
+        Hp -= attackable.Atk.GetRandomDamageOffset();
     }
 
-    float GetRandomDamageOffset(float atk)
-    {
-        const float OFFSET_RATE = 0.1f;
-        float offset = atk * OFFSET_RATE;
-        atk = (int)Random.Range(atk - offset, atk + offset);
-        return atk;
-    }
+    //float GetRandomDamageOffset(float atk)
+    //{
+    //    const float OFFSET_RATE = 0.1f;
+    //    float offset = atk * OFFSET_RATE;
+    //    atk = (int)Random.Range(atk - offset, atk + offset);
+    //    return atk;
+    //}
 
     public void RecoveryHp(float recoveryRate) // 비율로 체력회복, 수치체력회복 필요하면 만들기
     {

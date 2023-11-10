@@ -8,7 +8,7 @@ public class LongRangeMonster : Monster
     [SerializeField] GameObject projectileObj;
     public override void AttackStart()
     {
-        SetForward();
+        SetForward();        
         animator.SetTrigger("AttackTrigger");        
         GameObject po = PoolManager.instance.objectPoolDic[projectileObj.name].PopObj(transform.position, transform.rotation);        
         po.GetComponent<ProjectileObj>().SetRotate(transform);

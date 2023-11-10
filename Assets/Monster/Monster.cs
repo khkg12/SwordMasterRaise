@@ -137,7 +137,7 @@ public class Monster : MonoBehaviour, IHitable
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.01f); // moveSpeed·Î »©±â
     }
 
-    public void SetForward()
+    public void SetForward() 
     {
         Vector3 dir = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
         dir = dir.normalized;
@@ -179,17 +179,9 @@ public class Monster : MonoBehaviour, IHitable
     }
 
     public void Hit(IAttackable attackable)
-    {        
-        Hp -= GetRandomDamageOffset(attackable.Atk);        
-    }   
-
-    float GetRandomDamageOffset(float atk)
-    {
-        const float OFFSET_RATE = 0.1f;        
-        float offset = atk * OFFSET_RATE;
-        atk = (int)Random.Range(atk - offset, atk + offset);
-        return atk;
-    }
+    {                        
+        Hp -= attackable.Atk.GetRandomDamageOffset();
+    }       
 
     private void OnTriggerEnter(Collider other)
     {        
