@@ -135,24 +135,25 @@ public class Character : MonoBehaviour, IHitable
         set
         {
             changeStateTag = value;
-            switch (changeStateTag)
-            {
-                case StateTag.Idle:
-                    fsm.ChangeState(StateTag.Idle);
-                    break;
-                case StateTag.Move:
-                    fsm.ChangeState(StateTag.Move);
-                    break;
-                case StateTag.Attack:
-                    fsm.ChangeState(StateTag.Attack);
-                    break;
-                case StateTag.Skill:
-                    fsm.ChangeState(StateTag.Skill);
-                    break;
-                case StateTag.Dodge:
-                    fsm.ChangeState(StateTag.Dodge);
-                    break;
-            }
+            fsm.ChangeState(value);
+            /*switch (changeStateTag)
+                {
+                    case StateTag.Idle:
+                        fsm.ChangeState(StateTag.Idle);
+                        break;
+                    case StateTag.Move:
+                        fsm.ChangeState(StateTag.Move);
+                        break;
+                    case StateTag.Attack:
+                        fsm.ChangeState(StateTag.Attack);
+                        break;
+                    case StateTag.Skill:
+                        fsm.ChangeState(StateTag.Skill);
+                        break;
+                    case StateTag.Dodge:
+                        fsm.ChangeState(StateTag.Dodge);
+                        break;
+            }*/
         }
     }
     StateTag changeStateTag;
@@ -188,7 +189,8 @@ public class Character : MonoBehaviour, IHitable
         fsm = new Fsm();
         Init();
         StatusInit();
-        fsm.ChangeState(StateTag.Idle);
+        ChangeStateTag = StateTag.Idle;
+        // fsm.ChangeState(StateTag.Idle);
     }
  
     protected void Update()
@@ -238,7 +240,7 @@ public class Character : MonoBehaviour, IHitable
     public void SetForward() // 확장메소드 리팩토링 어필
     {
         Vector3 dir = new Vector3(targetCol.transform.position.x, transform.position.y, targetCol.transform.position.z) - transform.position;
-        dir = dir.normalized;
+        dir = dir.normalized;        
         transform.forward = dir;
     }
 

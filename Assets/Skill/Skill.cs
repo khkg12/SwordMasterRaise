@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]   
 public abstract class Skill : ScriptableObject
 {
     public GameObject skillObj;

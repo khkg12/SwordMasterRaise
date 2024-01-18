@@ -7,16 +7,16 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool
 {
     public GameObject parent;
     public GameObject prefab;
     public Queue<GameObject> queue;
-    public int initSize;    
+    public int initSize;
 
     public ObjectPool(int size, GameObject obj, GameObject parentObj)
     {
-        parent = Instantiate(parentObj);
+        parent = GameObject.Instantiate(parentObj);
         int index = parent.name.IndexOf("(Clone)");
         if (index > 0)
         {
@@ -68,11 +68,10 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < size; i++)
         {
             GameObject temp = null;
-            temp = Instantiate(prefab, parent.transform);
+            temp = GameObject.Instantiate(prefab, parent.transform);
             int index = temp.name.IndexOf("(Clone)");
             if (index > 0)
-                temp.name = temp.name.Substring(0, index); // Clone 텍스트 제거            
-            // temp.transform.parent = transform; // 게임오브젝트 자식으로            
+                temp.name = temp.name.Substring(0, index); // Clone 텍스트 제거                                
             temp.SetActive(false); // 비활성화            
             queue.Enqueue(temp);
         }
@@ -89,12 +88,11 @@ public class PoolProperty
 public class PoolManager : MonoBehaviour
 {
     [SerializeField] GameObject parentObj;
+    [SerializeField] List<PoolProperty> poolPropertyList;
     public static PoolManager instance;
     public Dictionary<string, ObjectPool> objectPoolDic = new Dictionary<string, ObjectPool>();    
-    [SerializeField] List<PoolProperty> poolPropertyList;
     const int SKILL_POOL_SIZE = 5;    
     
-
     void Awake()
     {
         if(instance == null)
@@ -108,7 +106,7 @@ public class PoolManager : MonoBehaviour
     
     public void InitObjectPool()
     {
-        foreach (PoolProperty poolProperty in poolPropertyList) // 투사체
+        foreach (PoolProperty poolProperty in poolPropertyList) 
         {
             objectPoolDic.Add(poolProperty.prefab.name, new ObjectPool(poolProperty.size, poolProperty.prefab, parentObj));
             objectPoolDic[poolProperty.prefab.name].CreatePool(poolProperty.size);
@@ -127,7 +125,7 @@ public class PoolManager : MonoBehaviour
         }           
     }
 
-    public void InitSkillPool(Skill skill)
+    public void InitSkillPool(Skill skill) // 오버로딩
     {
         if(skill != null && !CheckSkill(skill.skillObj.name)) // 이미 있는 스킬이 아니라면
         {                      

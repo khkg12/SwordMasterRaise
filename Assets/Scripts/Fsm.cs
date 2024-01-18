@@ -102,8 +102,8 @@ public class MoveState : State
         }
         else
         {
-            character.transform.position = Vector3.MoveTowards(character.transform.position, character.targetCol.transform.position, moveSpeed);
-            character.SetForward();
+            character.transform.position = Vector3.MoveTowards(character.transform.position, character.targetCol.transform.position, moveSpeed);            
+            character.transform.SetDirection(character.targetCol.transform);
         }        
     }
 }
@@ -133,7 +133,8 @@ public class AttackState : State
         }
         else
         {
-            character.SetForward();            
+            // character.SetForward();
+            character.transform.SetDirection(character.targetCol.transform);
             float distance = Vector3.Distance(character.transform.position, character.targetCol.transform.position);
             if (distance > NONE_TARGET_DISTANCE) // 일정거리만큼 적이 멀어지면 IDLE로 
             {                
@@ -192,7 +193,7 @@ public class DodgeState : State
     {        
         character.transform.Translate(Vector3.forward * 0.2f);
         durationTime += Time.deltaTime;
-        if (durationTime > INVINCIBILITY_TIME)
+        if (durationTime >= INVINCIBILITY_TIME)
         {
             character.ChangeStateTag = StateTag.Idle;
         }
