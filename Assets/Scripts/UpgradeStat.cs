@@ -9,7 +9,7 @@ public class UpgradeStat : MonoBehaviour
     [SerializeField] TextMeshProUGUI statText;    
     [SerializeField] TextMeshProUGUI goldText;
     [SerializeField] Button upgradeBtn;    
-    StatInfo statInfo;
+    StatInfo statInfo;    
 
     public void SetStatus(StatInfo setStatInfo)
     {
@@ -33,7 +33,7 @@ public class UpgradeStat : MonoBehaviour
     }
 
     public void UpdateText()
-    {
+    {        
         statText.text = $"{statInfo.name} : {statInfo.stat} -> {statInfo.stat + statInfo.increaseAmount}";
         goldText.text = $"{statInfo.requireGold}";
     }

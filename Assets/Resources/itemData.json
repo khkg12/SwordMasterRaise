@@ -2,145 +2,161 @@
   {
     "itemName": "철검",
     "isHave": false,
-    "atkRate": 110,
-    "upgradeGold": 500,
+    "atkRate": 110.0,
+    "upgradeGold": 500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 20
+    "itemWeight": 20.0,
+    "itemGrade": null
   },
   {
     "itemName": "강철검",
     "isHave": false,
-    "atkRate": 150,
-    "upgradeGold": 600,
+    "atkRate": 150.0,
+    "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 20
+    "itemWeight": 20.0,
+    "itemGrade": null
   },
   {
     "itemName": "철파검",
     "isHave": false,
-    "atkRate": 190,
-    "upgradeGold": 1000,
+    "atkRate": 190.0,
+    "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 20
+    "itemWeight": 20.0,
+    "itemGrade": null
   },
   {
     "itemName": "장검",
     "isHave": false,
-    "atkRate": 250,
-    "upgradeGold": 1500,
+    "atkRate": 250.0,
+    "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 20
+    "itemWeight": 20.0,
+    "itemGrade": null
   },
   {
     "itemName": "귀검",
     "isHave": false,
-    "atkRate": 110,
-    "upgradeGold": 500,
+    "atkRate": 350.0,
+    "upgradeGold": 2500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 4
+    "itemWeight": 4.0,
+    "itemGrade": null
   },
   {
     "itemName": "용의검",
     "isHave": false,
-    "atkRate": 150,
-    "upgradeGold": 600,
+    "atkRate": 150.0,
+    "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 4
+    "itemWeight": 4.0,
+    "itemGrade": null
   },
   {
     "itemName": "양극검",
     "isHave": false,
-    "atkRate": 190,
-    "upgradeGold": 1000,
+    "atkRate": 190.0,
+    "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 4
+    "itemWeight": 4.0,
+    "itemGrade": null
   },
   {
     "itemName": "용살자의 검",
     "isHave": false,
-    "atkRate": 250,
-    "upgradeGold": 1500,
+    "atkRate": 250.0,
+    "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 4
+    "itemWeight": 4.0,
+    "itemGrade": null
   },
   {
     "itemName": "마광검 카이너스",
     "isHave": false,
-    "atkRate": 110,
-    "upgradeGold": 500,
+    "atkRate": 110.0,
+    "upgradeGold": 500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": null
   },
   {
     "itemName": "와룡도",
     "isHave": false,
-    "atkRate": 150,
-    "upgradeGold": 600,
+    "atkRate": 150.0,
+    "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": null
   },
   {
     "itemName": "고룡의 이빨",
     "isHave": false,
-    "atkRate": 190,
-    "upgradeGold": 1000,
+    "atkRate": 190.0,
+    "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": null
   },
   {
     "itemName": "빛의 검",
     "isHave": false,
-    "atkRate": 250,
-    "upgradeGold": 1500,
+    "atkRate": 250.0,
+    "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.8
+    "itemWeight": 0.8,
+    "itemGrade": null
   },
   {
     "itemName": "천사의 창",
     "isHave": false,
-    "atkRate": 110,
-    "upgradeGold": 500,
+    "atkRate": 110.0,
+    "upgradeGold": 500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": null
   },
   {
     "itemName": "브레이브소드",
     "isHave": false,
-    "atkRate": 150,
-    "upgradeGold": 600,
+    "atkRate": 150.0,
+    "upgradeGold": 600.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": null
   },
   {
     "itemName": "카이저",
     "isHave": false,
-    "atkRate": 190,
-    "upgradeGold": 1000,
+    "atkRate": 190.0,
+    "upgradeGold": 1000.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": null
   },
   {
     "itemName": "소드마스터 소드",
     "isHave": false,
-    "atkRate": 250,
-    "upgradeGold": 1500,
+    "atkRate": 250.0,
+    "upgradeGold": 1500.0,
     "upgradeCount": 0,
     "itemCount": 0,
-    "itemWeight": 0.2
+    "itemWeight": 0.2,
+    "itemGrade": null
   }
 ]

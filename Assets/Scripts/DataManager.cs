@@ -4,6 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class PlayerData
@@ -12,7 +13,6 @@ public class PlayerData
     public int level;
     public int exp;
     public int maxExp;
-
     public int Exp
     {
         get => exp;
@@ -174,23 +174,31 @@ public class DataManager : Singleton<DataManager>
     {
         base.Awake();
         playerDataPath = Path.Combine(Application.dataPath + "/Resources/", "playerData.json"); // 저장 경로 설정
-        itemDataPath = Path.Combine(Application.dataPath + "/Resources/", "itemData.json"); 
-        soldierDataPath = Path.Combine(Application.dataPath + "/Resources/", "soldierData.json"); 
-        spiritDataPath = Path.Combine(Application.dataPath + "/Resources/", "spiritData.json"); 
-        SetData(); // json에서 불러와 playerData에 저장 초기화
-        SetStageData();
-        SetItemData();
-        SetSoldierData();
+        itemDataPath = Path.Combine(Application.dataPath + "/Resources/", "itemData.json");
+        soldierDataPath = Path.Combine(Application.dataPath + "/Resources/", "soldierData.json");
+        spiritDataPath = Path.Combine(Application.dataPath + "/Resources/", "spiritData.json");
+        LoadData(); // json에서 불러와 playerData에 저장 초기화
+        LoadStageData();
+        LoadItemData();
+        LoadSoldierData();
+
+        SceneManager.sceneLoaded += (Scene scene, LoadSceneMode loadSceneMode) => 
+        { 
+            // 씬이 전환될 때마다 실행되는 유니티 이벤트에 데이터저장 기능 체인으로 엮음
+            SaveItemData(); 
+            SavePlayerData();
+            SaveSoldierData();
+            SaveSpiritData();
+        };
     }    
     
-    public void SetData()
-    {
-        // json이 없을 경우 초기화해주는 것 넣기
-        playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataFile.text); // json파일을 역직렬화로 데이터저장
+    public void LoadData() // json파일을 역직렬화로 데이터저장
+    {       
+        playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataFile.text); 
         spiritData = JsonConvert.DeserializeObject<SpiritData>(spiritDataFile.text); 
     }
 
-    public void SetItemData()
+    public void LoadItemData()
     {        
         itemDataArr = JsonConvert.DeserializeObject<ItemInfo[]>(itemDataFile.text); // 아이템데이터 저장
         for(int i = 0; i < itemDataArr.Length; i++) // 딕셔너리도 세팅
@@ -199,12 +207,12 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
-    public void SetSoldierData()
+    public void LoadSoldierData()
     {
         soldierDataArr = JsonConvert.DeserializeObject<SoldierInfo[]>(soldierDataFile.text); // 솔져 데이터 저장
     }
 
-    public void SetStageData()
+    public void LoadStageData()
     {
         stageDataArr = JsonConvert.DeserializeObject<StageData[]>(stageDataFile.text);
         awakeStageDataArr = JsonConvert.DeserializeObject<AwakeStageData[]>(awakeStageDataFile.text);

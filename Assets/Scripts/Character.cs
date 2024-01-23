@@ -247,7 +247,7 @@ public class Character : MonoBehaviour, IHitable
     public void Hit(IAttackable attackable)
     {
         // Hp -= GetRandomDamageOffset(attackable.Atk);
-        Hp -= attackable.Atk.GetRandomDamageOffset();
+        Hp -= attackable.Atk.GetRandomDamageOffset();        
     }
 
     //float GetRandomDamageOffset(float atk)

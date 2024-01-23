@@ -1,6 +1,6 @@
-{  
-  "level": 1,  
+{
+  "level": 1,
   "rate": 0.01,
   "increaseAmount": 0.01,
-  "requireGold": 1000  
+  "requireGold": 1000
 }

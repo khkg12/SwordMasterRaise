@@ -23,5 +23,6 @@
     "stat": 0.02,
     "requireGold": 500,
     "increaseAmount": 0.001
-  }
+  },
+  "Exp": 0
 }

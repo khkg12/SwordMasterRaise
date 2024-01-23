@@ -34,8 +34,8 @@ public class Player : Character
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                transform.SetDirection(hit.point);
-                //Vector3 dir = (new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position).normalized;
+                transform.SetDirection(hit.point);                
+                //vector3 dir = (new vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position).normalized;
                 //transform.forward = dir;
             }
         }

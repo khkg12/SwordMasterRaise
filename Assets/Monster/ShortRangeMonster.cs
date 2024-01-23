@@ -11,7 +11,7 @@ public class ShortRangeMonster : Monster
     [SerializeField] Weapon weapon;
     Collider attackerCol;
 
-    private void Start()
+    protected void Start()
     {        
         attackerCol = weapon.transform.GetComponent<Collider>(); 
     }

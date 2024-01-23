@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ShortRangeBoss : ShortRangeMonster
 {    
+    new void Awake()
+    {
+        base.Awake();        
+        BossStatusUI.nowMonster = this;
+    }
+
     new void Update()
     {
         base.Update();

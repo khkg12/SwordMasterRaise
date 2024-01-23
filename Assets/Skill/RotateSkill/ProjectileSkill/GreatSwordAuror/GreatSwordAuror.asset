@@ -15,7 +15,7 @@ MonoBehaviour:
   skillObj: {fileID: 0}
   sprite: {fileID: 21300000, guid: 6960c6bd5088317429f7e0e033bee813, type: 3}
   skillName: "\uADF9\uCD08\uAC80\uAE30"
-  requiredLevel: 0
+  requiredLevel: 50
   skillNum: 1
   skillText: "\uCC9C\uCC9C\uD788 \uC774\uB3D9\uD558\uB294 \uB300\uD615\uAC80\uAE30\uB97C
     \uB0A0\uB9BD\uB2C8\uB2E4."

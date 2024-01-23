@@ -29,7 +29,7 @@ public class BossMonsterSpawner : MonoBehaviour
     private void Start()
     {
         awakenMonsterCount = 0;
-        awakestageData = DataManager.instance.currentAwakeStageData;
+        awakestageData = DataManager.instance.currentAwakeStageData;        
         PoolManager.instance.InitAwakeMonsterPool(awakestageData, monsterList);
         MonsterSpawn();
     }
@@ -38,7 +38,7 @@ public class BossMonsterSpawner : MonoBehaviour
     {
         for (int i = 0; i < awakestageData.count; ++i)
         {                        
-            PoolManager.instance.objectPoolDic[monsterList[awakestageData.bossId].name].PopMonsterObj(SpawnPos, Quaternion.identity);
+            PoolManager.instance.objectPoolDic[monsterList[awakestageData.bossId].name].PopMonsterObj(SpawnPos, Quaternion.identity);            
             AwakeMonsterCount++;
         }
     }

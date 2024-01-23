@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +13,13 @@ public abstract class Skill : ScriptableObject
     public int skillNum;
     public string skillText;
     public float coolTime;
-    public float rate;
+    public float rate;    
     public abstract void Use(Character character);    
 }
 
 public abstract class RotateSkill : Skill { }
 public abstract class FixSkill : Skill { }
+
 
 
 

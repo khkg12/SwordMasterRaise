@@ -49,7 +49,7 @@ public class Monster : MonoBehaviour, IHitable
             maxHp = value;
         }
     }
-    private float maxHp;
+    [BossUiView] private float maxHp;
 
     public float Atk
     {
@@ -59,7 +59,7 @@ public class Monster : MonoBehaviour, IHitable
             atk = value;
         }
     }
-    [SerializeField] private float atk;
+    [SerializeField][BossUiView] private float atk;
 
     public bool IsMove
     {
@@ -94,7 +94,7 @@ public class Monster : MonoBehaviour, IHitable
     protected Animator animator;
 
 
-    private void Awake()
+    protected void Awake()
     {        
         if (target == null)
         {
