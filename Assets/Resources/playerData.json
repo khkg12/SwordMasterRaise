@@ -1,11 +1,11 @@
 {
-  "awakeLevel": 0,
+  "awakeLevel": 1,
   "level": 100,
-  "exp": 0,
+  "exp": 30,
   "maxExp": 100,
-  "gold": 100000,
-  "badge": 100000,
-  "jewel": 100000,
+  "gold": 28436,
+  "badge": 91000,
+  "jewel": 100011,
   "hp": {
     "name": "체력",
     "stat": 300.0,
@@ -14,8 +14,8 @@
   },
   "atk": {
     "name": "공격력",
-    "stat": 10.0,
-    "requireGold": 200,
+    "stat": 200.0,
+    "requireGold": 7350,
     "increaseAmount": 5.0
   },
   "speed": {
@@ -24,5 +24,5 @@
     "requireGold": 500,
     "increaseAmount": 0.001
   },
-  "Exp": 0
+  "Exp": 30
 }

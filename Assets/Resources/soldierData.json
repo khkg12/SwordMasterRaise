@@ -16,7 +16,7 @@
   {
     "soldierName": "나봄",
     "explanation": "전기술사 나봄\n 사용스킬 : 라이트닝\n 사용주기 : 2초\n",
-    "isHave": false,
+    "isHave": true,
     "requireGold": 3000,
     "id": 2
   },
@@ -37,7 +37,7 @@
   {
     "soldierName": "일론",
     "explanation": "뇌전의 일론\n 사용스킬 : 뇌격\n 사용주기 : 5초\n",
-    "isHave": false,
+    "isHave": true,
     "requireGold": 6000,
     "id": 5
   },
