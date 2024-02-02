@@ -12,8 +12,8 @@ using static UnityEditor.Progress;
 
 public class SummonsUI : MonoBehaviour, IPointerClickHandler
 {
-    const int SUMMONS_COUNT = 10;
-    const int TOTAL_ITEM_WEIGHT = 100;
+    readonly static int SUMMONS_COUNT = 10;
+    readonly static int TOTAL_ITEM_WEIGHT = 100;
     [SerializeField] Image[] itemSprites;
     ItemInfo[] items;
     ItemInfo[] getItems = new ItemInfo[SUMMONS_COUNT];

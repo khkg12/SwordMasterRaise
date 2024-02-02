@@ -67,7 +67,8 @@ public class GameManager : Singleton<GameManager>
 
     public void GameLose()
     {
-        IsGameStop = true;
+        // IsGameStop = true;
+        PauseManager.instance.IsPaused = true;
         if (SceneManager.GetActiveScene().name == "War")
         {
             DataManager.instance.Badge += GetWarReward();            

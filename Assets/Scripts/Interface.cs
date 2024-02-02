@@ -16,3 +16,8 @@ public interface IHitable
     float Hp {  get; set; }
     void Hit(IAttackable attackable); 
 }
+
+public interface IPauseable
+{
+    void RegistHandler();
+}

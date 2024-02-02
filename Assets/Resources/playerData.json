@@ -1,11 +1,11 @@
 {
   "awakeLevel": 1,
-  "level": 100,
-  "exp": 30,
-  "maxExp": 100,
-  "gold": 28436,
+  "level": 101,
+  "exp": 110,
+  "maxExp": 150,
+  "gold": 29436,
   "badge": 91000,
-  "jewel": 100011,
+  "jewel": 100064,
   "hp": {
     "name": "체력",
     "stat": 300.0,
@@ -24,5 +24,5 @@
     "requireGold": 500,
     "increaseAmount": 0.001
   },
-  "Exp": 30
+  "Exp": 110
 }

@@ -25,7 +25,7 @@ public enum StateTag
     Dodge
 }
 
-public class Character : MonoBehaviour, IHitable
+public class Character : MonoBehaviour, IHitable, IPauseable
 {
     public float Range
     {
@@ -190,11 +190,12 @@ public class Character : MonoBehaviour, IHitable
         Init();
         StatusInit();
         ChangeStateTag = StateTag.Idle;
+        RegistHandler();
         // fsm.ChangeState(StateTag.Idle);
     }
  
     protected void Update()
-    {
+    {        
         hpBar.rectTransform.eulerAngles = new Vector3(90, 0, 0);
         shadowHpBar.rectTransform.eulerAngles = new Vector3(90, 0, 0);
         fsm.Update();      
@@ -267,5 +268,11 @@ public class Character : MonoBehaviour, IHitable
     {
         col.enabled = isEnabled;
         rb.useGravity = isEnabled;
+    }
+
+    public void RegistHandler()
+    {
+        PauseManager.instance.onPause += () => { enabled = false; };
+        PauseManager.instance.onResume += () => { enabled = true; };
     }
 }
