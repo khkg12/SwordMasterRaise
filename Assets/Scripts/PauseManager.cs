@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PauseManager : Singleton<PauseManager>
 {
-    public event Action onPause;
+    public event Action onPause; // 일시정지 이벤트
     public event Action onResume;
 
     public bool IsPaused

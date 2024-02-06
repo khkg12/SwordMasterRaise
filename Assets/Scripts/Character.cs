@@ -190,7 +190,7 @@ public class Character : MonoBehaviour, IHitable, IPauseable
         Init();
         StatusInit();
         ChangeStateTag = StateTag.Idle;
-        RegistHandler();
+        Pause();
         // fsm.ChangeState(StateTag.Idle);
     }
  
@@ -270,7 +270,7 @@ public class Character : MonoBehaviour, IHitable, IPauseable
         rb.useGravity = isEnabled;
     }
 
-    public void RegistHandler()
+    public void Pause()
     {
         PauseManager.instance.onPause += () => { enabled = false; };
         PauseManager.instance.onResume += () => { enabled = true; };

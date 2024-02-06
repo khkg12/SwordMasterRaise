@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 // 몬스터에는 슈퍼아머 컴포넌트를 가진 엘리트몬스터가 존재
-public class Monster : MonoBehaviour, IHitable, IPauseable
+public class Monster : MonoBehaviour, IHitable
 {   
     static Player target; // 싱글턴에서 가져오는 형식이 아닌 static으로 해두면 몬스터클래스가 공용으로 사용, 즉 한번만 Find로 찾아두면 되기 때문에 static으로 변수지정    
     [SerializeField] int id;
@@ -99,8 +99,7 @@ public class Monster : MonoBehaviour, IHitable, IPauseable
         if (target == null)
         {
             target = FindObjectOfType<Player>();
-        }
-        RegistHandler();
+        }        
         animator = GetComponent<Animator>();
         orginColor = monsterRenderer.material.color;
         monsterInit(); // maxHp 세팅 임시, 나중에 json파싱할것
@@ -253,18 +252,19 @@ public class Monster : MonoBehaviour, IHitable, IPauseable
         IsHit = false;
     }
 
-    public void RegistHandler()
-    {
-        PauseManager.instance.onPause += () => 
-        {
-            animator.enabled = false;
-            enabled = false;
-            isAttack = false;
-        };
-        PauseManager.instance.onResume += () => 
-        {
-            animator.enabled = true;
-            enabled = true; 
-        };
-    }
+    //public void Pause()
+    //{
+    //    // 일시정지 이벤트에 등록
+    //    PauseManager.instance.onPause += () => 
+    //    {
+    //        animator.enabled = false;
+    //        enabled = false;
+    //        isAttack = false;
+    //    };
+    //    PauseManager.instance.onResume += () => 
+    //    {
+    //        animator.enabled = true;
+    //        enabled = true; 
+    //    };
+    //}
 }

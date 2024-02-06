@@ -17,7 +17,7 @@ public interface IHitable
     void Hit(IAttackable attackable); 
 }
 
-public interface IPauseable
+public interface IPauseable // 일시정지 인터페이스
 {
-    void RegistHandler();
+    void Pause(); 
 }

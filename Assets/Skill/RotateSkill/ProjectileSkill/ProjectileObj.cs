@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ProjectileObj : MonoBehaviour, IAttackable, IPauseable
+public class ProjectileObj : MonoBehaviour, IAttackable
 {
     // 고민 이유 : 플레이어이나 몬스터가 맞을 때 trigger를 체크하려면 그 놈이 IAttackable이여야 하는데, 그렇다면 projectileObj도 IAttackable을 상속해야한다    
     
@@ -44,11 +44,6 @@ public class ProjectileObj : MonoBehaviour, IAttackable, IPauseable
     [SerializeField] private float moveSpeed;
     [SerializeField] private float lifeTime;
 
-    private void Start()
-    {
-        RegistHandler();
-    }
-
     private void OnEnable()
     {        
         // 몇초뒤 사라지는 코루틴, 사라질 때 풀링에 다시 담는것까지
@@ -84,12 +79,6 @@ public class ProjectileObj : MonoBehaviour, IAttackable, IPauseable
     {
         yield return new WaitForSeconds(lifeTime);        
         PoolManager.instance.objectPoolDic[gameObject.name].ReturnPool(gameObject); // 풀에 돌려줌
-    }
-
-    public void RegistHandler()
-    {
-        PauseManager.instance.onPause += () => { enabled = false; };
-        PauseManager.instance.onResume += () => { enabled = true; };
-    }
+    }   
 }
 
